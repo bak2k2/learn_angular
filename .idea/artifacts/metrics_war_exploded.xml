@@ -1,0 +1,57 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="metrics:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/metrics_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="metrics" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="spring-3.2.2" />
+          <element id="library" level="project" name="junit-4.11" />
+          <element id="library" level="project" name="hamcrest-core-1.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-webmvc/3.2.2.RELEASE/jar/dd962b49d731a69c4ca0c4ec67b71076742657cc/spring-webmvc-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-webmvc/3.2.2.RELEASE/jar/e304b61946aaef6929c1f96e0c2a01a93f6352a3/spring-webmvc-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-tx/3.2.2.RELEASE/jar/b709255ee5ffea25b3882167e49a3dcb99cc582c/spring-tx-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-tx/3.2.2.RELEASE/jar/911ff480eba26c763ce429db324ffaa1c7fa0b86/spring-tx-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-core/3.2.2.RELEASE/jar/2392459e6d45bf5fecb3b61cf9e54396f4a401c4/spring-core-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-aop/3.2.2.RELEASE/jar/4630693b56e81b74f690679c88ae8c44e43177fa/spring-aop-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/jar/eb4e92d8a1f959175ca8298de75371375dbf0298/spring-expression-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-beans/3.2.2.RELEASE/jar/f8d64e26e4d92f23d19f3867800cd4bb4561dd57/spring-beans-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context/3.2.2.RELEASE/jar/5fdb7831fd4bb98a4d72a49fac25151f69361284/spring-context-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context-support/3.2.2.RELEASE/jar/344a2d5d7d6ab1a83931b81f19e27ae1152c144a/spring-context-support-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-web/3.2.2.RELEASE/jar/6e2d60cc0f4daf8dea77391c55d9a51c8ecce51/spring-web-3.2.2.RELEASE-sources.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework.data/spring-data-mongodb/1.2.0.RELEASE/jar/401a040d8be40d249b5d3264e1ab08036b528c34/spring-data-mongodb-1.2.0.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-orm/3.2.2.RELEASE/jar/48a19965a0112a613624e8c9c78b4e4184e45740/spring-orm-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework.test/org.springframework.test/3.1.0.M1/jar/6b860769656b5b6a7994a6824c0aab5d1ed064d/org.springframework.test-3.1.0.M1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-oxm/3.2.2.RELEASE/jar/788b1e70c2258ff98f2fb11a1e5762df4f60a721/spring-oxm-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.projectlombok/lombok/0.11.6/jar/ba171d45e78f08ccca3cf531d285f13cfb4de2c7/lombok-0.11.6.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.slf4j/slf4j-api/1.7.5/jar/6b262da268f8ad9eff941b25503a9198f0a0ac93/slf4j-api-1.7.5.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.codehaus.jackson/jackson-core-asl/1.9.12/jar/ecfc6f73a841c4c3c653b59651a3f9d5f1286469/jackson-core-asl-1.9.12.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.codehaus.jackson/jackson-mapper-asl/1.9.12/jar/8b290aae44213e2f6da00c07af59b0d442068f4d/jackson-mapper-asl-1.9.12.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-fileupload/commons-fileupload/1.2.2/jar/1e48256a2341047e7d729217adeec8217f6e3a1a/commons-fileupload-1.2.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-io/commons-io/2.4/jar/b1b6ea3b7e4aa4f492509a4952029cd8e48019ad/commons-io-2.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-logging/commons-logging/1.1.1/jar/2d859791fbf7d880591864bd4004d8442a8a3b81/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-core/3.2.2.RELEASE/jar/302bd922c30a4d4bfb15b76a5939117b425eb480/spring-core-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/jar/565213c52cbbcd57a64ce9e4f18823c964cb2481/spring-expression-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-beans/3.2.2.RELEASE/jar/bbe3f76d14e9471e339bd8afec07b6fc5c916cd4/spring-beans-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-aop/3.2.2.RELEASE/jar/543a5442a0344af3885d4b3e457cfcab4183cec9/spring-aop-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context/3.2.2.RELEASE/jar/a5bdbcd5fa58680b6fe1f0143f370003747584db/spring-context-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-web/3.2.2.RELEASE/jar/ebde82aa745966f34a8ae1273e363f0a2366eb33/spring-web-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework.data/spring-data-commons/1.5.0.RELEASE/jar/ef28d3ad8b1eadab15ddfc4b7a0eacfe3cc0206c/spring-data-commons-1.5.0.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.slf4j/jcl-over-slf4j/1.7.1/jar/a11c000cf26e42ba30b7fb5bd60630a57783fe2d/jcl-over-slf4j-1.7.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.mongodb/mongo-java-driver/2.10.1/jar/9e2c2835b0126a48183ed42129e53b6eb6e259b/mongo-java-driver-2.10.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-jdbc/3.2.2.RELEASE/jar/6e76b68ea33194c9b92f3be926cc43945db2977f/spring-jdbc-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="metrics/web/Web" />
+    </root>
+  </artifact>
+</component>

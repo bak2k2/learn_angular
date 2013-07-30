@@ -1,0 +1,38 @@
+String tomcatHome = System.getenv("TOMCAT_HOME")
+
+task localDeploy(dependsOn: 'removeExplodedWar') {
+    doLast {
+        if (tomcatHome == null) {
+            throw new GradleException('The TOMCAT_HOME env var must be set in order to successfully run this task')
+        }
+
+        ExecResult result = exec {
+            ignoreExitValue = true
+            commandLine 'bash', '-c', 'ps aux | grep tomcat | grep -v grep'
+        }
+        if (result.getExitValue() == 0) {
+            exec {
+                println 'stopping tomcat every time to try to avoid memory issues'
+                commandLine tomcatHome + '/bin/shutdown.sh'
+            }
+        }
+        exec {
+            println 'starting tomcat'
+            commandLine tomcatHome + '/bin/startup.sh'
+        }
+    }
+}
+
+task removeExplodedWar(type: Delete, dependsOn: 'copyWarToTomcat') {
+    delete tomcatHome + '/webapps/metrics-thatmatter-dev/'
+}
+
+removeExplodedWar.onlyIf {
+    removeExplodedWar.dependsOnTaskDidWork();
+}
+
+task copyWarToTomcat(type: Copy, dependsOn: build) {
+    from('target/artifacts')
+    into(tomcatHome + '/webapps')
+    include('*.war')
+}

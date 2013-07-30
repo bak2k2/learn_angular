@@ -1,0 +1,29 @@
+apply plugin: 'war'
+
+String warDropDir = 'target/war-drop'
+task createVersionHTMLFile() << {
+    file(warDropDir).mkdirs()
+    File versionPage = new File(warDropDir + '/version.html')
+    versionPage.text = 'Version: ' + version + "\n";
+}
+
+war {
+    classpath = configurations.runtime.filter { file -> !file.name.contains('-sources') }
+    exclude "**/node_modules/"
+    destinationDir = file("${project.buildDir}/artifacts")
+    baseName = "${projectName}"
+    appendix = "${moduleName}"
+    version = "${version}"
+    webInf {
+        into('classes') {
+            from sourceSets.main.output
+        }
+    }
+
+    dependsOn += ['createVersionHTMLFile']
+    from(warDropDir + '/version.html')
+}
+
+build {
+    dependsOn += ['war']
+}

@@ -1,0 +1,37 @@
+project.ext.springVersion = "3.2.2"
+
+List SPRING = [
+        "org.springframework:spring-webmvc:${project.ext.springVersion}.RELEASE",
+        "org.springframework:spring-tx:${project.ext.springVersion}.RELEASE"
+]
+
+List SPRING_SOURCES = [
+        "org.springframework:spring-core:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-aop:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-expression:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-beans:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-context:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-context-support:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-webmvc:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-web:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-tx:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-tx:2.5.4",
+        "org.springframework.data:spring-data-mongodb:1.2.0.RELEASE",
+        "org.springframework:spring-orm:${project.ext.springVersion}.RELEASE",
+        "org.springframework.test:org.springframework.test:3.1.0.M1",
+        "org.springframework:spring-oxm:${project.ext.springVersion}.RELEASE"
+]
+
+List MISC = [
+        "org.projectlombok:lombok:0.11.6",
+        "org.codehaus.jackson:jackson-core-asl:1.9.12",
+        "org.slf4j:slf4j-api:1.7.5",
+        "org.codehaus.jackson:jackson-core-asl:1.9.12",
+        "org.codehaus.jackson:jackson-mapper-asl:1.9.12",
+        "commons-fileupload:commons-fileupload:1.2.2",
+        "commons-io:commons-io:2.4"
+]
+
+dependencies {
+    compile SPRING, SPRING_SOURCES, MISC
+}

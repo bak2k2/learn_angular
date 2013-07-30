@@ -1,0 +1,26 @@
+description = 'Metrics'
+
+println "repo path: " + project.releaseRepo
+buildscript {
+    repositories {
+        ivy {
+            layout 'maven'
+            url project.releaseRepo
+        }
+    }
+    dependencies {
+        classpath project.pipelinePlugin
+        classpath project.gradlePlugin
+    }
+}
+
+project.buildDir = 'target'
+group = "com.gap.metrics"
+
+apply plugin: 'java'
+apply plugin: 'gapbuild'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply from: 'gradle/dependencies.gradle'
+apply from: 'gradle/artifacts.gradle'
+apply from: 'gradle/localDeploy.gradle'
