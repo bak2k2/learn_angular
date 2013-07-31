@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/spring_3_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="metrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +32,8 @@
     <file path="/admin_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375156733670" ignored="false" />
     <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375217161241" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/webapp/lib/angular/angular.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375219076393" ignored="false" />
-    <file path="/ProjectService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375230984629" ignored="false" />
+    <file path="/ProjectService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232940646" ignored="false" />
+    <file path="/ProjectController.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232875963" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,19 +94,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProjectService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java">
+      <file leaf-file-name="ProjectController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="27" selection-start="714" selection-end="714" vertical-scroll-proportion="0.5625">
-              <folding />
+            <state line="17" column="65" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
+      <file leaf-file-name="ProjectService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="43" selection-start="241" selection-end="241" vertical-scroll-proportion="-3.75">
+            <state line="46" column="80" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.75">
               <folding />
             </state>
           </provider>
@@ -139,11 +142,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/partials/admin_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/home.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java" />
       </list>
     </option>
@@ -1151,15 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="455" selection-end="455" vertical-scroll-proportion="0.40625">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="267" selection-end="267" vertical-scroll-proportion="0.3125">
@@ -1192,14 +1186,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="43" selection-start="241" selection-end="241" vertical-scroll-proportion="-3.75">
+        <state line="6" column="43" selection-start="241" selection-end="241" vertical-scroll-proportion="0.19736843">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="65" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="27" selection-start="714" selection-end="714" vertical-scroll-proportion="0.5625">
+        <state line="46" column="80" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.75">
           <folding />
         </state>
       </provider>

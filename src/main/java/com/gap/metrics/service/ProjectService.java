@@ -44,6 +44,6 @@ public class ProjectService {
     }
 
     public Project getProject(String projectId) {
-        return null;
+        return mongoOperation.findById(projectId, Project.class, COLLECTION_NAME);
     }
 }
