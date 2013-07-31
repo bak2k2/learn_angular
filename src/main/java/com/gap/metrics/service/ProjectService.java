@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.gap.metrics.model.Project;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,28 +14,36 @@ import org.springframework.stereotype.Repository;
 public class ProjectService {
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    private MongoOperations mongoOperation;
+
+    public void setMongoOperation(MongoOperations mongoOperation) {
+        this.mongoOperation = mongoOperation;
+    }
 
     public static final String COLLECTION_NAME = "project";
 
     public void addProject(Project project) {
-        if (!mongoTemplate.collectionExists(Project.class)) {
-            mongoTemplate.createCollection(Project.class);
+        if (!mongoOperation.collectionExists(Project.class)) {
+            mongoOperation.createCollection(Project.class);
         }
 
         project.setId(UUID.randomUUID().toString());
-        mongoTemplate.insert(project, COLLECTION_NAME);
+        mongoOperation.insert(project, COLLECTION_NAME);
     }
 
     public List<Project> listProjects() {
-        return mongoTemplate.findAll(Project.class, COLLECTION_NAME);
+        return mongoOperation.findAll(Project.class, COLLECTION_NAME);
     }
 
     public void deleteProject(Project project) {
-        mongoTemplate.remove(project, COLLECTION_NAME);
+        mongoOperation.remove(project, COLLECTION_NAME);
     }
 
     public void updateProject(Project project) {
-        mongoTemplate.insert(project, COLLECTION_NAME);
+        mongoOperation.insert(project, COLLECTION_NAME);
+    }
+
+    public Project getProject(String projectId) {
+        return null;
     }
 }
