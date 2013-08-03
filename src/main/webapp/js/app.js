@@ -7,6 +7,6 @@ angular.module('metrics', ['projectServices']).
         $routeProvider.
             when('/admin', {templateUrl: 'partials/admin_list.html',   controller: ProjectListCtrl}).
             when('/projects', {templateUrl: 'partials/project_list.html',   controller: ProjectListCtrl}).
-            when('/projects/:projectId', {templateUrl: '/partials/project-detail.html', controller: ProjectDetailCtrl}).
+            when('/project/:projectId', {templateUrl: '/partials/project_list.html', controller: ProjectDetailCtrl}).
             otherwise({redirectTo: '/projects'});
     }]);

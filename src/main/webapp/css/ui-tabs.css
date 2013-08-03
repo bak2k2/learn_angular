@@ -44,6 +44,7 @@
     clear: both;
     border: 2px #ccc solid;
     padding: 10px;
+    overflow: hidden;
 }
 .ui-tabs .ui-tabs-hide {
     display: none;

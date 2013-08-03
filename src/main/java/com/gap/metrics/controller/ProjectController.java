@@ -22,7 +22,7 @@ public class ProjectController {
         return new ResponseEntity<List<Project>>(projectService.listProjects(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/project/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> project(@PathVariable String id){
         return new ResponseEntity<Project>(projectService.getProject(id), HttpStatus.OK);
     }
