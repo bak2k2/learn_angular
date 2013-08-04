@@ -3,7 +3,7 @@
         <h1>Projects</h1>
         <ul>
             <li ng-repeat="project in projects">
-                <a href="" ng-click="greet({{project.id}})">{{project.projectName}}</a>
+                <a href="" ng-click="$parent.greet(project.id)">{{project.projectName}}</a>
             </li>
         </ul>
     </div>

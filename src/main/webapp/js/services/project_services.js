@@ -6,3 +6,9 @@ angular.module('projectServices', ['ngResource']).
             query: {method:'GET', isArray:true}
         });
     });
+
+mmodule.factory('Projects', function($resource){
+    return $resource('resources/projects/:id', {}, {
+        query: {method:'GET', isArray:false}
+    });
+});

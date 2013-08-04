@@ -1,8 +1,8 @@
 'use strict';
 
 /* App Module */
-
-angular.module('metrics', ['projectServices']).
+var mmodule = angular.module('metrics', ['projectServices', 'ngResource']);
+mmodule.
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/admin', {templateUrl: 'partials/admin_list.html',   controller: ProjectListCtrl}).
