@@ -6,7 +6,7 @@ function ProjectListCtrl($scope, Project, Projects) {
 
     $scope.greet = function(id){
         var resp = Project.get({id: id}, function(project){
-            alert(project.projectName);
+            $scope.project = project;
         });
     }
 }

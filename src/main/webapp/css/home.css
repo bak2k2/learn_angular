@@ -1,45 +1,42 @@
-#prjlist ul {
-    list-style-type: none;
-    width: 300px;
-    background: #cccccc;
-    padding: 0px;
+h1
+{
+    font-size: 18pt;
+    color: #d40203;;
 }
 
-
-#prjlist li p {
-    font: 200 24px/1.5 Helvetica, Verdana, sans-serif;
-    color: #4d4d4d
+.menu_div ul
+{
+    padding:0px;
+    margin:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+    color:#FFF;
+    list-style:none;
+    text-indent:15px;
 }
-
-#prjlist li {
-    overflow: auto;
+.menu_div ul li
+{
+    background:#3f3f3f;
+    line-height:28px;
+    border-bottom:1px solid #333;
 }
-
-#prjlist li:hover {
-    background: #eee;
-    cursor: pointer;
-}
-
-#prjlist ul.top-level { background:#666; }
-
-#prjlist ul.top-level li {
-    border-bottom: #fff solid;
-    border-top: #fff solid;
-    border-width: 1px;
-}
-
-#prjlist a {
-    color: #fff;
-    cursor: pointer;
-    display:block;
-    height:25px;
-    line-height: 25px;
-    text-indent: 10px;
+.menu_div ul li a
+{
     text-decoration:none;
-    width:100%;
+    color:#FFF;
+    display:block;
+}
+.menu_div ul li a:hover
+{
+    background:#d40203;
+}
+.menu_div ul li#active
+{
+    background:#d40203;
 }
 
-#prjlist li:hover {
-    background: #f90;
-    position: relative;
+.contents
+{
+    float: left;
+    margin-left: 25px;
 }

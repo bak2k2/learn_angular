@@ -1,13 +1,14 @@
 <div ng-controller="ProjectListCtrl">
-    <div id="prjlist" style="float:left">
-        <h1>Projects</h1>
+    <div class="menu_div" style="float:left">
+        <h1>Project</h1>
         <ul>
             <li ng-repeat="project in projects">
                 <a href="" ng-click="$parent.greet(project.id)">{{project.projectName}}</a>
             </li>
         </ul>
     </div>
-    <div style="float:left">
-        <h1>Contents</h1>
+    <div class="contents">
+        <h1>Content</h1>
+        <div>Project Name: {{project.projectName}}</div>
     </div>
 </div>
