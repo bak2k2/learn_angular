@@ -4,7 +4,6 @@
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,13 +25,13 @@
     <file path="/Person.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375219006456" ignored="false" />
     <file path="/PersonService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375064554939" ignored="false" />
     <file path="/home.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375238675668" ignored="false" />
-    <file path="/app.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375629605002" ignored="false" />
+    <file path="/app.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375633123765" ignored="false" />
     <file path="/home_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375146777108" ignored="false" />
     <file path="/project_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375630862077" ignored="false" />
-    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375632695955" ignored="false" />
+    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375676074888" ignored="false" />
     <file path="/projects.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375154018540" ignored="false" />
     <file path="/admin_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375156733670" ignored="false" />
-    <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375631287878" ignored="false" />
+    <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375675876542" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/webapp/lib/angular/angular.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375219076393" ignored="false" />
     <file path="/ProjectService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232940646" ignored="false" />
     <file path="/ProjectController.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232875963" ignored="false" />
@@ -97,17 +96,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProjectController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="project_list.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -123,25 +111,25 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="53" selection-start="182" selection-end="182" vertical-scroll-proportion="13.541667">
+            <state line="5" column="53" selection-start="182" selection-end="182" vertical-scroll-proportion="13.208333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="71" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+            <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.07025761">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_controller.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="project_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="273" selection-end="273" vertical-scroll-proportion="0.35128805">
+            <state line="12" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -150,7 +138,7 @@
       <file leaf-file-name="project_services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="43" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+            <state line="2" column="30" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,9 +174,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/home.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/ui-tabs.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
       </list>
     </option>
@@ -1235,14 +1223,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="53" selection-start="182" selection-end="182" vertical-scroll-proportion="13.541667">
+        <state line="5" column="53" selection-start="182" selection-end="182" vertical-scroll-proportion="13.208333">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
+        <state line="26" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.6487119">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1259,23 +1247,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="71" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+        <state line="2" column="30" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="273" selection-end="273" vertical-scroll-proportion="0.35128805">
+        <state line="12" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.07025761">
           <folding />
         </state>
       </provider>
