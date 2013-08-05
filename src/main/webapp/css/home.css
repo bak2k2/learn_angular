@@ -1,6 +1,8 @@
 #prjlist ul {
     list-style-type: none;
     width: 300px;
+    background: #cccccc;
+    padding: 0px;
 }
 
 
@@ -9,7 +11,35 @@
     color: #4d4d4d
 }
 
+#prjlist li {
+    overflow: auto;
+}
+
 #prjlist li:hover {
     background: #eee;
     cursor: pointer;
+}
+
+#prjlist ul.top-level { background:#666; }
+
+#prjlist ul.top-level li {
+    border-bottom: #fff solid;
+    border-top: #fff solid;
+    border-width: 1px;
+}
+
+#prjlist a {
+    color: #fff;
+    cursor: pointer;
+    display:block;
+    height:25px;
+    line-height: 25px;
+    text-indent: 10px;
+    text-decoration:none;
+    width:100%;
+}
+
+#prjlist li:hover {
+    background: #f90;
+    position: relative;
 }
