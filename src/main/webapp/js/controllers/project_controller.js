@@ -9,5 +9,11 @@ function ProjectListCtrl($scope, Project, Projects) {
             $scope.project = project;
         });
     }
+
+    $scope.edit = function(){
+        $scope.editMode = !$scope.editMode;
+    }
+
+    $scope.editMode = false;
 }
 
