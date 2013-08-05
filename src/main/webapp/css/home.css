@@ -41,3 +41,35 @@ h1
     margin-left: 25px;
     width: 70%;
 }
+
+.red_button {
+    border-top: 1px solid #f797ca;
+    background: #d6656e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eb0726), to(#d6656e));
+    background: -webkit-linear-gradient(top, #eb0726, #d6656e);
+    background: -moz-linear-gradient(top, #eb0726, #d6656e);
+    background: -ms-linear-gradient(top, #eb0726, #d6656e);
+    background: -o-linear-gradient(top, #eb0726, #d6656e);
+    padding: 4px 8px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 13px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.red_button:hover {
+    border-top-color: #28597a;
+    background: #28597a;
+    color: #ccc;
+}
+.red_button:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
