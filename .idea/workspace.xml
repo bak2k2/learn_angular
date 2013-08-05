@@ -4,7 +4,7 @@
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="metrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +26,8 @@
     <file path="/home.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375677178282" ignored="false" />
     <file path="/app.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375633123765" ignored="false" />
     <file path="/home_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375146777108" ignored="false" />
-    <file path="/project_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375732199499" ignored="false" />
-    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375736184324" ignored="false" />
+    <file path="/project_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375744566100" ignored="false" />
+    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375744933104" ignored="false" />
     <file path="/projects.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375154018540" ignored="false" />
     <file path="/admin_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375156733670" ignored="false" />
     <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375675876542" ignored="false" />
@@ -35,7 +35,8 @@
     <file path="/ProjectService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232940646" ignored="false" />
     <file path="/ProjectController.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375232875963" ignored="false" />
     <file path="/home.css" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375731149961" ignored="false" />
-    <file path="/project_edit.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375734071560" ignored="false" />
+    <file path="/project_edit.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375745159951" ignored="false" />
+    <file path="/project_view.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375744803441" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <file leaf-file-name="project_list.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="51" selection-start="222" selection-end="222" vertical-scroll-proportion="-3.125">
+            <state line="15" column="35" selection-start="819" selection-end="819" vertical-scroll-proportion="-9.375">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -110,10 +111,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_edit.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="project_services.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="30" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project_edit.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="80" selection-start="197" selection-end="197" vertical-scroll-proportion="0.032894738">
+            <state line="1" column="97" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.625">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
@@ -125,7 +135,7 @@
       <file leaf-file-name="project_view.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="-1.875">
+            <state line="2" column="29" selection-start="127" selection-end="127" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -134,7 +144,7 @@
       <file leaf-file-name="project_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="63" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -167,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/projects.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/projects.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/admin_list.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Person.java" />
@@ -180,9 +189,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_details.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/home.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
       </list>
     </option>
   </component>
@@ -1228,20 +1238,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="30" selection-start="45" selection-end="45" vertical-scroll-proportion="0.07025761">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="23" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0">
@@ -1249,16 +1245,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="29" selection-start="127" selection-end="127" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="63" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0">
+        <state line="5" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="97" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.625">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="51" selection-start="222" selection-end="222" vertical-scroll-proportion="-3.125">
+        <state line="15" column="35" selection-start="819" selection-end="819" vertical-scroll-proportion="-9.375">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1268,13 +1281,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="80" selection-start="197" selection-end="197" vertical-scroll-proportion="0.032894738">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
+        <state line="2" column="30" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0625">
+          <folding />
         </state>
       </provider>
     </entry>
