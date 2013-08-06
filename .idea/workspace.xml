@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
     </list>
     <ignored path="metrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,19 +97,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProjectService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_controller.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="project_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="43" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.8168317">
+            <state line="17" column="4" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,10 +159,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_services.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="project_services.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="37" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+            <state line="9" column="38" selection-start="261" selection-end="276" vertical-scroll-proportion="0.31615925">
               <folding />
             </state>
           </provider>
@@ -207,12 +196,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/home.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
       </list>
     </option>
   </component>
@@ -1090,7 +1079,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39973614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39973614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1233,13 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="37" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="97" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.625">
@@ -1294,7 +1276,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="43" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.8168317">
+        <state line="17" column="4" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="38" selection-start="261" selection-end="276" vertical-scroll-proportion="0.31615925">
           <folding />
         </state>
       </provider>

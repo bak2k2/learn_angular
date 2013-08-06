@@ -5,21 +5,24 @@ function cloneData(obj)
     return JSON.parse(JSON.stringify(obj));
 }
 
-function ProjectListCtrl($scope, Project, Projects) {
+function ProjectListCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.editMode = false;
-    $scope.projects = Projects.query();
+    $scope.projects = ProjectsGateway.query();
+
     $scope.select = function(id){
-        var resp = Project.get({id: id}, function(project){
+        var resp = ProjectGateway.get({id: id}, function(project){
             $scope.project = project;
             $scope.editable_project = cloneData($scope.project);
         });
     }
+
     $scope.edit = function(){
         $scope.editMode = true;
         $scope.editable_project = cloneData($scope.project);
     }
+
     $scope.save = function(){
-        Project.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
+        ProjectGateway.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
     }
 
     $scope.cancel = function(){
@@ -35,7 +38,7 @@ function ProjectListCtrl($scope, Project, Projects) {
     }
 
     $scope.$on('metricsApp.projectSaved', function(){
-        $scope.projects = Projects.query();
+        $scope.projects = ProjectsGateway.query();
     });
 }
 
