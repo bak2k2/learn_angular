@@ -15,8 +15,23 @@ function ProjectListCtrl($scope, Project, Projects) {
         });
     }
     $scope.edit = function(){
-        $scope.editMode = !$scope.editMode;
+        $scope.editMode = true;
         $scope.editable_project = cloneData($scope.project);
+    }
+    $scope.save = function(){
+        Project.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
+    }
+
+    $scope.cancel = function(){
+        $scope.editMode = false;
+        $scope.editable_project = cloneData($scope.project);
+    }
+
+    function onSave(project){
+        alert("saved");
+        $scope.editMode = false;
+        $scope.project = project;
+        $scope.editable_project = cloneData(project);
     }
 }
 

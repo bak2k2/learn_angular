@@ -32,7 +32,8 @@ public class ProjectService {
     }
 
     public List<Project> listProjects() {
-        return mongoOperation.findAll(Project.class, COLLECTION_NAME);
+        List<Project> projects = mongoOperation.findAll(Project.class, COLLECTION_NAME);
+        return projects;
     }
 
     public void deleteProject(Project project) {
@@ -40,7 +41,7 @@ public class ProjectService {
     }
 
     public void updateProject(Project project) {
-        mongoOperation.insert(project, COLLECTION_NAME);
+        mongoOperation.save(project, COLLECTION_NAME);
     }
 
     public Project getProject(String projectId) {
