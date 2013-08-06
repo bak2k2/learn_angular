@@ -1,6 +1,11 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+}
+
 h1
 {
-    font-size: 18pt;
+    font-size: 15pt;
     color: #d40203;;
 }
 
@@ -18,7 +23,7 @@ h1
 {
     background:#3f3f3f;
     line-height:28px;
-    border-bottom:1px solid #333;
+    border-bottom:2px solid #ccc;
 }
 .menu_div ul li a
 {
@@ -69,4 +74,8 @@ h1
 .red_button:active {
     border-top-color: #1b435e;
     background: #1b435e;
+}
+
+.line_item {
+    margin: 5px;
 }
