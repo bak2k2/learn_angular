@@ -12,4 +12,5 @@ public class Project {
     @Id
     private String id;
     private String projectName;
+    private int currentIteration;
 }

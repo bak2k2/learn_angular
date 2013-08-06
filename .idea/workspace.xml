@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" afterPath="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
     </list>
     <ignored path="metrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +30,7 @@
     <file path="/app.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375633123765" ignored="false" />
     <file path="/home_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375146777108" ignored="false" />
     <file path="/project_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375749559272" ignored="false" />
-    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375751376660" ignored="false" />
+    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375758823321" ignored="false" />
     <file path="/projects.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375154018540" ignored="false" />
     <file path="/admin_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375156733670" ignored="false" />
     <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375746398871" ignored="false" />
@@ -34,9 +38,10 @@
     <file path="/ProjectService.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375749214141" ignored="false" />
     <file path="/ProjectController.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375746609252" ignored="false" />
     <file path="/home.css" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375731149961" ignored="false" />
-    <file path="/project_edit.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375745159951" ignored="false" />
-    <file path="/project_view.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375744803441" ignored="false" />
-    <file path="/project_home.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375751396836" ignored="false" />
+    <file path="/project_edit.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375759084455" ignored="false" />
+    <file path="/project_view.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375759319396" ignored="false" />
+    <file path="/project_home.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375758282831" ignored="false" />
+    <file path="/Project.java" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375759202982" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,79 +101,7 @@
     <favorites_list name="metrics" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="project_controller.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="4" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="36" selection-start="5" selection-end="36" vertical-scroll-proportion="-0.0">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="5" selection-start="146" selection-end="146" vertical-scroll-proportion="-2.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_edit.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="97" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.625">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_services.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="38" selection-start="261" selection-end="276" vertical-scroll-proportion="0.31615925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -188,20 +121,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/partials/admin_list.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/ui-tabs.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_details.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/home.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/service/ProjectService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
       </list>
     </option>
   </component>
@@ -1071,7 +1004,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1386" height="878" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1166,20 +1099,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/spring-core-3.2.2.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="28" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-5.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-webmvc/3.2.2.RELEASE/source/e304b61946aaef6929c1f96e0c2a01a93f6352a3/spring-webmvc-3.2.2.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="745" column="102" selection-start="31918" selection-end="31918" vertical-scroll-proportion="0.29396325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-webmvc/3.2.2.RELEASE/source/e304b61946aaef6929c1f96e0c2a01a93f6352a3/spring-webmvc-3.2.2.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="129" column="0" selection-start="4524" selection-end="4524" vertical-scroll-proportion="0.33168316">
@@ -1215,30 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="97" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.625">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="146" selection-end="146" vertical-scroll-proportion="-2.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/controller/ProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="1263" selection-end="1263" vertical-scroll-proportion="1.1881188">
@@ -1255,15 +1150,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_home.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="36" selection-start="5" selection-end="36" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="14" column="33" selection-start="332" selection-end="332" vertical-scroll-proportion="0.40841585">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,7 +1166,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+        <state line="34" column="84" selection-start="968" selection-end="968" vertical-scroll-proportion="0.4566745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="60" selection-start="108" selection-end="108" vertical-scroll-proportion="0.074441686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="5" selection-start="146" selection-end="146" vertical-scroll-proportion="0.14888337">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="118" selection-start="235" selection-end="235" vertical-scroll-proportion="0.037220843">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

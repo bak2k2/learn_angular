@@ -1,11 +1,11 @@
 'use strict';
 
-function cloneData(obj)
+function cloneData(objectToClone)
 {
-    return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(JSON.stringify(objectToClone));
 }
 
-function ProjectListCtrl($scope, ProjectGateway, ProjectsGateway) {
+function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.editMode = false;
     $scope.projects = ProjectsGateway.query();
 

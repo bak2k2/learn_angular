@@ -4,7 +4,7 @@ var metricsModule = angular.module('metrics', ['ngResource']);
 
 metricsModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-        when('/admin', {templateUrl: 'partials/admin_list.html',   controller: ProjectListCtrl}).
-        when('/projects', {templateUrl: 'partials/project_home.html',   controller: ProjectListCtrl}).
+        when('/admin', {templateUrl: 'partials/admin_list.html',   controller: ProjectHomeCtrl}).
+        when('/projects', {templateUrl: 'partials/project_home.html',   controller: ProjectHomeCtrl}).
         otherwise({redirectTo: '/projects'});
 }]);
