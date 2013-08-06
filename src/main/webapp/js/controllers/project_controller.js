@@ -7,7 +7,13 @@ function cloneData(objectToClone)
 
 function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.editMode = false;
-    $scope.projects = ProjectsGateway.query();
+
+    ProjectsGateway.query(function(projects){
+        $scope.projects = projects;
+        if (projects.length > 0){
+            $scope.select(projects[0].id);
+        }
+    });
 
     $scope.select = function(id){
         var resp = ProjectGateway.get({id: id}, function(project){
@@ -42,5 +48,6 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.$on('metricsApp.projectSaved', function(){
         $scope.projects = ProjectsGateway.query();
     });
+
 }
 
