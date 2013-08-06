@@ -28,10 +28,14 @@ function ProjectListCtrl($scope, Project, Projects) {
     }
 
     function onSave(project){
-        alert("saved");
         $scope.editMode = false;
         $scope.project = project;
         $scope.editable_project = cloneData(project);
+        $scope.$broadcast('metricsApp.projectSaved');
     }
+
+    $scope.$on('metricsApp.projectSaved', function(){
+        $scope.projects = Projects.query();
+    });
 }
 
