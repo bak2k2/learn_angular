@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cd1f880-6287-4bd0-9193-2252e74bc844" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" afterPath="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" afterPath="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
     </list>
     <ignored path="metrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +25,7 @@
     <file path="/app.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375633123765" ignored="false" />
     <file path="/home_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375146777108" ignored="false" />
     <file path="/project_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375749559272" ignored="false" />
-    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375758823321" ignored="false" />
+    <file path="/project_controller.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375762889919" ignored="false" />
     <file path="/projects.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375154018540" ignored="false" />
     <file path="/admin_list.html" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375156733670" ignored="false" />
     <file path="/project_services.js" changelist="3cd1f880-6287-4bd0-9193-2252e74bc844" time="1375746398871" ignored="false" />
@@ -101,7 +96,17 @@
     <favorites_list name="metrics" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="project_controller.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="93" selection-start="286" selection-end="286" vertical-scroll-proportion="0.38641685">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -131,10 +136,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/services/project_services.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_home.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_edit.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/gap/metrics/model/Project.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/partials/project_view.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js" />
       </list>
     </option>
   </component>
@@ -1004,7 +1009,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1386" height="878" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1012,7 +1017,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39973614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39973614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1164,13 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="84" selection-start="968" selection-end="968" vertical-scroll-proportion="0.4566745">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/partials/project_view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="60" selection-start="108" selection-end="108" vertical-scroll-proportion="0.074441686">
@@ -1217,6 +1215,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services/project_services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="38" selection-start="261" selection-end="276" vertical-scroll-proportion="0.31615925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers/project_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="93" selection-start="286" selection-end="286" vertical-scroll-proportion="0.38641685">
           <folding />
         </state>
       </provider>

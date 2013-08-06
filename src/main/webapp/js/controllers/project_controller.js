@@ -12,21 +12,24 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.select = function(id){
         var resp = ProjectGateway.get({id: id}, function(project){
             $scope.project = project;
-            $scope.editable_project = cloneData($scope.project);
+            setEditMode(false);
         });
     }
 
     $scope.edit = function(){
-        $scope.editMode = true;
-        $scope.editable_project = cloneData($scope.project);
+        setEditMode(true);
+    }
+
+    $scope.cancel = function(){
+        setEditMode(false);
     }
 
     $scope.save = function(){
         ProjectGateway.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
     }
 
-    $scope.cancel = function(){
-        $scope.editMode = false;
+    function setEditMode(isEditMode){
+        $scope.editMode = isEditMode;
         $scope.editable_project = cloneData($scope.project);
     }
 
