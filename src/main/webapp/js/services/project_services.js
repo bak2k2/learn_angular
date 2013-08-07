@@ -2,7 +2,7 @@
 
 metricsModule.factory('ProjectGateway', function($resource){
     return $resource('resources/projects/:id', {}, {
-        query: {method:'GET', isArray:false},
+        get: {method:'GET', isArray:false},
         save: {method:'POST', params:{id: '@id'}}
     });
 });

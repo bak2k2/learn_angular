@@ -49,6 +49,7 @@
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.mongodb/mongo-java-driver/2.10.1/jar/9e2c2835b0126a48183ed42129e53b6eb6e259b/mongo-java-driver-2.10.1.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-jdbc/3.2.2.RELEASE/jar/6e76b68ea33194c9b92f3be926cc43945db2977f/spring-jdbc-3.2.2.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/joda-time/joda-time/2.2/jar/a5f29a7acaddea3f4af307e8cf2d0cc82645fd7d/joda-time-2.2.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="metrics/web/Web" />

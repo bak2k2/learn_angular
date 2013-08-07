@@ -24,7 +24,7 @@ List SPRING_SOURCES = [
 
 List MISC = [
         "org.projectlombok:lombok:0.11.6",
-        "org.codehaus.jackson:jackson-core-asl:1.9.12",
+        "joda-time:joda-time:2.2",
         "org.slf4j:slf4j-api:1.7.5",
         "org.codehaus.jackson:jackson-core-asl:1.9.12",
         "org.codehaus.jackson:jackson-mapper-asl:1.9.12",

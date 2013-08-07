@@ -1,10 +1,3 @@
-'use strict';
-
-function cloneData(objectToClone)
-{
-    return JSON.parse(JSON.stringify(objectToClone));
-}
-
 function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
     $scope.editMode = false;
 
