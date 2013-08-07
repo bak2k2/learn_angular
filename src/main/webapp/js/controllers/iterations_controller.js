@@ -22,6 +22,10 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
         IterationGateway.save({id: $scope.iteration.id}, $scope.iteration, onSave);
     }
 
+    $scope.new = function(){
+        $scope.iteration = {};
+    }
+
     function onSave(iteration){
         $scope.iteration = iteration;
     }
