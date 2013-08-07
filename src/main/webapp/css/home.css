@@ -12,7 +12,7 @@ html{
 }
 
 .heading h4 {
-    border-bottom: thin solid rgba(0, 0, 0, 0.1);
+    border-bottom: thin solid #D40203;
     font-weight: 300;
     padding-bottom: 0.381em;
 }
@@ -60,6 +60,7 @@ h1
     background:#3f3f3f;
     line-height:28px;
     border-bottom:2px solid #ccc;
+    padding-right: 5px;
 }
 .menu_div ul li a
 {
