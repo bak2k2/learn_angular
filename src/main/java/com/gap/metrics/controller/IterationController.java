@@ -38,4 +38,10 @@ public class IterationController {
         Iteration iter = iterationService.addIteration(iteration);
         return new ResponseEntity<Iteration>(iter, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/iteration/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> delete(@PathVariable String id){
+        iterationService.deleteIteration(id);
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
 }

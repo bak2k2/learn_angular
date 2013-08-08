@@ -94,6 +94,21 @@ h1
     width: 40%;
 }
 
+.width_thirty_five
+{
+    width: 35%;
+}
+
+.width_five
+{
+    width: 5%;
+}
+
+.width_ninety_five
+{
+    width: 95%;
+}
+
 .contents
 {
     float: left;

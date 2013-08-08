@@ -18,6 +18,15 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
         $scope.iteration = {};
     }
 
+    $scope.delete = function(id){
+        IterationGateway.delete({id: id}, onDelete);
+    }
+
+    function onDelete(iteration){
+        $scope.iteration = {};
+        IterationsGateway.query(onQuery);
+    }
+
     function onSave(iteration){
         $scope.iteration = iteration;
         IterationsGateway.query(onQuery);

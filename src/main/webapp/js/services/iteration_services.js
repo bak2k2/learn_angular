@@ -5,7 +5,8 @@
 metricsModule.factory('IterationGateway', function($resource){
     return $resource('resources/iteration/:id', {}, {
         get: {method:'GET', isArray:false},
-        save: {method:'POST', params:{id: '@id'}}
+        save: {method:'POST', params:{id: '@id'}},
+        delete: {method:'DELETE', params:{id: '@id'}}
     });
 });
 

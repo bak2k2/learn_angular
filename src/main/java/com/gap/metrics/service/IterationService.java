@@ -4,6 +4,8 @@ import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -44,4 +46,8 @@ public class IterationService {
         return mongoOperation.findById(iterationId, Iteration.class, COLLECTION_NAME);
     }
 
+    public void deleteIteration(String iterationId){
+        Query query = new Query(Criteria.where("_id").is(iterationId));
+        mongoOperation.findAndRemove(query, Iteration.class);
+    }
 }
