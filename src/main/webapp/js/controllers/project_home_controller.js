@@ -2,7 +2,7 @@
 
 function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, ProjectIterationGateway) {
     $scope.editMode = false;
-    $scope.selectedIteration = {};
+    $scope.selectedIterationId = {};
 
     $scope.iterations = {};
 
@@ -18,7 +18,8 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     });
 
     $scope.selectIteration = function(){
-        ProjectIterationGateway.get({projectId: $scope.project.id, iterationId: $scope.selectedIteration.id},
+        alert(JSON.stringify($scope.selectedIterationId));
+        ProjectIterationGateway.get({projectId: $scope.project.id, iterationId: $scope.selectedIterationId},
             function(projIterationDetails){
                 $scope.projectIterationDetails = projIterationDetails;
             });

@@ -1,7 +1,7 @@
 <div class="row-fluid line">
     <div class="span2 title">
-        <select name="selectedIteration" ng-model="$parent.selectedIteration" ng-change="selectIteration()">
-            <option ng-repeat="iteration in iterations">{{iteration.iterationNumber}}</option>
+        <select name="selectedIteration" ng-model="$parent.selectedIterationId" ng-change="selectIteration()">
+            <option ng-repeat="iteration in iterations" value="{{iteration.id}}">{{iteration.iterationNumber}}</option>
         </select>
     </div>
     <div class="span10 content">
