@@ -34,4 +34,15 @@ public class ProjectController {
         return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/projects", method = RequestMethod.POST)
+    public ResponseEntity<?> add(@RequestBody Project iteration){
+        Project prj = projectService.addProject(iteration);
+        return new ResponseEntity<Project>(prj, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/projects/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> delete(@PathVariable String id){
+        projectService.deleteProject(id);
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
 }

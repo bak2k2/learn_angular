@@ -89,9 +89,19 @@ h1
     width: 20%;
 }
 
+.width_thirty
+{
+    width: 30%;
+}
+
 .width_forty
 {
     width: 40%;
+}
+
+.width_seventy
+{
+    width: 70%;
 }
 
 .width_thirty_five
@@ -102,6 +112,11 @@ h1
 .width_five
 {
     width: 5%;
+}
+
+.width_sixty_eight
+{
+    width: 68%;
 }
 
 .width_ninety_five

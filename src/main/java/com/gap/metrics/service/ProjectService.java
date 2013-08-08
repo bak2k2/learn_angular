@@ -7,6 +7,8 @@ import com.gap.metrics.model.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 
@@ -22,13 +24,14 @@ public class ProjectService {
 
     public static final String COLLECTION_NAME = "project";
 
-    public void addProject(Project project) {
+    public Project addProject(Project project) {
         if (!mongoOperation.collectionExists(Project.class)) {
             mongoOperation.createCollection(Project.class);
         }
 
         project.setId(UUID.randomUUID().toString());
         mongoOperation.insert(project, COLLECTION_NAME);
+        return project;
     }
 
     public List<Project> listProjects() {
@@ -36,8 +39,9 @@ public class ProjectService {
         return projects;
     }
 
-    public void deleteProject(Project project) {
-        mongoOperation.remove(project, COLLECTION_NAME);
+    public void deleteProject(String projectId) {
+        Query query = new Query(Criteria.where("_id").is(projectId));
+        mongoOperation.findAndRemove(query, Project.class);
     }
 
     public void updateProject(Project project) {

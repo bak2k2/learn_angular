@@ -1,0 +1,19 @@
+<div class="menu_div">
+    <ul>
+        <div class="row-fluid line">
+            <a href="">
+                <div class="width_thirty" style="float: left">Name</div>
+                <div class="width_seventy" style="float: right">Description</div>
+            </a>
+        </div>
+        <li ng-repeat="project in projects">
+            <div class="row-fluid line">
+                <div class="width_ninety_five" style="float: left" ng-click="$parent.select(project.id);">
+                    <div class="width_thirty" style="float: left">{{project.projectName}}</div>
+                    <div class="width_sixty_eight" style="float: right">{{project.projectDescription}}</div>
+                </div>
+                <div class="width_five" style="float: right"><img src="/images/red_trash.png" ng-click="$parent.delete(project.id);"></div>
+            </div>
+        </li>
+    </ul>
+</div>

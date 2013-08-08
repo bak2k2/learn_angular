@@ -12,5 +12,6 @@ public class Project {
     @Id
     private String id;
     private String projectName;
+    private String projectDescription;
     private int currentIteration;
 }
