@@ -30,7 +30,7 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
     }
 
     function onQuery(projects){
-        $scope.projects = projects;
+        $scope.projects = projects.sort(projectComparator);
         if (projects.length == 0){
             $scope.project = {};
         }

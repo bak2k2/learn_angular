@@ -33,7 +33,7 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
     }
 
     function onQuery(iterations){
-        $scope.iterations = iterations;
+        $scope.iterations = iterations.sort(iterationComparator);
         if (iterations.length == 0){
             $scope.iteration = {};
         }

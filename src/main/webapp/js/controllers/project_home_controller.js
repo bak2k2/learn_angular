@@ -7,11 +7,11 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     $scope.iterations = {};
 
     IterationsGateway.query(function(iterations){
-        $scope.iterations = iterations;
+        $scope.iterations = iterations.sort(iterationComparator);
     });
 
     ProjectsGateway.query(function(projects){
-        $scope.projects = projects;
+        $scope.projects = projects.sort(projectComparator);
         if (projects.length > 0){
             $scope.select(projects[0].id);
         }
@@ -45,7 +45,6 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
 
     $scope.applyIterationChanges = function(){
         ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
-            console.log("saved successfully");
             $scope.projectIterationDetails = projIterDetails;
         });
     }
@@ -68,7 +67,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     }
 
     $scope.$on('metricsApp.projectSaved', function(){
-        $scope.projects = ProjectsGateway.query();
+        var projects = ProjectsGateway.query();
+        $scope.projects = projects.sort(projectComparator);
     });
-
 }
