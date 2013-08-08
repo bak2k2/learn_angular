@@ -18,12 +18,10 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     });
 
     $scope.selectIteration = function(){
-        alert(JSON.stringify($scope.selectedIterationId));
         ProjectIterationGateway.get({projectId: $scope.project.id, iterationId: $scope.selectedIterationId},
             function(projIterationDetails){
                 $scope.projectIterationDetails = projIterationDetails;
             });
-        //$scope.projectIterationDetails = {velocity: "10"}
     }
 
     $scope.select = function(id){
@@ -46,7 +44,10 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     }
 
     $scope.applyIterationChanges = function(){
-
+        ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
+            console.log("saved successfully");
+            $scope.projectIterationDetails = projIterDetails;
+        });
     }
 
     function onSave(project){

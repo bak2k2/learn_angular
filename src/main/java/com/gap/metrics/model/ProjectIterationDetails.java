@@ -11,5 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProjectIterationDetails {
     @Id
     private String id;
+    private String projectId;
+    private String iterationId;
     private double velocity;
 }

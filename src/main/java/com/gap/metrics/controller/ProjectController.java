@@ -49,6 +49,13 @@ public class ProjectController {
 
     @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.GET)
     public ResponseEntity<?>  fetchIteration(@PathVariable String projectId, @PathVariable String iterationId){
-        return new ResponseEntity<ProjectIterationDetails>(new ProjectIterationDetails(), HttpStatus.OK);
+        ProjectIterationDetails details = projectService.getProjectIterationDetails(projectId, iterationId);
+        return new ResponseEntity<ProjectIterationDetails>(details, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.POST)
+    public ResponseEntity<?>  saveIteration(@RequestBody ProjectIterationDetails iterationDetails){
+        return new ResponseEntity<ProjectIterationDetails>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
+    }
+
 }
