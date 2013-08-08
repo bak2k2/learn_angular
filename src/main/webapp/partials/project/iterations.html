@@ -1,0 +1,13 @@
+<div class="row-fluid line">
+    <div class="span2 title">
+        <select name="selectedIterationId" ng-model="selectedIteration" ng-change="selectIteration()">
+            <option ng-repeat="iteration in iterations" value="{{iteration.id}}">{{iteration.iterationNumber}}</option>
+        </select>
+    </div>
+    <div class="span10 content">
+        <div class="row-fluid line">
+            <div class="span2 title">Velocity</div>
+            <div class="span8 content"><p>{{projectIterationDetails.velocity}}</p></div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, IterationGateway) {
     $scope.editMode = false;
-    $scope.selectedIteration = {};
+    $scope.selectedIterationId = {};
 
     $scope.iterations = {};
 
@@ -14,6 +14,10 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
             $scope.select(projects[0].id);
         }
     });
+
+    $scope.selectIteration = function(){
+        $scope.projectIterationDetails = {velocity: "10"}
+    }
 
     $scope.select = function(id){
         var resp = ProjectGateway.get({id: id}, function(project){
