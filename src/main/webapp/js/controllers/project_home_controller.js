@@ -53,6 +53,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     function setProject(project){
         $scope.project = project;
         $scope.selectedIterationId = {};
+        $scope.projectIterationDetails = {};
     }
 
     function onSave(project){
