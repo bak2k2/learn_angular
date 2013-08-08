@@ -2,19 +2,19 @@
     <ul>
         <div class="row-fluid line">
             <a href="">
-                <div style="float: left">Iteration Number</div>
-                <div style="float: left">Start Date</div>
-                <div style="float: left">End Date</div>
-                <div style="float: right">Description</div>
+                <div class="width_twenty" style="float: left">Iteration Number</div>
+                <div class="width_twenty" style="float: left">Start Date</div>
+                <div class="width_twenty" style="float: left">End Date</div>
+                <div class="width_forty" style="float: right">Description</div>
             </a>
         </div>
         <li ng-repeat="iteration in iterations" ng-click="$parent.select(iteration.id)">
             <div class="row-fluid line">
                 <a href="">
-                    <div style="float: left">{{iteration.iterationNumber}}</div>
-                    <div style="float: left">{{iteration.startDate}}</div>
-                    <div style="float: left">{{iteration.endDate}}</div>
-                    <div style="float: right">{{iteration.description}}</div>
+                    <div class="width_twenty" style="float: left">{{iteration.iterationNumber}}</div>
+                    <div class="width_twenty" style="float: left">{{iteration.startDate}}</div>
+                    <div class="width_twenty" style="float: left">{{iteration.endDate}}</div>
+                    <div class="width_forty" style="float: right">{{iteration.description}}</div>
                 </a>
             </div>
         </li>

@@ -84,6 +84,16 @@ h1
     cursor: hand;
 }
 
+.width_twenty
+{
+    width: 20%;
+}
+
+.width_forty
+{
+    width: 40%;
+}
+
 .contents
 {
     float: left;
