@@ -10,6 +10,8 @@
     <script src="lib/angular/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
     <!--<script src="js/kendo.grid.min.js"></script>-->
     <!--<script src="js/angular-kendo.js"></script>-->
     <script src="js/services/project_services.js"></script>
@@ -18,18 +20,19 @@
     <script src="js/controllers/project_admin_controller.js"></script>
     <script src="js/controllers/project_home_controller.js"></script>
     <script src="js/controllers/admin_controller.js"></script>
+    <script src="js/controllers/dashboard_controller.js"></script>
     <script src="js/controllers/iterations_controller.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
 </head>
 <body ng-app="metrics">
 <div class="ui-tabs">
     <ul class="ui-tabs-nav">
-        <li><a id="tabs-1-link" href="#tabs-1">Dashboard</a></li>
+        <li><a id="dashboard-link" href="#dashboard">Dashboard</a></li>
         <li><a id="projects-link" href="#projects">Projects</a></li>
         <li><a  id="admin-link" href="#admin">Admin</a></li>
     </ul>
-    <div id="tabs-1" class="ui-tabs-panel">
-        <p>Welcome to the metrics Dashboard!</p>
+    <div id="dashboard" class="ui-tabs-panel">
+        <div ng-view></div>
     </div>
     <div id="projects" class="ui-tabs-panel">
         <div ng-view></div>
@@ -45,6 +48,10 @@
 
     $("#projects-link").click(function(){
         window.location.href = "#projects";
+    });
+
+    $("#dashboard-link").click(function(){
+        window.location.href = "#dashboard";
     });
 
     $("#admin-link").click(function(){
