@@ -2,15 +2,7 @@
 
 function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
 
-    IterationsGateway.query(function(iterations){
-        $scope.iterations = iterations;
-        if (iterations.length > 0){
-            $scope.select(iterations[0].id);
-        }
-        else {
-             $scope.iteration = {};
-        }
-    });
+    IterationsGateway.query(onQuery);
 
     $scope.select = function(id){
         var resp = IterationGateway.get({id: id}, function(iteration){
@@ -28,6 +20,13 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
 
     function onSave(iteration){
         $scope.iteration = iteration;
+        IterationsGateway.query(onQuery);
     }
 
+    function onQuery(iterations){
+        $scope.iterations = iterations;
+        if (iterations.length == 0){
+            $scope.iteration = {};
+        }
+    }
 }

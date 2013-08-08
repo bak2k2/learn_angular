@@ -77,6 +77,13 @@ h1
     background:#d40203;
 }
 
+.menu_div ul li:hover
+{
+    background:#d40203;
+    cursor: pointer;
+    cursor: hand;
+}
+
 .contents
 {
     float: left;
