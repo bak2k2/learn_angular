@@ -26,7 +26,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
 
     $scope.select = function(id){
         var resp = ProjectGateway.get({id: id}, function(project){
-            $scope.project = project;
+            setProject(project);
             setEditMode(false);
         });
     }
@@ -50,8 +50,13 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
         });
     }
 
-    function onSave(project){
+    function setProject(project){
         $scope.project = project;
+        $scope.selectedIterationId = {};
+    }
+
+    function onSave(project){
+        setProject(project);
         setEditMode(false);
         $scope.$broadcast('metricsApp.projectSaved');
     }
