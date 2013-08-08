@@ -1,5 +1,12 @@
-function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway) {
+function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, IterationGateway) {
     $scope.editMode = false;
+    $scope.selectedIteration = {};
+
+    $scope.iterations = {};
+
+    IterationsGateway.query(function(iterations){
+        $scope.iterations = iterations;
+    });
 
     ProjectsGateway.query(function(projects){
         $scope.projects = projects;
