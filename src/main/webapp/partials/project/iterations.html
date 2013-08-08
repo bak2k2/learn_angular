@@ -1,13 +1,14 @@
 <div class="row-fluid line">
     <div class="span2 title">
-        <select name="selectedIterationId" ng-model="selectedIteration" ng-change="selectIteration()">
-            <option ng-repeat="iteration in iterations" value="{{iteration.id}}">{{iteration.iterationNumber}}</option>
+        <select name="selectedIteration" ng-model="$parent.selectedIteration" ng-change="selectIteration()">
+            <option ng-repeat="iteration in iterations">{{iteration.iterationNumber}}</option>
         </select>
     </div>
     <div class="span10 content">
         <div class="row-fluid line">
             <div class="span2 title">Velocity</div>
-            <div class="span8 content"><p>{{projectIterationDetails.velocity}}</p></div>
+            <div class="span8 content"><p><input type="text" ng-model="projectIterationDetails.velocity"></p></div>
         </div>
     </div>
 </div>
+<div style="float: right"><input type="button" class="red_button" value="apply" ng-click="applyIterationChanges();" ></div>

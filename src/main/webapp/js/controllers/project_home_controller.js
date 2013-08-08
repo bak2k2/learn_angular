@@ -1,6 +1,8 @@
-function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, IterationGateway) {
+'use strict'
+
+function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, ProjectIterationGateway) {
     $scope.editMode = false;
-    $scope.selectedIterationId = {};
+    $scope.selectedIteration = {};
 
     $scope.iterations = {};
 
@@ -16,7 +18,11 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     });
 
     $scope.selectIteration = function(){
-        $scope.projectIterationDetails = {velocity: "10"}
+        ProjectIterationGateway.get({projectId: $scope.project.id, iterationId: $scope.selectedIteration.id},
+            function(projIterationDetails){
+                $scope.projectIterationDetails = projIterationDetails;
+            });
+        //$scope.projectIterationDetails = {velocity: "10"}
     }
 
     $scope.select = function(id){
@@ -36,6 +42,10 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
 
     $scope.save = function(){
         ProjectGateway.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
+    }
+
+    $scope.applyIterationChanges = function(){
+
     }
 
     function onSave(project){
