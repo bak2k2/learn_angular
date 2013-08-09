@@ -3,81 +3,18 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <script src="lib/jquery-1.9.1.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/highcharts.js"></script>
+    <script src="js/dashboard/velocity_trend.js"></script>
 </head>
 <body>
 
 <section ng-app='charts'>
-    <div ng-controller="Ctrl" style="width: 400px;">
-        <highchart chart='{{example_chart}}'></highchart>
+    <div ng-controller="VelocityTrendCtrl" style="width: 400px;">
+        <highchart chart='{{velocity_trend_chart}}'></highchart>
     </div>
 </section>
 
-<script src="lib/jquery-1.9.1.js"></script>
-<script src="lib/angular/angular.js"></script>
-<script src="lib/highcharts.js"></script>
-<script type="text/javascript">
-    // return the chart object
-    function get_chart() {
-        return {
-            xAxis: {
-                categories: ['Jan', 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            title: {
-                text: 'Velocity Trend',
-                x: -20 //center
-            },
-            plotOptions: {
-                series: {
-                    cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function() {
-                                alert ('Category: '+ this.category +', value: '+ this.y);
-                            }
-                        }
-                    }
-                }
-            },
-
-            series: [{
-                name: 'Velocity',
-                data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-            }]
-        };
-    }
-
-
-    // Angular example
-
-    var app = angular.module('charts', []);
-
-    app.directive('highchart', function () {
-        return {
-            restrict: 'E',
-            template: '<div></div>',
-            replace: true,
-
-            link: function (scope, element, attrs) {
-
-                scope.$watch(function() { return attrs.chart; }, function() {
-
-                    if(!attrs.chart) return;
-
-                    var chart = scope.example_chart;
-
-                    element.highcharts(chart);
-
-                });
-
-            }
-        }
-    });
-
-    function Ctrl($scope) {
-        $scope.example_chart = get_chart();
-    }
-
-
-</script>
 </body>
 </html>
