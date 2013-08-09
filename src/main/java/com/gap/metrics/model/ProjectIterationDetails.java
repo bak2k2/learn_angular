@@ -15,4 +15,6 @@ public class ProjectIterationDetails{
     private String iterationId;
     private double velocity;
     private double cycleTime;
+    private double numberOfFTE;
+    private double numberOfContractors;
 }

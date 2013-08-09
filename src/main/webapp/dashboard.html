@@ -8,19 +8,26 @@
     <script src="lib/highcharts.js"></script>
     <script src="js/dashboard/app.js"></script>
     <script src="js/dashboard/velocity_trend.js"></script>
+    <script src="js/dashboard/emp_cont_trend.js"></script>
     <script src="js/dashboard/cycletime_trend.js"></script>
 </head>
 <body ng-app='metriccharts'>
 
 <div>
     <div style="float: left;">
-        <div ng-controller="CycleTimeTrendCtrl" style="width: 400px;">
+        <div ng-controller="CycleTimeTrendCtrl" style="width: 350px;">
             <cyclehighchart cyclechart='{{cycletime_trend_chart}}'></cyclehighchart>
         </div>
     </div>
 
     <div style="float: left;">
-        <div ng-controller="VelocityTrendCtrl" style="width: 400px;">
+        <div ng-controller="EmpContTrendCtrl" style="width: 350px;">
+            <empconthighchart empcontchart='{{empcont_trend_chart}}'></empconthighchart>
+        </div>
+    </div>
+
+    <div style="float: left;">
+        <div ng-controller="VelocityTrendCtrl" style="width: 350px;">
             <velocityhighchart velocitychart='{{velocity_trend_chart}}'></velocityhighchart>
         </div>
     </div>

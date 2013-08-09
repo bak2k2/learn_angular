@@ -13,6 +13,14 @@
             <div class="span2 title">Cycle Time</div>
             <div class="span8 content"><p><input type="text" ng-model="projectIterationDetails.cycleTime"></p></div>
         </div>
+        <div class="row-fluid line">
+            <div class="span2 title"># of Employees</div>
+            <div class="span8 content"><p><input type="text" ng-model="projectIterationDetails.numberOfFTE"></p></div>
+        </div>
+        <div class="row-fluid line">
+            <div class="span2 title"># of Contractors</div>
+            <div class="span8 content"><p><input type="text" ng-model="projectIterationDetails.numberOfContractors"></p></div>
+        </div>
     </div>
 </div>
 <div style="float: right"><input type="button" class="red_button" value="apply" ng-click="applyIterationChanges();" ></div>
