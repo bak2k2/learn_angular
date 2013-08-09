@@ -3,6 +3,7 @@ package com.gap.metrics.controller;
 import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.dto.ProjectMetric;
 import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +82,36 @@ public class ProjectController {
             }
         }
         return new ResponseEntity<ArrayList<Double>>(velocities, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/averagevelocities", method = RequestMethod.GET)
+    public ResponseEntity<?> averageVelocities(){
+        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<Iteration> iterations = iterationService.listIterations();
+        Collections.sort(iterations);
+        ProjectMetric metric = new ProjectMetric();
+        List<Double> averageVelocities = new ArrayList<Double>();
+        List<String> iterationNames = new ArrayList<String>();
+        int numberOfProjects = 0;
+        double totalVelocity = 0;
+
+        for(Iteration iteration : iterations){
+            numberOfProjects = 0;
+            totalVelocity = 0;
+            for(ProjectIterationDetails details : projectIterationDetails){
+                if (details.getIterationId().equals(iteration.getId())){
+                    numberOfProjects++;
+                    totalVelocity += details.getVelocity();
+                }
+            }
+            if (numberOfProjects > 0){
+                averageVelocities.add(totalVelocity/numberOfProjects);
+                iterationNames.add(iteration.getIterationNumber());
+            }
+        }
+
+        metric.setAverageVelocities(averageVelocities);
+        metric.setIterationNames(iterationNames);
+        return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
 }

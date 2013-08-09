@@ -4,6 +4,9 @@ function get_chart() {
             text: 'Velocity Trend',
             x: -20 //center
         },
+        xAxis: {
+            categories: []
+        },
         plotOptions: {
             series: {
                 cursor: 'pointer',
@@ -18,8 +21,8 @@ function get_chart() {
         },
 
         series: [{
-            name: 'Velocity',
-            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            name: 'Average Velocity',
+            data: []
         }]
     };
 }
@@ -44,11 +47,13 @@ app.directive('highchart', function () {
 
 function VelocityTrendCtrl($scope, $http) {
     chart = get_chart();
-    url = '/resources/project/90699d25-23a0-4908-b21d-d20182768d84/velocities';
+    //url = '/resources/project/90699d25-23a0-4908-b21d-d20182768d84/velocities';
+    url = '/resources/project/averagevelocities';
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             //chart.series[0].data = [10,23,14,11,5,21];
-            chart.series[0].data = data;
+            chart.series[0].data = data.averageVelocities;
+            chart.xAxis.categories = data.iterationNames;
             $scope.velocity_trend_chart = chart;
 
         });

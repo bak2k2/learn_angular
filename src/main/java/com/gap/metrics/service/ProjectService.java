@@ -73,7 +73,9 @@ public class ProjectService {
     }
 
     public List<ProjectIterationDetails> findAllProjectIterationDetails(String projectId){
-        Query query = new Query(Criteria.where("projectId").is(projectId));
+        Query query = new Query();
+        if (!projectId.isEmpty())
+            query.addCriteria(Criteria.where("projectId").is(projectId));
         List<ProjectIterationDetails> details = mongoOperation.find(query, ProjectIterationDetails.class, ITERATION_DETAILS_COLLECTION_NAME);
         return details;
     }
