@@ -44,7 +44,7 @@ app.directive('highchart', function () {
 
 function VelocityTrendCtrl($scope, $http) {
     chart = get_chart();
-    url = '/resources/project/8dfb0d41-2e89-474d-8017-a1d3e78adc9d/velocities';
+    url = '/resources/project/90699d25-23a0-4908-b21d-d20182768d84/velocities';
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             //chart.series[0].data = [10,23,14,11,5,21];
