@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @Document
-public class ProjectIterationDetails {
+public class ProjectIterationDetails{
     @Id
     private String id;
     private String projectId;

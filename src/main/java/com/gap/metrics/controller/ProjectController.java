@@ -1,7 +1,10 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.service.IterationService;
+import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
 public class ProjectController {
 
     @Autowired
-    private com.gap.metrics.service.ProjectService projectService;
+    private ProjectService projectService;
+
+    @Autowired
+    private IterationService iterationService;
 
     @RequestMapping(value = "/projects", method = RequestMethod.GET)
     public ResponseEntity<?> projects(){
@@ -62,9 +69,16 @@ public class ProjectController {
     @RequestMapping(value ="/project/{projectId}/velocities", method = RequestMethod.GET)
     public ResponseEntity<?> velocities(@PathVariable String projectId){
         List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails(projectId);
+        List<Iteration> iterations = iterationService.listIterations();
+        Collections.sort(iterations);
         ArrayList<Double> velocities = new ArrayList<Double>();
-        for(ProjectIterationDetails details : projectIterationDetails){
-            velocities.add(details.getVelocity());
+        for(Iteration iteration : iterations){
+            for(ProjectIterationDetails details : projectIterationDetails){
+                if (details.getIterationId().equals(iteration.getId())){
+                    Double velocity = details.getVelocity();
+                    velocities.add(velocity);
+                }
+            }
         }
         return new ResponseEntity<ArrayList<Double>>(velocities, HttpStatus.OK);
     }

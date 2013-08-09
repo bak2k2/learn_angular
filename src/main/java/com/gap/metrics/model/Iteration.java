@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @Document
-public class Iteration {
+public class Iteration implements Comparable<Iteration>{
     @Id
     private String id;
 
@@ -18,4 +18,8 @@ public class Iteration {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    @Override
+    public int compareTo(Iteration iteration) {
+        return iterationNumber.compareTo(iteration.iterationNumber);
+    }
 }
