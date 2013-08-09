@@ -6,15 +6,24 @@
     <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/highcharts.js"></script>
+    <script src="js/dashboard/app.js"></script>
     <script src="js/dashboard/velocity_trend.js"></script>
+    <script src="js/dashboard/cycletime_trend.js"></script>
 </head>
-<body>
+<body ng-app='metriccharts'>
 
-<section ng-app='charts'>
-    <div ng-controller="VelocityTrendCtrl" style="width: 400px;">
-        <highchart chart='{{velocity_trend_chart}}'></highchart>
+<div>
+    <div style="float: left;">
+        <div ng-controller="CycleTimeTrendCtrl" style="width: 400px;">
+            <cyclehighchart chartc='{{cycletime_trend_chart}}'></cyclehighchart>
+        </div>
     </div>
-</section>
 
+    <div style="float: left;">
+        <div ng-controller="VelocityTrendCtrl" style="width: 400px;">
+            <highchart chart='{{velocity_trend_chart}}'></highchart>
+        </div>
+    </div>
+</div>
 </body>
 </html>
