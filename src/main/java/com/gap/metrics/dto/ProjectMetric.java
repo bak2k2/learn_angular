@@ -11,5 +11,6 @@ import java.util.List;
 @Document
 public class ProjectMetric {
     private List<Double> averageVelocities;
+    private List<Double> averageCycleTimes;
     private List<String> iterationNames;
 }

@@ -114,4 +114,35 @@ public class ProjectController {
         metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/project/averagecycletimes", method = RequestMethod.GET)
+    public ResponseEntity<?> averageCycleTimes(){
+        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<Iteration> iterations = iterationService.listIterations();
+        Collections.sort(iterations);
+        ProjectMetric metric = new ProjectMetric();
+        List<Double> averageCycleTime = new ArrayList<Double>();
+        List<String> iterationNames = new ArrayList<String>();
+        int numberOfProjects = 0;
+        double totalCycleTime = 0;
+
+        for(Iteration iteration : iterations){
+            numberOfProjects = 0;
+            totalCycleTime = 0;
+            for(ProjectIterationDetails details : projectIterationDetails){
+                if (details.getIterationId().equals(iteration.getId())){
+                    numberOfProjects++;
+                    totalCycleTime += details.getCycleTime();
+                }
+            }
+            if (numberOfProjects > 0){
+                averageCycleTime.add(totalCycleTime/numberOfProjects);
+                iterationNames.add(iteration.getIterationNumber());
+            }
+        }
+
+        metric.setAverageCycleTimes(averageCycleTime);
+        metric.setIterationNames(iterationNames);
+        return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
+    }
 }
