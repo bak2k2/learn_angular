@@ -1,5 +1,8 @@
 function get_empcont_chart() {
     return {
+        chart: {
+            type: 'area'
+        },
         title: {
             text: 'Employee Contractor Trend',
             x: -20 //center
@@ -7,24 +10,38 @@ function get_empcont_chart() {
         xAxis: {
             categories: []
         },
+        yAxis: {
+            title: {
+                text: 'Employees / Contractors'
+            }
+        },
         plotOptions: {
-            series: {
-                cursor: 'pointer',
-                point: {
-                    events: {
-                        click: function() {
-                            alert ('Category: '+ this.category +', value: '+ this.y);
-                        }
-                    }
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
                 }
             }
         },
 
         series: [{
+            fillColor: '#2288C0',
+            color: '#2288C0',
             name: 'Employees',
+            marker: {
+                enabled: false
+            },
             data: []
         }, {
+            fillColor: '#10425D',
+            color: '#10425D',
             name: 'Contractors',
+            marker: {
+                enabled: false
+            },
             data: []
         }]
     };

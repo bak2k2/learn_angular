@@ -7,6 +7,11 @@ function get_cycletime_chart() {
         xAxis: {
             categories: []
         },
+        yAxis: {
+            title: {
+                text: ''
+            }
+        },
         plotOptions: {
             series: {
                 cursor: 'pointer',

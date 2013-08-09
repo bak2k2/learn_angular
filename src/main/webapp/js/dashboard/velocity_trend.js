@@ -7,6 +7,11 @@ function get_velocity_chart() {
         xAxis: {
             categories: []
         },
+        yAxis: {
+            title: {
+                text: ''
+            }
+        },
         plotOptions: {
             series: {
                 cursor: 'pointer',
@@ -22,6 +27,8 @@ function get_velocity_chart() {
 
         series: [{
             name: 'Average Velocity',
+            color: '#D72726',
+            fillColor: 'D72726',
             data: []
         }]
     };
