@@ -1,6 +1,6 @@
 'use strict';
 
-var metricsModule = angular.module('metrics', ['ngResource']);
+var metricsModule = angular.module('metrics', ['ngResource', 'metrics.directives']);
 
 metricsModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
