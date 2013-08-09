@@ -1,8 +1,5 @@
 function get_chart() {
     return {
-        xAxis: {
-            categories: ['Jan', 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
         title: {
             text: 'Velocity Trend',
             x: -20 //center
@@ -45,6 +42,14 @@ app.directive('highchart', function () {
     }
 });
 
-function VelocityTrendCtrl($scope) {
-    $scope.velocity_trend_chart = get_chart();
+function VelocityTrendCtrl($scope, $http) {
+    chart = get_chart();
+    url = '/resources/project/8dfb0d41-2e89-474d-8017-a1d3e78adc9d/velocities';
+    $http({method: 'GET', url: url}).
+        success(function(data, status, headers, config) {
+            //chart.series[0].data = [10,23,14,11,5,21];
+            chart.series[0].data = data;
+            $scope.velocity_trend_chart = chart;
+
+        });
 }

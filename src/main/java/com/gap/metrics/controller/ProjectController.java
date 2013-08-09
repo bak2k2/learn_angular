@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -58,4 +59,13 @@ public class ProjectController {
         return new ResponseEntity<ProjectIterationDetails>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
     }
 
+    @RequestMapping(value ="/project/{projectId}/velocities", method = RequestMethod.GET)
+    public ResponseEntity<?> velocities(@PathVariable String projectId){
+        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails(projectId);
+        ArrayList<Double> velocities = new ArrayList<Double>();
+        for(ProjectIterationDetails details : projectIterationDetails){
+            velocities.add(details.getVelocity());
+        }
+        return new ResponseEntity<ArrayList<Double>>(velocities, HttpStatus.OK);
+    }
 }
