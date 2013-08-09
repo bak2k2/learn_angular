@@ -15,8 +15,8 @@ public class Iteration implements Comparable<Iteration>{
 
     private String iterationNumber;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
 
     @Override
     public int compareTo(Iteration iteration) {

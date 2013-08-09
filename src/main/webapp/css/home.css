@@ -164,3 +164,15 @@ h1
 .line_item {
     margin: 5px;
 }
+
+.ui-datepicker
+{
+    background-color: #ccc;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.ui-icon
+{
+    margin-left: 5px;
+}

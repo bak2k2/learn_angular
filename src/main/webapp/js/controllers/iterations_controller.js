@@ -1,5 +1,34 @@
 'use strict'
 
+metricsModule.directive('uiDate', function() {
+    return {
+        require: '?ngModel',
+        link: function($scope, element, attrs, controller) {
+            var originalRender, updateModel, usersOnSelectHandler;
+            if ($scope.uiDate == null) $scope.uiDate = {};
+            if (controller != null) {
+                updateModel = function(value, picker) {
+                    return $scope.$apply(function() {
+                        var dt = new Date(element.datepicker("getDate"));
+                        var formattedDate = dt.format("mm/dd/yyyy");
+                        return controller.$setViewValue(formattedDate);
+                    });
+                };
+                if ($scope.uiDate.onSelect != null) {
+                    usersOnSelectHandler = $scope.uiDate.onSelect;
+                    $scope.uiDate.onSelect = function(value, picker) {
+                        updateModel(value);
+                        return usersOnSelectHandler(value, picker);
+                    };
+                } else {
+                    $scope.uiDate.onSelect = updateModel;
+                }
+            }
+            return element.datepicker($scope.uiDate);
+        }
+    };
+});
+
 function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
 
     IterationsGateway.query(onQuery);
