@@ -15,6 +15,9 @@ function get_empcont_chart() {
                 text: 'Employees / Contractors'
             }
         },
+        credits: {
+            enabled: false
+        },
         plotOptions: {
             area: {
                 stacking: 'normal',
@@ -28,16 +31,16 @@ function get_empcont_chart() {
         },
 
         series: [{
-            fillColor: '#2288C0',
-            color: '#2288C0',
+            fillColor: Highcharts.getOptions().colors[2],
+            color: Highcharts.getOptions().colors[2],
             name: 'Employees',
             marker: {
                 enabled: false
             },
             data: []
         }, {
-            fillColor: '#10425D',
-            color: '#10425D',
+            fillColor: Highcharts.getOptions().colors[1],
+            color: Highcharts.getOptions().colors[1],
             name: 'Contractors',
             marker: {
                 enabled: false

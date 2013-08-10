@@ -12,6 +12,9 @@ function get_cycletime_chart() {
                 text: ''
             }
         },
+        credits: {
+            enabled: false
+        },
         plotOptions: {
             series: {
                 cursor: 'pointer',
