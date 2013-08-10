@@ -57,7 +57,9 @@ function get_onoffnear_chart() {
                 }
             }
         },
-
+        credits: {
+            enabled: false
+        },
         tooltip: {
             valueSuffix: '',
             followPointer: true
