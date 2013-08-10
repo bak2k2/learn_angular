@@ -1,0 +1,15 @@
+<div style="clear: left; padding-top: 10px;" ng-controller="DashboardCtrl">
+    <div class="metrictitle">Engagement</div>
+    <div>
+        <div ng-repeat="t in getTimes(engagement)">
+            <div class="metricrating">
+                <img src="images/red_dollar.png">
+            </div>
+        </div>
+        <div ng-repeat="t in getTimes(max - engagement)">
+            <div class="metricrating">
+                <img src="images/black_dollar.png">
+            </div>
+        </div>
+    </div>
+</div>
