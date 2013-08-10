@@ -20,4 +20,8 @@ public class ProjectIterationDetails{
     private double numberOfOffshoreRes;
     private double numberOfOnshoreRes;
     private double numberOfNearshoreRes;
+    private double commitment;
+    private double engagement;
+    private double perceivedValue;
+    private double respectTrust;
 }
