@@ -146,14 +146,14 @@ public class ProjectController {
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/project/averageemployeecontractors", method = RequestMethod.GET)
+    @RequestMapping(value = "/project/totalemployeecontractors", method = RequestMethod.GET)
     public ResponseEntity<?> averageEmployeesContractors(){
         List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
-        List<Double> averageEmployees = new ArrayList<Double>();
-        List<Double> averageContractors = new ArrayList<Double>();
+        List<Double> totalEmployeesList = new ArrayList<Double>();
+        List<Double> totalContractorsList = new ArrayList<Double>();
         List<String> iterationNames = new ArrayList<String>();
         int numberOfProjects = 0;
         double totalEmployees = 0;
@@ -171,14 +171,14 @@ public class ProjectController {
                 }
             }
             if (numberOfProjects > 0){
-                averageEmployees.add(totalEmployees/numberOfProjects);
-                averageContractors.add(totalContractors/numberOfProjects);
+                totalEmployeesList.add(totalEmployees);
+                totalContractorsList.add(totalContractors);
                 iterationNames.add(iteration.getIterationNumber());
             }
         }
 
-        metric.setAverageNoEmployees(averageEmployees);
-        metric.setAverageNoContractors(averageContractors);
+        metric.setTotalNoEmployees(totalEmployeesList);
+        metric.setTotalNoContractors(totalContractorsList);
         metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }

@@ -1,7 +1,8 @@
 function get_empcont_chart() {
     return {
         chart: {
-            type: 'area'
+            polar: true,
+            type: 'column'
         },
         title: {
             text: 'Employee - Contractor Trend',
@@ -68,11 +69,11 @@ app.directive('empconthighchart', function () {
 
 function EmpContTrendCtrl($scope, $http) {
     empcontchart = get_empcont_chart();
-    url = '/resources/project/averageemployeecontractors';
+    url = '/resources/project/totalemployeecontractors';
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
-            empcontchart.series[0].data = data.averageNoEmployees;
-            empcontchart.series[1].data = data.averageNoContractors;
+            empcontchart.series[0].data = data.totalNoEmployees;
+            empcontchart.series[1].data = data.totalNoContractors;
             empcontchart.xAxis.categories = data.iterationNames;
             $scope.empcont_trend_chart = empcontchart;
         });
