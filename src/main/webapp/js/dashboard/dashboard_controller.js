@@ -7,6 +7,8 @@ function DashboardCtrl($scope, $http){
         return new Array(n);
     };
 
+    $scope.max = 5;
+
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             $scope.commitment = data.commitment;
