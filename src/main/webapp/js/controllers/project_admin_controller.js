@@ -8,7 +8,11 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
     }
 
     $scope.save = function(){
-        ProjectGateway.save({id: $scope.project.id}, $scope.project, onSave);
+        if (typeof $scope.project != "undefined" && typeof $scope.project.projectName != "undefined" &&
+                !isEmpty($scope.project.projectName))
+            ProjectGateway.save({id: $scope.project.id}, $scope.project, onSave);
+        else
+            alert("Please enter a project name");
     }
 
     $scope.new = function(){

@@ -40,7 +40,11 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
     }
 
     $scope.save = function(){
-        IterationGateway.save({id: $scope.iteration.id}, $scope.iteration, onSave);
+        if (typeof $scope.iteration != "undefined" && typeof $scope.iteration.iterationNumber != "undefined" &&
+                !isEmpty($scope.iteration.iterationNumber))
+            IterationGateway.save({id: $scope.iteration.id}, $scope.iteration, onSave);
+        else
+            alert("Please enter an iteration #");
     }
 
     $scope.new = function(){

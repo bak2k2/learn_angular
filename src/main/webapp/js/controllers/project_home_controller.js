@@ -44,9 +44,12 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     }
 
     $scope.applyIterationChanges = function(){
-        ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
-            $scope.projectIterationDetails = projIterDetails;
-        });
+        if (typeof $scope.selectedIterationId == "string")
+            ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
+                $scope.projectIterationDetails = projIterDetails;
+            });
+        else
+            alert("Please select an iteration to apply changes");
     }
 
     function setProject(project){

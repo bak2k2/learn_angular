@@ -4,7 +4,7 @@ function get_empcont_chart() {
             type: 'area'
         },
         title: {
-            text: 'Employee Contractor Trend',
+            text: 'Employee - Contractor Trend',
             x: -20 //center
         },
         xAxis: {

@@ -1,7 +1,7 @@
 function get_cycletime_chart() {
     return {
         title: {
-            text: 'Cycle Time Trend',
+            text: 'Cycle-Time Trend',
             x: -20 //center
         },
         xAxis: {

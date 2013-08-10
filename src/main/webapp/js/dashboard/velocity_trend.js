@@ -1,7 +1,7 @@
 function get_velocity_chart() {
     return {
         title: {
-            text: 'Velocity Trend',
+            text: 'Velocity - Trend',
             x: -20 //center
         },
         xAxis: {
