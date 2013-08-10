@@ -192,6 +192,12 @@ h1
     text-align: right;
 }
 
+input[readonly], select[readonly], textarea[readonly] {
+    background-color: #ffffff;
+    cursor: hand;
+    cursor: pointer;
+}
+
 .ui-icon
 {
     margin-left: 5px;
