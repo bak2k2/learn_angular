@@ -50,4 +50,9 @@ public class IterationService {
         Query query = new Query(Criteria.where("_id").is(iterationId));
         mongoOperation.findAndRemove(query, Iteration.class);
     }
+
+    public Iteration findByIterationNumber(String iterationNumber){
+        Query query = new Query(Criteria.where("iterationNumber").is(iterationNumber));
+        return mongoOperation.findOne(query, Iteration.class, COLLECTION_NAME);
+    }
 }

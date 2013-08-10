@@ -10,6 +10,7 @@
     <script src="js/dashboard/velocity_trend.js"></script>
     <script src="js/dashboard/emp_cont_trend.js"></script>
     <script src="js/dashboard/cycletime_trend.js"></script>
+    <script src="js/dashboard/onoffnear_trend.js"></script>
 </head>
 <body ng-app='metriccharts'>
 
@@ -29,6 +30,12 @@
     <div style="float: left;">
         <div ng-controller="VelocityTrendCtrl" style="width: 350px;">
             <velocityhighchart velocitychart='{{velocity_trend_chart}}'></velocityhighchart>
+        </div>
+    </div>
+
+    <div style="float: left;">
+        <div ng-controller="OnOffNearTrendCtrl" style="width: 350px;">
+            <onoffnearhighchart onoffnearchart='{{onoffnear_trend_chart}}'></onoffnearhighchart>
         </div>
     </div>
 </div>

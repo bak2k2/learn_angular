@@ -17,4 +17,7 @@ public class ProjectIterationDetails{
     private double cycleTime;
     private double numberOfFTE;
     private double numberOfContractors;
+    private double numberOfOffshoreRes;
+    private double numberOfOnshoreRes;
+    private double numberOfNearshoreRes;
 }

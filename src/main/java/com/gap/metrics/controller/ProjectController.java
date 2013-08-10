@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.dto.OnOffNearshoreDetails;
 import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import com.gap.metrics.model.ProjectIterationDetails;
@@ -181,5 +182,32 @@ public class ProjectController {
         metric.setTotalNoContractors(totalContractorsList);
         metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/onoffnearshoredetails", method = RequestMethod.GET)
+    public ResponseEntity<?> onOffNearShoreDetails(){
+        List<Project> projects = projectService.listProjects();
+        List<String> projectNames = new ArrayList<String>();
+        List<Double> onShoreCount = new ArrayList<Double>();
+        List<Double> offShoreCount = new ArrayList<Double>();
+        List<Double> nearShoreCount = new ArrayList<Double>();
+        OnOffNearshoreDetails details = new OnOffNearshoreDetails();
+        for(Project project : projects){
+            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            if (iteration != null){
+                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                if (detail != null){
+                    projectNames.add(project.getProjectName());
+                    onShoreCount.add(detail.getNumberOfOnshoreRes());
+                    offShoreCount.add(detail.getNumberOfOffshoreRes());
+                    nearShoreCount.add(detail.getNumberOfNearshoreRes());
+                }
+            }
+        }
+        details.setProjectNames(projectNames);
+        details.setOnShoreCount(onShoreCount);
+        details.setOffShoreCount(offShoreCount);
+        details.setNearShoreCount(nearShoreCount);
+        return new ResponseEntity<OnOffNearshoreDetails>(details, HttpStatus.OK);
     }
 }
