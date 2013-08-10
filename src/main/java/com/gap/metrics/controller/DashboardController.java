@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.dto.HappinessMetric;
 import com.gap.metrics.dto.OnOffNearshoreDetails;
 import com.gap.metrics.dto.ProjectMetric;
 import com.gap.metrics.model.Iteration;
@@ -180,5 +181,35 @@ public class DashboardController {
         details.setOffShoreCount(offShoreCount);
         details.setNearShoreCount(nearShoreCount);
         return new ResponseEntity<OnOffNearshoreDetails>(details, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/happinessmetrics", method = RequestMethod.GET)
+    public ResponseEntity<?> happinessMetrics(){
+        List<Project> projects = projectService.listProjects();
+        HappinessMetric metric = new HappinessMetric();
+        double commitment = 0;
+        double engagement = 0;
+        double perceivedValue = 0;
+        double respectTrust = 0;
+        int numberOfProjects = 0;
+
+        for(Project project : projects){
+            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            if (iteration != null){
+                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                if (detail != null){
+                    numberOfProjects++;
+                    commitment += detail.getCommitment();
+                    engagement += detail.getEngagement();
+                    perceivedValue += detail.getPerceivedValue();
+                    respectTrust += detail.getRespectTrust();
+                }
+            }
+        }
+        metric.setCommitment(Math.ceil(commitment/numberOfProjects));
+        metric.setEngagement(Math.ceil(engagement/numberOfProjects));
+        metric.setPerceivedValue(Math.ceil(perceivedValue/numberOfProjects));
+        metric.setRespectTrust(Math.ceil(respectTrust/numberOfProjects));
+        return new ResponseEntity<HappinessMetric>(metric, HttpStatus.OK);
     }
 }
