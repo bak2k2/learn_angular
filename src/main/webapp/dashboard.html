@@ -14,6 +14,7 @@
     <script src="js/dashboard/emp_cont_trend.js"></script>
     <script src="js/dashboard/cycletime_trend.js"></script>
     <script src="js/dashboard/onoffnear_trend.js"></script>
+    <script src="js/dashboard/carryoverbk_trend.js"></script>
 </head>
 <body ng-app='metriccharts'>
 
@@ -42,12 +43,16 @@
         </div>
     </div>
 </div>
-<div style="padding-top: 10px; clear: left; width: 300px; height: 175px; border: 1px solid #8c8c8c;">
+<div style="float: left; clear: left; ">
+    <div ng-controller="CarryoverBlockerTrendCtrl" style="width: 300px; padding-left: 10px;">
+        <carryoverbkhighchart carryoverbkchart='{{carryoverbk_trend_chart}}'></carryoverbkhighchart>
+    </div>
+</div>
+<div style="margin-top: 30px; margin-right: 50px; width: 300px; height: 175px; border: 1px solid #8c8c8c; float:right">
     <div ng-include src="'partials/dashboard/perceivedValue.html'"></div>
     <div ng-include src="'partials/dashboard/engagement.html'"></div>
     <div ng-include src="'partials/dashboard/commitment.html'"></div>
     <div ng-include src="'partials/dashboard/respectTrust.html'"></div>
 </div>
-
 </body>
 </html>

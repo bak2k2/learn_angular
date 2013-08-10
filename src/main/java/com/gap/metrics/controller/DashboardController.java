@@ -247,6 +247,7 @@ public class DashboardController {
 
         metric.setCarryOvers(averageCarryOvers);
         metric.setBlockers(averageBlockers);
+        metric.setIterationNames(iterationNames);
         return new ResponseEntity<CarryoverBlockers>(metric, HttpStatus.OK);
     }
 }
