@@ -52,7 +52,9 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
     }
 
     $scope.delete = function(id){
-        IterationGateway.delete({id: id}, onDelete);
+        var confirmDelete = confirm("Are you sure you want to delete this iteration?");
+        if (confirmDelete)
+            IterationGateway.delete({id: id}, onDelete);
     }
 
     function onDelete(iteration){

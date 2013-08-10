@@ -20,7 +20,9 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
     }
 
     $scope.delete = function(id){
-        ProjectGateway.delete({id: id}, onDelete);
+        var confirmDelete = confirm("Are you sure you want to delete this project?");
+        if (confirmDelete)
+            ProjectGateway.delete({id: id}, onDelete);
     }
 
     function onDelete(project){
