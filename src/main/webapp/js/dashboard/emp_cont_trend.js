@@ -1,8 +1,7 @@
 function get_empcont_chart() {
     return {
         chart: {
-            polar: true,
-            type: 'column'
+            type: 'area'
         },
         title: {
             text: 'Employee - Contractor Trend',
@@ -20,6 +19,9 @@ function get_empcont_chart() {
             enabled: false
         },
         plotOptions: {
+            areaspline: {
+                fillOpacity: 0.5
+            },
             area: {
                 stacking: 'normal',
                 lineColor: '#666666',
