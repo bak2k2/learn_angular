@@ -24,4 +24,6 @@ public class ProjectIterationDetails{
     private double engagement;
     private double perceivedValue;
     private double respectTrust;
+    private double numberOfCarryOver;
+    private double numberOfBlockers;
 }

@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.dto.CarryoverBlockers;
 import com.gap.metrics.dto.HappinessMetric;
 import com.gap.metrics.dto.OnOffNearshoreDetails;
 import com.gap.metrics.dto.ProjectMetric;
@@ -211,5 +212,41 @@ public class DashboardController {
         metric.setPerceivedValue(Math.ceil(perceivedValue/numberOfProjects));
         metric.setRespectTrust(Math.ceil(respectTrust/numberOfProjects));
         return new ResponseEntity<HappinessMetric>(metric, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/carryoverblockers", method = RequestMethod.GET)
+    public ResponseEntity<?> carryoverBlockers(){
+        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<Iteration> iterations = iterationService.listIterations();
+        Collections.sort(iterations);
+        CarryoverBlockers metric = new CarryoverBlockers();
+        List<Double> averageCarryOvers = new ArrayList<Double>();
+        List<Double> averageBlockers = new ArrayList<Double>();
+        List<String> iterationNames = new ArrayList<String>();
+        int numberOfProjects = 0;
+        double totalCarryOvers = 0;
+        double totalBlockers = 0;
+
+        for(Iteration iteration : iterations){
+            numberOfProjects = 0;
+            totalCarryOvers = 0;
+            totalBlockers = 0;
+            for(ProjectIterationDetails details : projectIterationDetails){
+                if (details.getIterationId().equals(iteration.getId())){
+                    numberOfProjects++;
+                    totalCarryOvers += details.getNumberOfCarryOver();
+                    totalBlockers += details.getNumberOfBlockers();
+                }
+            }
+            if (numberOfProjects > 0){
+                averageCarryOvers.add(totalCarryOvers/numberOfProjects);
+                averageBlockers.add(totalBlockers/numberOfProjects);
+                iterationNames.add(iteration.getIterationNumber());
+            }
+        }
+
+        metric.setCarryOvers(averageCarryOvers);
+        metric.setBlockers(averageBlockers);
+        return new ResponseEntity<CarryoverBlockers>(metric, HttpStatus.OK);
     }
 }
