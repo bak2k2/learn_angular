@@ -251,8 +251,20 @@ public class DashboardController {
         WordList wordList = new WordList();
         List<WordCount> wordCountss = new ArrayList<WordCount>();
 
-        String str = "testing word cloud cloud does it work really testing testing testing.Project scope changes mid iteration is causing poor story/code quality" +
-                "Scope changes to stories in the middle of the iteration Well co-ordinated teamwork during deployments Scope changes to stories in the middle of the iteration";
+        String str = "";
+
+        List<Project> projects = projectService.listProjects();
+        for(Project project : projects){
+            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            if (iteration != null){
+                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                if (detail != null){
+                    str += detail.getRetroComments();
+                }
+            }
+        }
+
+
         String[] words = str.toLowerCase().split("[^\\p{L}]+");
         Map<String, Double> wordCounts = new HashMap<String, Double>();
 
