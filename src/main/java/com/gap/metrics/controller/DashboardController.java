@@ -1,9 +1,6 @@
 package com.gap.metrics.controller;
 
-import com.gap.metrics.dto.CarryoverBlockers;
-import com.gap.metrics.dto.HappinessMetric;
-import com.gap.metrics.dto.OnOffNearshoreDetails;
-import com.gap.metrics.dto.ProjectMetric;
+import com.gap.metrics.dto.*;
 import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import com.gap.metrics.model.ProjectIterationDetails;
@@ -249,5 +246,22 @@ public class DashboardController {
         metric.setBlockers(averageBlockers);
         metric.setIterationNames(iterationNames);
         return new ResponseEntity<CarryoverBlockers>(metric, HttpStatus.OK);
+    }
+
+    @RequestMapping( value = "/project/retro", method = RequestMethod.GET)
+    public ResponseEntity<?> retro(){
+        WordList wordList = new WordList();
+        List<WordCount> wordCounts = new ArrayList<WordCount>();
+        WordCount wc1 = new WordCount();
+        wc1.setText("Testing");
+        wc1.setWeight(30);
+        WordCount wc2 = new WordCount();
+        wc2.setText("Explore");
+        wc2.setWeight(10);
+        wordCounts.add(wc1);
+        wordCounts.add(wc2);
+        wordList.setWordCounts(wordCounts);
+
+        return new ResponseEntity<WordList>(wordList, HttpStatus.OK);
     }
 }
