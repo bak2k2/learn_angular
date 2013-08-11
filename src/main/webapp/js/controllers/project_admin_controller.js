@@ -26,11 +26,13 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
     }
 
     function onDelete(project){
+        alert("Project deleted successfully.");
         $scope.project = {};
         ProjectsGateway.query(onQuery);
     }
 
     function onSave(project){
+        alert("Project saved successfully.");
         $scope.project = project;
         ProjectsGateway.query(onQuery);
     }

@@ -46,6 +46,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     $scope.applyIterationChanges = function(){
         if (typeof $scope.selectedIterationId == "string")
             ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
+                alert("Iteration changes saved successfully.");
                 $scope.projectIterationDetails = projIterDetails;
             });
         else
@@ -59,6 +60,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     }
 
     function onSave(project){
+        alert("Project saved successfully.");
         setProject(project);
         setEditMode(false);
         $scope.$broadcast('metricsApp.projectSaved');
