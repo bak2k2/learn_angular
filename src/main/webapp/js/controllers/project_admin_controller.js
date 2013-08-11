@@ -1,4 +1,4 @@
-function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
+function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway, MyErrorService) {
     ProjectsGateway.query(onQuery);
 
     $scope.select = function(id){
@@ -11,8 +11,9 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
         if (typeof $scope.project != "undefined" && typeof $scope.project.projectName != "undefined" &&
                 !isEmpty($scope.project.projectName))
             ProjectGateway.save({id: $scope.project.id}, $scope.project, onSave);
-        else
-            alert("Please enter a project name");
+        else{
+            MyErrorService.broadCastMessage(msgTypes().failure, "Please enter a project name.");
+        }
     }
 
     $scope.new = function(){
@@ -26,13 +27,13 @@ function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway) {
     }
 
     function onDelete(project){
-        alert("Project deleted successfully.");
+        MyErrorService.broadCastMessage(msgTypes().success, "Project deleted successfully.");
         $scope.project = {};
         ProjectsGateway.query(onQuery);
     }
 
     function onSave(project){
-        alert("Project saved successfully.");
+        MyErrorService.broadCastMessage(msgTypes().success, "Project saved successfully.");
         $scope.project = project;
         ProjectsGateway.query(onQuery);
     }

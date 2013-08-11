@@ -29,7 +29,7 @@ metricsModule.directive('uiDate', function() {
     };
 });
 
-function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
+function IterationsCtrl($scope, IterationGateway, IterationsGateway, MyErrorService) {
 
     IterationsGateway.query(onQuery);
 
@@ -44,7 +44,7 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
                 !isEmpty($scope.iteration.iterationNumber))
             IterationGateway.save({id: $scope.iteration.id}, $scope.iteration, onSave);
         else
-            alert("Please enter an iteration #");
+            MyErrorService.broadCastMessage(msgTypes().failure, "Please enter an iteration #.");
     }
 
     $scope.new = function(){
@@ -58,11 +58,13 @@ function IterationsCtrl($scope, IterationGateway, IterationsGateway) {
     }
 
     function onDelete(iteration){
+        MyErrorService.broadCastMessage(msgTypes().success, "Iteration deleted successfully.");
         $scope.iteration = {};
         IterationsGateway.query(onQuery);
     }
 
     function onSave(iteration){
+        MyErrorService.broadCastMessage(msgTypes().success, "Iteration saved successfully.");
         $scope.iteration = iteration;
         IterationsGateway.query(onQuery);
     }

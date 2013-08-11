@@ -12,6 +12,7 @@
     <script src="lib/date.format.js"></script>
     <script src="lib/msg-box.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/services/error_service.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/services/project_services.js"></script>
     <script src="js/services/iteration_services.js"></script>
@@ -20,10 +21,15 @@
     <script src="js/controllers/project_home_controller.js"></script>
     <script src="js/controllers/admin_controller.js"></script>
     <script src="js/controllers/iterations_controller.js"></script>
+    <script src="js/controllers/home_controller.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
 </head>
 <body ng-app="metrics">
-<div>
+<div ng-controller="HomeCtrl">
+    <div class="error_display" id="error_control" style="display: none"><span id="error_message"></span></div>
+    <div class="success_display" id="success_control" style="display: none"><span id="success_message"></span></div>
+</div>
+<div style="clear: left">
     <div style="float: left; width: 100px; height: 100px; margin-bottom: 3px;">
         <img src="images/red-pulse.jpg">
     </div>

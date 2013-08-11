@@ -131,6 +131,34 @@ h1
     width: 70%;
 }
 
+.success_display
+{
+    vertical-align: middle;
+    text-align: center;
+    background-color: #E6F2FF;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    left: 35%;
+    color: #274b6d;
+}
+
+.error_display
+{
+    vertical-align: middle;
+    text-align: center;
+    background-color: #FFD4CD;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    left: 35%;
+    color: #274b6d;
+}
+
 .red_button {
     border-top: 1px solid #f797ca;
     background: #d6656e;

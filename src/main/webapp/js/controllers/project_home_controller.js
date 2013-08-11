@@ -1,6 +1,6 @@
 'use strict'
 
-function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, ProjectIterationGateway) {
+function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, ProjectIterationGateway, MyErrorService) {
     $scope.editMode = false;
     $scope.selectedIterationId = {};
 
@@ -50,7 +50,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
                 $scope.projectIterationDetails = projIterDetails;
             });
         else
-            alert("Please select an iteration to apply changes");
+            MyErrorService.broadCastMessage(msgTypes().failure, "Please select an iteration.");
     }
 
     function setProject(project){
@@ -60,7 +60,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     }
 
     function onSave(project){
-        alert("Project saved successfully.");
+        MyErrorService.broadCastMessage(msgTypes().success, "Project saved successfully.");
         setProject(project);
         setEditMode(false);
         $scope.$broadcast('metricsApp.projectSaved');

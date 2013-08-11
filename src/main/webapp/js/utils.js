@@ -24,3 +24,10 @@ function isEmptyObject(obj) {
     }
     return true;
 }
+
+function msgTypes(){
+    return {
+        success: "Success",
+        failure: "Failure"
+    }
+}
