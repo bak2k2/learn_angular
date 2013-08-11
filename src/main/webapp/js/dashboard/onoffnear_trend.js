@@ -1,15 +1,15 @@
 function get_onoffnear_chart() {
     return {
         series: [{
-            name: 'os',
+            name: 'onshore',
             data: []
             },
             {
-                name: 'ns',
+                name: 'nearshore',
                 data: []
             },
             {
-                name: 'off',
+                name: 'offshore',
                 data: []
             }
         ],

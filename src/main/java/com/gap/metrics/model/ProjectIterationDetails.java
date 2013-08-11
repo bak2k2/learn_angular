@@ -26,4 +26,5 @@ public class ProjectIterationDetails{
     private double respectTrust;
     private double numberOfCarryOver;
     private double numberOfBlockers;
+    private String retroComments;
 }
