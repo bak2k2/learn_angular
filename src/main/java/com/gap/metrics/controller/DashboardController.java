@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class DashboardController {
@@ -251,16 +249,31 @@ public class DashboardController {
     @RequestMapping( value = "/project/retro", method = RequestMethod.GET)
     public ResponseEntity<?> retro(){
         WordList wordList = new WordList();
-        List<WordCount> wordCounts = new ArrayList<WordCount>();
-        WordCount wc1 = new WordCount();
-        wc1.setText("Testing");
-        wc1.setWeight(30);
-        WordCount wc2 = new WordCount();
-        wc2.setText("Explore");
-        wc2.setWeight(10);
-        wordCounts.add(wc1);
-        wordCounts.add(wc2);
-        wordList.setWordCounts(wordCounts);
+        List<WordCount> wordCountss = new ArrayList<WordCount>();
+
+        String str = "testing word cloud cloud does it work really testing testing testing.";
+        String[] words = str.toLowerCase().split("[^\\p{L}]+");
+        Map<String, Double> wordCounts = new HashMap<String, Double>();
+
+        for (String word : words) {
+            Double count = wordCounts.get(word);
+            if (count == null) {
+                count = 0.0;
+            }
+            if (word.length() > 3)
+                wordCounts.put(word, count + 1);
+        }
+
+        Iterator iterator = wordCounts.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry pairs = (Map.Entry)iterator.next();
+            WordCount wc = new WordCount();
+            wc.setText(pairs.getKey().toString());
+            wc.setWeight((Double)pairs.getValue());
+            wordCountss.add(wc);
+        }
+
+        wordList.setWordCounts(wordCountss);
 
         return new ResponseEntity<WordList>(wordList, HttpStatus.OK);
     }
