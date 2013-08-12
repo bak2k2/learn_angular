@@ -46,7 +46,7 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     $scope.applyIterationChanges = function(){
         if (typeof $scope.selectedIterationId == "string")
             ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
-                alert("Iteration changes saved successfully.");
+                MyErrorService.broadCastMessage(msgTypes().success, "Iteration details saved successfully.");
                 $scope.projectIterationDetails = projIterDetails;
             });
         else
