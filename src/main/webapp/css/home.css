@@ -143,7 +143,7 @@ h1
     border-bottom-right-radius: 30px;
     width: 400px;
     height: 30px;
-    position: absolute;
+    position: fixed;
     left: 35%;
     color: #274b6d;
 }
@@ -160,7 +160,7 @@ h1
     border-bottom-right-radius: 30px;
     width: 400px;
     height: 30px;
-    position: absolute;
+    position: fixed;
     left: 35%;
     color: #274b6d;
 }
