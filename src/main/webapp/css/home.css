@@ -136,6 +136,9 @@ h1
     vertical-align: middle;
     text-align: center;
     background-color: #E6F2FF;
+    border-bottom: 1px solid #242F5A;
+    border-right: 1px solid #242F5A;
+    border-left: 1px solid #242F5A;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 400px;
@@ -150,6 +153,9 @@ h1
     vertical-align: middle;
     text-align: center;
     background-color: #FFD4CD;
+    border-bottom: 1px solid #FF2135;
+    border-right: 1px solid #FF2135;
+    border-left: 1px solid #FF2135;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 400px;
