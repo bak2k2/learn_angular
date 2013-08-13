@@ -72,7 +72,7 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                metric.getAverageVelocities().add(totalVelocity/numberOfProjects);
+                metric.getAverageVelocities().add(totalVelocity / numberOfProjects);
                 metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
@@ -99,7 +99,7 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                metric.getAverageCycleTimes().add(totalCycleTime/numberOfProjects);
+                metric.getAverageCycleTimes().add(totalCycleTime / numberOfProjects);
                 metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
@@ -209,8 +209,8 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                metric.getCarryOvers().add(totalCarryOvers/numberOfProjects);
-                metric.getBlockers().add(totalBlockers/numberOfProjects);
+                metric.getCarryOvers().add(totalCarryOvers / numberOfProjects);
+                metric.getBlockers().add(totalBlockers / numberOfProjects);
                 metric.getIterationName().add(iteration.getIterationNumber());
             }
         }
@@ -221,22 +221,24 @@ public class DashboardController {
     @RequestMapping( value = "/project/retro", method = RequestMethod.GET)
     public ResponseEntity<?> retro(){
         WordList wordList = new WordList();
-        List<WordCount> wordCountss = new ArrayList<WordCount>();
+        String retroComments = getRetroComments(projectService.listProjects());
+        Map<String, Double> wordCounts = getWordCountsMap(retroComments);
+        wordList.setWordCounts(getWordCounts(wordCounts));
+        return new ResponseEntity<WordList>(wordList, HttpStatus.OK);
+    }
 
-        String str = "";
-
-        List<Project> projects = projectService.listProjects();
-        for(Project project : projects){
-            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
-            if (iteration != null){
-                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-                if (detail != null){
-                    str += detail.getRetroComments();
-                }
-            }
+    private List<WordCount> getWordCounts(Map<String, Double> wordCountMap) {
+        List<WordCount> wordCounts = new ArrayList<WordCount>();
+        Iterator iterator = wordCountMap.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry pairs = (Map.Entry)iterator.next();
+            WordCount wc = new WordCount(pairs.getKey().toString(), (Double)pairs.getValue());
+            wordCounts.add(wc);
         }
+        return wordCounts;
+    }
 
-
+    private Map<String, Double> getWordCountsMap(String str) {
         String[] words = str.toLowerCase().split("[^\\p{L}]+");
         Map<String, Double> wordCounts = new HashMap<String, Double>();
 
@@ -248,18 +250,20 @@ public class DashboardController {
             if (word.length() > 3)
                 wordCounts.put(word, count + 1);
         }
+        return wordCounts;
+    }
 
-        Iterator iterator = wordCounts.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry pairs = (Map.Entry)iterator.next();
-            WordCount wc = new WordCount();
-            wc.setText(pairs.getKey().toString());
-            wc.setWeight((Double)pairs.getValue());
-            wordCountss.add(wc);
+    private String getRetroComments(List<Project> projects) {
+        String retroComments = "";
+        for(Project project : projects){
+            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            if (iteration != null){
+                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                if (detail != null){
+                    retroComments += detail.getRetroComments();
+                }
+            }
         }
-
-        wordList.setWordCounts(wordCountss);
-
-        return new ResponseEntity<WordList>(wordList, HttpStatus.OK);
+        return retroComments;
     }
 }

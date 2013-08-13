@@ -10,4 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class WordCount {
     private String text = "";
     private double weight = 0;
+
+    public WordCount(String text, double weight){
+        this.text = text;
+        this.weight = weight;
+    }
 }
