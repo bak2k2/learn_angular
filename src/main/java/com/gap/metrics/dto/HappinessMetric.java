@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Document
 public class HappinessMetric {
-    private double commitment;
-    private double engagement;
-    private double perceivedValue;
-    private double respectTrust;
+    private double commitment = 0;
+    private double engagement = 0;
+    private double perceivedValue = 0;
+    private double respectTrust = 0;
 }

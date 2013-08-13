@@ -59,8 +59,6 @@ public class DashboardController {
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
-        List<Double> averageVelocities = new ArrayList<Double>();
-        List<String> iterationNames = new ArrayList<String>();
         int numberOfProjects = 0;
         double totalVelocity = 0;
 
@@ -74,13 +72,11 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                averageVelocities.add(totalVelocity/numberOfProjects);
-                iterationNames.add(iteration.getIterationNumber());
+                metric.getAverageVelocities().add(totalVelocity/numberOfProjects);
+                metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
 
-        metric.setAverageVelocities(averageVelocities);
-        metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
 
@@ -90,8 +86,6 @@ public class DashboardController {
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
-        List<Double> averageCycleTime = new ArrayList<Double>();
-        List<String> iterationNames = new ArrayList<String>();
         int numberOfProjects = 0;
         double totalCycleTime = 0;
 
@@ -105,13 +99,11 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                averageCycleTime.add(totalCycleTime/numberOfProjects);
-                iterationNames.add(iteration.getIterationNumber());
+                metric.getAverageCycleTimes().add(totalCycleTime/numberOfProjects);
+                metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
 
-        metric.setAverageCycleTimes(averageCycleTime);
-        metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
 
@@ -121,9 +113,6 @@ public class DashboardController {
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
-        List<Double> totalEmployeesList = new ArrayList<Double>();
-        List<Double> totalContractorsList = new ArrayList<Double>();
-        List<String> iterationNames = new ArrayList<String>();
         int numberOfProjects = 0;
         double totalEmployees = 0;
         double totalContractors = 0;
@@ -140,42 +129,31 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                totalEmployeesList.add(totalEmployees);
-                totalContractorsList.add(totalContractors);
-                iterationNames.add(iteration.getIterationNumber());
+                metric.getTotalNoEmployees().add(totalEmployees);
+                metric.getTotalNoContractors().add(totalContractors);
+                metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
 
-        metric.setTotalNoEmployees(totalEmployeesList);
-        metric.setTotalNoContractors(totalContractorsList);
-        metric.setIterationNames(iterationNames);
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/project/onoffnearshoredetails", method = RequestMethod.GET)
     public ResponseEntity<?> onOffNearShoreDetails(){
         List<Project> projects = projectService.listProjects();
-        List<String> projectNames = new ArrayList<String>();
-        List<Double> onShoreCount = new ArrayList<Double>();
-        List<Double> offShoreCount = new ArrayList<Double>();
-        List<Double> nearShoreCount = new ArrayList<Double>();
         OnOffNearshoreDetails details = new OnOffNearshoreDetails();
         for(Project project : projects){
             Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
-                    projectNames.add(project.getProjectName());
-                    onShoreCount.add(detail.getNumberOfOnshoreRes());
-                    offShoreCount.add(detail.getNumberOfOffshoreRes());
-                    nearShoreCount.add(detail.getNumberOfNearshoreRes());
+                    details.getProjectNames().add(project.getProjectName());
+                    details.getOnShoreCount().add(detail.getNumberOfOnshoreRes());
+                    details.getOffShoreCount().add(detail.getNumberOfOffshoreRes());
+                    details.getNearShoreCount().add(detail.getNumberOfNearshoreRes());
                 }
             }
         }
-        details.setProjectNames(projectNames);
-        details.setOnShoreCount(onShoreCount);
-        details.setOffShoreCount(offShoreCount);
-        details.setNearShoreCount(nearShoreCount);
         return new ResponseEntity<OnOffNearshoreDetails>(details, HttpStatus.OK);
     }
 
@@ -215,9 +193,6 @@ public class DashboardController {
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         CarryoverBlockers metric = new CarryoverBlockers();
-        List<Double> averageCarryOvers = new ArrayList<Double>();
-        List<Double> averageBlockers = new ArrayList<Double>();
-        List<String> iterationNames = new ArrayList<String>();
         int numberOfProjects = 0;
         double totalCarryOvers = 0;
         double totalBlockers = 0;
@@ -234,15 +209,12 @@ public class DashboardController {
                 }
             }
             if (numberOfProjects > 0){
-                averageCarryOvers.add(totalCarryOvers/numberOfProjects);
-                averageBlockers.add(totalBlockers/numberOfProjects);
-                iterationNames.add(iteration.getIterationNumber());
+                metric.getCarryOvers().add(totalCarryOvers/numberOfProjects);
+                metric.getBlockers().add(totalBlockers/numberOfProjects);
+                metric.getIterationName().add(iteration.getIterationNumber());
             }
         }
 
-        metric.setCarryOvers(averageCarryOvers);
-        metric.setBlockers(averageBlockers);
-        metric.setIterationNames(iterationNames);
         return new ResponseEntity<CarryoverBlockers>(metric, HttpStatus.OK);
     }
 

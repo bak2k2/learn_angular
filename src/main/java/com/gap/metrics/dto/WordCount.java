@@ -8,6 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Document
 public class WordCount {
-    private String text;
-    private double weight;
+    private String text = "";
+    private double weight = 0;
 }
