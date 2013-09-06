@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <LINK REL="SHORTCUT ICON" HREF="images/red-pulse.jpg" />
+    <link rel="stylesheet" media="all" href="css/bootstrap-combined.no-icons.min.css" />
+    <link rel="stylesheet" media="all" href="css/ui-tabs.css" />
+    <link rel="stylesheet" media="all" href="css/home.css" />
+    <link rel="stylesheet" media="all" href="css/dashboard.css" />
+    <script src="lib/jquery-1.9.1.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/date.format.js"></script>
+    <script src="lib/msg-box.js"></script>
+    <script src="js/services/error_service.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/services/project_services.js"></script>
+    <script src="js/services/iteration_services.js"></script>
+    <script src="js/services/project_iteration_services.js"></script>
+    <script src="js/controllers/project_admin_controller.js"></script>
+    <script src="js/controllers/project_home_controller.js"></script>
+    <script src="js/controllers/admin_controller.js"></script>
+    <script src="js/controllers/iterations_controller.js"></script>
+    <script src="js/controllers/home_controller.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+</head>
+<body ng-app='metrics'>
+<div ng-controller="HomeCtrl">
+    <div class="error_display" id="error_control" style="display: none"><span id="error_message"></span></div>
+    <div class="success_display" id="success_control" style="display: none"><span id="success_message"></span></div>
+</div>
+<div ng-include src="'title.html'"></div>
+<div class="ui-tabs" style="clear: left;">
+    <ul class="ui-tabs-nav">
+        <li><a id="dashboard-link" href="dash.html">Dashboard</a></li>
+        <li class="ui-tabs-selected"><a id="projects-link" href="projects.html">Projects</a></li>
+        <li><a  id="admin-link" href="admin.html#/admin">Admin</a></li>
+    </ul>
+    <div id="projects" class="ui-tabs-panel">
+            <div ng-include src="'partials/project/home.html'"></div>
+    </div>
+</div>
+</body>
+</html>

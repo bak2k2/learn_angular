@@ -37,7 +37,7 @@ function get_velocity_chart() {
     };
 }
 
-app.directive('velocityhighchart', function () {
+metricsModule.directive('velocityhighchart', function () {
     return {
         restrict: 'E',
         template: '<div></div>',

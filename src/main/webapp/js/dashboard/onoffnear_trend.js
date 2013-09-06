@@ -76,7 +76,7 @@ function get_onoffnear_chart() {
     };
 }
 
-app.directive('onoffnearhighchart', function () {
+metricsModule.directive('onoffnearhighchart', function () {
     return {
         restrict: 'E',
         template: '<div></div>',

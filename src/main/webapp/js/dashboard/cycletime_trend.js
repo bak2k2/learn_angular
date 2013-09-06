@@ -35,7 +35,7 @@ function get_cycletime_chart() {
     };
 }
 
-app.directive('cyclehighchart', function () {
+metricsModule.directive('cyclehighchart', function () {
     return {
         restrict: 'E',
         template: '<div></div>',

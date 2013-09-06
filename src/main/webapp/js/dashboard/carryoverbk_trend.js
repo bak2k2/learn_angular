@@ -53,7 +53,7 @@ function get_carryoverbk_chart() {
     };
 }
 
-app.directive('carryoverbkhighchart', function () {
+metricsModule.directive('carryoverbkhighchart', function () {
     return {
         restrict: 'E',
         template: '<div></div>',

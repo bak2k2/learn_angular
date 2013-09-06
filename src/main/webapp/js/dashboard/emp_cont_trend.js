@@ -53,7 +53,7 @@ function get_empcont_chart() {
     };
 }
 
-app.directive('empconthighchart', function () {
+metricsModule.directive('empconthighchart', function () {
     return {
         restrict: 'E',
         template: '<div></div>',
