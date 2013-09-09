@@ -1,0 +1,41 @@
+<div id="dashboard">
+    <div>
+        <div style="float: left;">
+            <div ng-controller="CycleTimeTrendCtrl" style="width: 300px;">
+                <cyclehighchart cyclechart='{{cycletime_trend_chart}}'></cyclehighchart>
+            </div>
+        </div>
+
+        <div style="float: left;">
+            <div ng-controller="EmpContTrendCtrl" style="width: 300px;">
+                <empconthighchart empcontchart='{{empcont_trend_chart}}'></empconthighchart>
+            </div>
+        </div>
+
+        <div style="float: left;">
+            <div ng-controller="VelocityTrendCtrl" style="width: 300px;">
+                <velocityhighchart velocitychart='{{velocity_trend_chart}}'></velocityhighchart>
+            </div>
+        </div>
+
+        <div style="float: left;">
+            <div ng-controller="OnOffNearTrendCtrl" style="width: 390px; padding-left: 10px;">
+                <onoffnearhighchart onoffnearchart='{{onoffnear_trend_chart}}'></onoffnearhighchart>
+            </div>
+        </div>
+    </div>
+    <div style="float: left; clear: left; ">
+        <div ng-controller="CarryoverBlockerTrendCtrl" style="width: 300px; padding-left: 10px;">
+            <carryoverbkhighchart carryoverbkchart='{{carryoverbk_trend_chart}}'></carryoverbkhighchart>
+        </div>
+    </div>
+    <div ng-controller="WordcloudTrendCtrl" style="float: left;">
+        <div id="wordclouddiv" style="margin-left: 20px; margin-top: 30px; width: 670px; height: 350px; delayedMode: false; border: 1px solid #ccc;"></div>
+    </div>
+    <div style="margin-top: 30px; margin-right: 10px; width: 300px; height: 175px; border: 1px solid #8c8c8c; float:right">
+        <div ng-include src="'partials/dashboard/perceivedValue.html'"></div>
+        <div ng-include src="'partials/dashboard/engagement.html'"></div>
+        <div ng-include src="'partials/dashboard/commitment.html'"></div>
+        <div ng-include src="'partials/dashboard/respectTrust.html'"></div>
+    </div>
+</div>
