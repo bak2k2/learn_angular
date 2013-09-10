@@ -43,49 +43,49 @@
     <script src="lib/angular/angular-resource.js"></script>
 </head>
 <body ng-app='metrics'>
-<div ng-controller="HomeCtrl">
-    <div class="error_display" id="error_control" style="display: none"><span id="error_message"></span></div>
-    <div class="success_display" id="success_control" style="display: none"><span id="success_message"></span></div>
-</div>
-<div ng-include src="'title.html'"></div>
-<div id="tabs" class="ui-tabs" style="clear: left;">
-    <ul class="ui-tabs-nav">
-        <li id="dashboard-link" ><a href="#dashboard">Dashboard</a></li>
-        <li id="projects-link"><a href="#projects">Projects</a></li>
-        <li id="admin-link"><a href="#admin">Admin</a></li>
-    </ul>
-    <div class="ui-tabs-panel">
-        <div ng-view></div>
+    <div ng-controller="HomeCtrl">
+        <div class="error_display" id="error_control" style="display: none"><span id="error_message"></span></div>
+        <div class="success_display" id="success_control" style="display: none"><span id="success_message"></span></div>
     </div>
-</div>
-<script>
-    function clear(){
-        $("#dashboard-link").removeClass('ui-tabs-selected');
-        $("#projects-link").removeClass('ui-tabs-selected');
-        $("#admin-link").removeClass('ui-tabs-selected');
-    }
+    <div ng-include src="'title.html'"></div>
+    <div id="tabs" class="ui-tabs" style="clear: left;">
+        <ul class="ui-tabs-nav">
+            <li id="dashboard-link" ><a href="#dashboard">Dashboard</a></li>
+            <li id="projects-link"><a href="#projects">Projects</a></li>
+            <li id="admin-link"><a href="#admin">Admin</a></li>
+        </ul>
+        <div class="ui-tabs-panel">
+            <div ng-view></div>
+        </div>
+    </div>
+    <script>
+        function clear(){
+            $("#dashboard-link").removeClass('ui-tabs-selected');
+            $("#projects-link").removeClass('ui-tabs-selected');
+            $("#admin-link").removeClass('ui-tabs-selected');
+        }
 
-    function setClass(elementId){
-        clear();
-        $(elementId).addClass('ui-tabs-selected');
-    }
+        function setClass(elementId){
+            clear();
+            $(elementId).addClass('ui-tabs-selected');
+        }
 
-    function setClickForTabs(elementId){
-        $(elementId).click(function(){
-            setClass(elementId);
+        function setClickForTabs(elementId){
+            $(elementId).click(function(){
+                setClass(elementId);
+            });
+        }
+
+        $(document).ready(function() {
+            setClickForTabs("#dashboard-link");
+            setClickForTabs("#projects-link");
+            setClickForTabs("#admin-link");
+            setClass("#dashboard-link");
+            $("#dashboard-link").click(function(){
+                window.location.href = "/home.html#/dashboard";
+                window.location.reload(true);
+            });
         });
-    }
-
-    $(document).ready(function() {
-        setClickForTabs("#dashboard-link");
-        setClickForTabs("#projects-link");
-        setClickForTabs("#admin-link");
-        setClass("#dashboard-link");
-        $("#dashboard-link").click(function(){
-            window.location.href = "/home.html#/dashboard";
-            window.location.reload(true);
-        });
-    });
-</script>
+    </script>
 </body>
 </html>

@@ -4,8 +4,6 @@ function WordcloudTrendCtrl($scope, $http) {
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             wordlist = data.wordCounts;
-//            $(document).ready(function () {
                 $("#wordclouddiv").jQCloud(wordlist);
-//            });
         });
 }
