@@ -1,6 +1,6 @@
 'use strict';
 
-var metricsModule = angular.module('metrics', ['ngResource']);
+var metricsModule = angular.module('metrics', ['ngResource', 'restangular']);
 
 metricsModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
@@ -12,3 +12,7 @@ metricsModule.config(['$routeProvider', function($routeProvider) {
         when('/projects', {templateUrl: 'partials/project/home.html',   controller: ProjectHomeCtrl}).
         otherwise({redirectTo: '/dashboard'});
 }]);
+
+metricsModule.config(function(RestangularProvider) {
+    RestangularProvider.setBaseUrl('/resources');
+});

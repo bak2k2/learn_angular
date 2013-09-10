@@ -1,47 +1,61 @@
-function ProjectAdminCtrl($scope, ProjectGateway, ProjectsGateway, MyErrorService) {
-    ProjectsGateway.query(onQuery);
+function ProjectAdminCtrl($scope, Restangular, MyErrorService) {
+    var projects = Restangular.all('projects');
+    projects.getList().then(onQuery);
+    var isNewProject = false;
 
     $scope.select = function(id){
-        var resp = ProjectGateway.get({id: id}, function(project){
-            $scope.project = project;
-        });
+        Restangular.one('projects', id).get().then(function(project){ $scope.project = project; });
     }
 
     $scope.save = function(){
-        if (typeof $scope.project != "undefined" && typeof $scope.project.projectName != "undefined" &&
-                !isEmpty($scope.project.projectName))
-            ProjectGateway.save({id: $scope.project.id}, $scope.project, onSave);
-        else{
+        if (projectDetailsAreValid())
+            saveOrCreate();
+        else
             MyErrorService.broadCastMessage(msgTypes().failure, "Please enter a project name.");
-        }
     }
 
     $scope.new = function(){
         $scope.project = {};
+        isNewProject = true;
     }
 
     $scope.delete = function(id){
         var confirmDelete = confirm("Are you sure you want to delete this project?");
         if (confirmDelete)
-            ProjectGateway.delete({id: id}, onDelete);
+            Restangular.one('projects', id).remove().then(onDelete);
     }
 
-    function onDelete(project){
+    function projectDetailsAreValid(){
+        return typeof $scope.project != "undefined" &&
+               typeof $scope.project.projectName != "undefined" &&
+               !isEmpty($scope.project.projectName);
+    }
+
+    function saveOrCreate() {
+        if (isNewProject)
+            projects.post($scope.project).then(onSave);
+        else
+            $scope.project.put().then(onSave)
+    }
+
+    function onDelete(){
         MyErrorService.broadCastMessage(msgTypes().success, "Project deleted successfully.");
         $scope.project = {};
-        ProjectsGateway.query(onQuery);
+        isNewProject = true;
+        projects.getList().then(onQuery);
     }
 
-    function onSave(project){
+    function onSave(){
         MyErrorService.broadCastMessage(msgTypes().success, "Project saved successfully.");
-        $scope.project = project;
-        ProjectsGateway.query(onQuery);
+        isNewProject = false;
+        projects.getList().then(onQuery);
     }
 
     function onQuery(projects){
         $scope.projects = projects.sort(projectComparator);
         if (projects.length == 0){
             $scope.project = {};
+            isNewProject = true;
         }
     }
 }
