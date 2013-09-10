@@ -1,16 +1,16 @@
 'use strict'
 
-function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGateway, ProjectIterationGateway, MyErrorService) {
+function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
     $scope.editMode = false;
-    $scope.selectedIterationId = {};
-
+    $scope.selectedIterationId;
+    $scope.originalIterationId;
     $scope.iterations = {};
 
-    IterationsGateway.query(function(iterations){
+    Restangular.all('iterations').getList().then(function(iterations){
         $scope.iterations = iterations.sort(iterationComparator);
     });
 
-    ProjectsGateway.query(function(projects){
+    Restangular.all('projects').getList().then(function(projects){
         $scope.projects = projects.sort(projectComparator);
         if (projects.length > 0){
             $scope.select(projects[0].id);
@@ -18,61 +18,54 @@ function ProjectHomeCtrl($scope, ProjectGateway, ProjectsGateway, IterationsGate
     });
 
     $scope.selectIteration = function(){
-        ProjectIterationGateway.get({projectId: $scope.project.id, iterationId: $scope.selectedIterationId},
+        Restangular.one('project', $scope.project.id).one('iteration', $scope.selectedIterationId).get().then(
             function(projIterationDetails){
                 $scope.projectIterationDetails = projIterationDetails;
             });
     }
 
     $scope.select = function(id){
-        var resp = ProjectGateway.get({id: id}, function(project){
+        Restangular.one('projects', id).get().then(function(project){
             setProject(project);
-            setEditMode(false);
+            $scope.editMode = false;
         });
     }
 
     $scope.edit = function(){
-        setEditMode(true);
+        $scope.editMode = true;
     }
 
     $scope.cancel = function(){
-        setEditMode(false);
+        $scope.editMode = false;
+        $scope.project.iterationId = $scope.originalIterationId;
     }
 
     $scope.save = function(){
-        ProjectGateway.save({id: $scope.editable_project.id}, $scope.editable_project, onSave);
+        $scope.project.put().then(onSave);
     }
 
     $scope.applyIterationChanges = function(){
         if (typeof $scope.selectedIterationId == "string")
-            ProjectIterationGateway.save({projectId: $scope.project.id, iterationId: $scope.selectedIterationId}, $scope.projectIterationDetails, function(projIterDetails){
-                MyErrorService.broadCastMessage(msgTypes().success, "Iteration details saved successfully.");
-                $scope.projectIterationDetails = projIterDetails;
-            });
+            $scope.projectIterationDetails.post().then(onIterationDetailsSave);
         else
             MyErrorService.broadCastMessage(msgTypes().failure, "Please select an iteration.");
     }
 
     function setProject(project){
         $scope.project = project;
+        $scope.originalIterationId = project.iterationId;
         $scope.selectedIterationId = {};
         $scope.projectIterationDetails = {};
     }
 
-    function onSave(project){
+    function onIterationDetailsSave(projIterDetails){
+        MyErrorService.broadCastMessage(msgTypes().success, "Iteration details saved successfully.");
+        $scope.projectIterationDetails = projIterDetails;
+    }
+
+    function onSave(){
         MyErrorService.broadCastMessage(msgTypes().success, "Project saved successfully.");
-        setProject(project);
-        setEditMode(false);
-        $scope.$broadcast('metricsApp.projectSaved');
+        $scope.editMode = false;
+        setProject($scope.project);
     }
-
-    function setEditMode(isEditMode){
-        $scope.editMode = isEditMode;
-        $scope.editable_project = cloneData($scope.project);
-    }
-
-    $scope.$on('metricsApp.projectSaved', function(){
-        var projects = ProjectsGateway.query();
-        $scope.projects = projects.sort(projectComparator);
-    });
 }
