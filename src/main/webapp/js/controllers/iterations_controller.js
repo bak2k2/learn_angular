@@ -29,50 +29,66 @@ metricsModule.directive('uiDate', function() {
     };
 });
 
-function IterationsCtrl($scope, IterationGateway, IterationsGateway, MyErrorService) {
 
-    IterationsGateway.query(onQuery);
+function IterationsCtrl($scope, Restangular, MyErrorService) {
+    var iterations = Restangular.all('iterations');
+    iterations.getList().then(onQuery);
+    var isNewIteration = false;
 
     $scope.select = function(id){
-        var resp = IterationGateway.get({id: id}, function(iteration){
-            $scope.iteration = iteration;
-        });
+        Restangular.one('iterations', id).get().then(function(iteration){ $scope.iteration = iteration; });
     }
 
     $scope.save = function(){
-        if (typeof $scope.iteration != "undefined" && typeof $scope.iteration.iterationNumber != "undefined" &&
-                !isEmpty($scope.iteration.iterationNumber))
-            IterationGateway.save({id: $scope.iteration.id}, $scope.iteration, onSave);
+        if (iterationDetailsAreValid())
+            saveOrCreate();
         else
-            MyErrorService.broadCastMessage(msgTypes().failure, "Please enter an iteration #.");
+            MyErrorService.broadCastMessage(msgTypes().failure, "Please enter a iteration name.");
     }
 
     $scope.new = function(){
         $scope.iteration = {};
+        isNewIteration = true;
     }
 
     $scope.delete = function(id){
         var confirmDelete = confirm("Are you sure you want to delete this iteration?");
         if (confirmDelete)
-            IterationGateway.delete({id: id}, onDelete);
+            Restangular.one('iterations', id).remove().then(onDelete);
     }
 
-    function onDelete(iteration){
+    function iterationDetailsAreValid(){
+        return typeof $scope.iteration != "undefined" &&
+            typeof $scope.iteration.iterationNumber != "undefined" &&
+            !isEmpty($scope.iteration.iterationNumber);
+    }
+
+    function saveOrCreate() {
+        if (isNewIteration)
+            iterations.post($scope.iteration).then(onSave);
+        else
+            $scope.iteration.put().then(onSave)
+    }
+
+    function onDelete(){
         MyErrorService.broadCastMessage(msgTypes().success, "Iteration deleted successfully.");
         $scope.iteration = {};
-        IterationsGateway.query(onQuery);
+        isNewIteration = true;
+        iterations.getList().then(onQuery);
     }
 
-    function onSave(iteration){
+    function onSave(){
         MyErrorService.broadCastMessage(msgTypes().success, "Iteration saved successfully.");
-        $scope.iteration = iteration;
-        IterationsGateway.query(onQuery);
+        isNewIteration = false;
+        iterations.getList().then(onQuery);
     }
 
     function onQuery(iterations){
         $scope.iterations = iterations.sort(iterationComparator);
         if (iterations.length == 0){
             $scope.iteration = {};
+            isNewIteration = true;
         }
     }
 }
+

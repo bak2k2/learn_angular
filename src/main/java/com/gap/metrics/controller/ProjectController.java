@@ -32,46 +32,23 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getP(@PathVariable String id){
-        return new ResponseEntity<Project>(projectService.getProject(id), HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/projects/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> saveP(@RequestBody Project project){
-        projectService.updateProject(project);
-        return new ResponseEntity<Project>(project, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/projects", method = RequestMethod.POST)
-    public ResponseEntity<?> addP(@RequestBody Project iteration){
-        Project prj = projectService.addProject(iteration);
-        return new ResponseEntity<Project>(prj, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/projects/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteP(@PathVariable String id){
-        projectService.deleteProject(id);
-        return new ResponseEntity<Object>(HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/project/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> get(@PathVariable String id){
         return new ResponseEntity<Project>(projectService.getProject(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/project/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/projects/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> save(@RequestBody Project project){
         projectService.updateProject(project);
         return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/project", method = RequestMethod.POST)
+    @RequestMapping(value = "/projects", method = RequestMethod.POST)
     public ResponseEntity<?> add(@RequestBody Project iteration){
         Project prj = projectService.addProject(iteration);
         return new ResponseEntity<Project>(prj, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/project/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/projects/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable String id){
         projectService.deleteProject(id);
         return new ResponseEntity<Object>(HttpStatus.OK);

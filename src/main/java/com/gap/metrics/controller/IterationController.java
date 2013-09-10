@@ -22,24 +22,24 @@ public class IterationController {
         return new ResponseEntity<List<Iteration>>(iterationService.listIterations(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/iteration/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/iterations/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> get(@PathVariable String id){
         return new ResponseEntity<Iteration>(iterationService.getIteration(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/iteration/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/iterations/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> save(@RequestBody Iteration iteration){
         iterationService.updateIteration(iteration);
         return new ResponseEntity<Iteration>(iteration, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/iteration", method = RequestMethod.POST)
+    @RequestMapping(value = "/iterations", method = RequestMethod.POST)
     public ResponseEntity<?> add(@RequestBody Iteration iteration){
         Iteration iter = iterationService.addIteration(iteration);
         return new ResponseEntity<Iteration>(iter, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/iteration/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/iterations/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable String id){
         iterationService.deleteIteration(id);
         return new ResponseEntity<Object>(HttpStatus.OK);
