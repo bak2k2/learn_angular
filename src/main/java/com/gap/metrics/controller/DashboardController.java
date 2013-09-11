@@ -114,8 +114,7 @@ public class DashboardController {
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
         int numberOfProjects = 0;
-        double totalEmployees = 0;
-        double totalContractors = 0;
+        double totalEmployees = 0, totalContractors = 0;
 
         for(Iteration iteration : iterations){
             numberOfProjects = 0;
@@ -161,10 +160,7 @@ public class DashboardController {
     public ResponseEntity<?> happinessMetrics(){
         List<Project> projects = projectService.listProjects();
         HappinessMetric metric = new HappinessMetric();
-        double commitment = 0;
-        double engagement = 0;
-        double perceivedValue = 0;
-        double respectTrust = 0;
+        double commitment = 0, engagement = 0, perceivedValue = 0, respectTrust = 0;
         int numberOfProjects = 0;
 
         for(Project project : projects){
@@ -194,8 +190,7 @@ public class DashboardController {
         Collections.sort(iterations);
         CarryoverBlockers metric = new CarryoverBlockers();
         int numberOfProjects = 0;
-        double totalCarryOvers = 0;
-        double totalBlockers = 0;
+        double totalCarryOvers = 0, totalBlockers = 0;
 
         for(Iteration iteration : iterations){
             numberOfProjects = 0;
