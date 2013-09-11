@@ -3,7 +3,7 @@
 function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
     $scope.editMode = false;
     $scope.selectedIterationId;
-    $scope.originalIterationId;
+    $scope.originalIteration = {};
     $scope.iterations = {};
 
     Restangular.all('iterations').getList().then(function(iterations){
@@ -37,10 +37,11 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
 
     $scope.cancel = function(){
         $scope.editMode = false;
-        $scope.project.iterationId = $scope.originalIterationId;
+        $scope.project.lastIteration = $scope.originalIteration;
     }
 
     $scope.save = function(){
+        stripLastIterationOfRestangularAttributes();
         $scope.project.put().then(onSave);
     }
 
@@ -52,8 +53,11 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
     }
 
     function setProject(project){
+        var its = _.find($scope.iterations, {id: project.lastIteration.id})
+        if (its != "undefined")
+            project.lastIteration = its;
         $scope.project = project;
-        $scope.originalIterationId = project.iterationId;
+        $scope.originalIteration = project.lastIteration;
         $scope.selectedIterationId = {};
         $scope.projectIterationDetails = {};
     }
@@ -67,5 +71,12 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
         MyErrorService.broadCastMessage(msgTypes().success, "Project saved successfully.");
         $scope.editMode = false;
         setProject($scope.project);
+    }
+
+    function stripLastIterationOfRestangularAttributes(){
+        $scope.project.lastIteration = cloneData($scope.project.lastIteration);
+        delete $scope.project.lastIteration['route'];
+        delete $scope.project.lastIteration['parentResource'];
+        delete $scope.project.lastIteration['restangularCollection'];
     }
 }

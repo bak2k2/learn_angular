@@ -13,5 +13,5 @@ public class Project {
     private String id;
     private String projectName;
     private String projectDescription;
-    private String currentIteration;
+    private Iteration lastIteration;
 }

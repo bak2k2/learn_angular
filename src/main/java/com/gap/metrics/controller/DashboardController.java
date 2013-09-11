@@ -143,7 +143,7 @@ public class DashboardController {
         List<Project> projects = projectService.listProjects();
         OnOffNearshoreDetails details = new OnOffNearshoreDetails();
         for(Project project : projects){
-            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
@@ -168,7 +168,7 @@ public class DashboardController {
         int numberOfProjects = 0;
 
         for(Project project : projects){
-            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
@@ -256,7 +256,7 @@ public class DashboardController {
     private String getRetroComments(List<Project> projects) {
         String retroComments = "";
         for(Project project : projects){
-            Iteration iteration = iterationService.findByIterationNumber(project.getCurrentIteration());
+            Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
