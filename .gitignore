@@ -2,5 +2,7 @@
 out/
 artifact/
 target/
+node_modules/
 .idea/
 .idea/workspace.xml
+src/main/webapp/npm-debug.log
