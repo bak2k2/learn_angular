@@ -13,6 +13,7 @@ import java.util.List;
 public class ProjectMetric {
     private List<Double> averageVelocities = new ArrayList<Double>();
     private List<Double> averageCycleTimes = new ArrayList<Double>();
+    private List<Double> averageTransitions = new ArrayList<Double>();
     private List<String> iterationNames = new ArrayList<String>();
     private List<Double> totalNoEmployees = new ArrayList<Double>();
     private List<Double> totalNoContractors = new ArrayList<Double>();

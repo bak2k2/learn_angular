@@ -1,7 +1,7 @@
 function get_velocity_chart() {
     return {
         title: {
-            text: 'Velocity - Trend',
+            text: 'Velocity - Transition - Trend',
             x: -20 //center
         },
         xAxis: {
@@ -30,10 +30,16 @@ function get_velocity_chart() {
 
         series: [{
             name: 'Average Velocity',
-            color: '#D72726',
-            fillColor: 'D72726',
+            fillColor: Highcharts.getOptions().colors[2],
+            color: Highcharts.getOptions().colors[2],
             data: []
-        }]
+        },
+            {
+                name: 'Average Transition',
+                fillColor: Highcharts.getOptions().colors[1],
+                color: Highcharts.getOptions().colors[1],
+                data: []
+            }]
     };
 }
 
@@ -59,6 +65,7 @@ function VelocityTrendCtrl($scope, $http) {
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             velocitychart.series[0].data = data.averageVelocities;
+            velocitychart.series[1].data = data.averageTransitions;
             velocitychart.xAxis.categories = data.iterationNames;
             $scope.velocity_trend_chart = velocitychart;
         });

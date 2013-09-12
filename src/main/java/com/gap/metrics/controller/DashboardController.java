@@ -61,18 +61,22 @@ public class DashboardController {
         ProjectMetric metric = new ProjectMetric();
         int numberOfProjects = 0;
         double totalVelocity = 0;
+        double totalTransition = 0;
 
         for(Iteration iteration : iterations){
             numberOfProjects = 0;
             totalVelocity = 0;
+            totalTransition = 0;
             for(ProjectIterationDetails details : projectIterationDetails){
                 if (details.getIterationId().equals(iteration.getId())){
                     numberOfProjects++;
                     totalVelocity += details.getVelocity();
+                    totalTransition += details.getTransition();
                 }
             }
             if (numberOfProjects > 0){
                 metric.getAverageVelocities().add(totalVelocity / numberOfProjects);
+                metric.getAverageTransitions().add(totalTransition / numberOfProjects);
                 metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }

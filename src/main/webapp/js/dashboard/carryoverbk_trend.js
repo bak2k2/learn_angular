@@ -1,8 +1,5 @@
 function get_carryoverbk_chart() {
     return {
-        chart: {
-            type: 'column'
-        },
         title: {
             text: 'Carryover - Blocker Trend',
             x: -20 //center
