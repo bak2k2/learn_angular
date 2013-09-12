@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Document
 public class CarryoverBlockers {
-    private List<String> iterationName = new ArrayList<String>();
+    private List<String> iterationNames = new ArrayList<String>();
     private List<Double> carryOvers = new ArrayList<Double>();
     private List<Double> blockers = new ArrayList<Double>();
 }

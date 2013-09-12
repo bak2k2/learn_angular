@@ -210,7 +210,7 @@ public class DashboardController {
             if (numberOfProjects > 0){
                 metric.getCarryOvers().add(totalCarryOvers / numberOfProjects);
                 metric.getBlockers().add(totalBlockers / numberOfProjects);
-                metric.getIterationName().add(iteration.getIterationNumber());
+                metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
 

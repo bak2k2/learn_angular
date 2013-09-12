@@ -53,9 +53,13 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
     }
 
     function setProject(project){
-        var its = _.find($scope.iterations, {id: project.lastIteration.id})
-        if (its != "undefined")
-            project.lastIteration = its;
+        var lastIteration;
+        if (project != "undefined" && project.lastIteration != "undefined" && project.lastIteration != null)
+            lastIteration = _.find($scope.iterations, {id: project.lastIteration.id})
+        else
+            lastIteration = $scope.iterations[0];
+
+        project.lastIteration = lastIteration;
         $scope.project = project;
         $scope.originalIteration = project.lastIteration;
         $scope.selectedIterationId = {};
