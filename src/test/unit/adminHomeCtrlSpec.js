@@ -1,23 +1,8 @@
 'use strict';
 
-describe("Hello world", function() {
-    beforeEach(module('testApp'));
-    it("says hello", function() {
-        expect("Hello world!").toEqual("Hello world!");
-    });
-
-    it("says hello", function() {
-        expect("Hello world!").toEqual("Hello world!");
-    });
-
-});
-
 describe('Controller: AdminHomeCtrl', function () {
 
     beforeEach(function(){
-//        angular.mock.module('ngResource', []);
-//        angular.mock.module('restangular', []);
-//        module('metrics', ['ngResource', 'restangular']);
         module('metrics');
     });
 
