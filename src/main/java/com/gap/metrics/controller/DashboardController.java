@@ -253,16 +253,16 @@ public class DashboardController {
     }
 
     private String getRetroComments(List<Project> projects) {
-        String retroComments = "";
+        StringBuilder retroComments = new StringBuilder();
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
-                    retroComments += detail.getRetroComments();
+                    retroComments.append(" " +detail.getRetroComments());
                 }
             }
         }
-        return retroComments;
+        return retroComments.toString();
     }
 }
