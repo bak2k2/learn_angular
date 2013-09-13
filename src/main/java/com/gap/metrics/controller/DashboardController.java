@@ -59,24 +59,29 @@ public class DashboardController {
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
-        int numberOfProjects = 0;
+        int numProjWithVelMoreThanZero = 0;
+        int numProjWithTrans = 0;
         double totalVelocity = 0;
         double totalTransition = 0;
 
         for(Iteration iteration : iterations){
-            numberOfProjects = 0;
+            numProjWithVelMoreThanZero = 0;
+            numProjWithTrans = 0;
             totalVelocity = 0;
             totalTransition = 0;
             for(ProjectIterationDetails details : projectIterationDetails){
                 if (details.getIterationId().equals(iteration.getId())){
-                    numberOfProjects++;
-                    totalVelocity += details.getVelocity();
+                    if (details.getVelocity() > 0){
+                        numProjWithVelMoreThanZero++;
+                        totalVelocity += details.getVelocity();
+                    }
+                    numProjWithTrans++;
                     totalTransition += details.getTransition();
                 }
             }
-            if (numberOfProjects > 0){
-                metric.getAverageVelocities().add(totalVelocity / numberOfProjects);
-                metric.getAverageTransitions().add(totalTransition / numberOfProjects);
+            if (numProjWithTrans > 0 || numProjWithVelMoreThanZero > 0){
+                metric.getAverageVelocities().add(totalVelocity / numProjWithVelMoreThanZero);
+                metric.getAverageTransitions().add(totalTransition / numProjWithTrans);
                 metric.getIterationNames().add(iteration.getIterationNumber());
             }
         }
@@ -97,7 +102,7 @@ public class DashboardController {
             numberOfProjects = 0;
             totalCycleTime = 0;
             for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId())){
+                if (details.getIterationId().equals(iteration.getId()) && details.getCycleTime() > 0){
                     numberOfProjects++;
                     totalCycleTime += details.getCycleTime();
                 }
@@ -125,7 +130,8 @@ public class DashboardController {
             totalEmployees = 0;
             totalContractors = 0;
             for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId())){
+                if (details.getIterationId().equals(iteration.getId()) &&
+                        (details.getNumberOfFTE() > 0 || details.getNumberOfContractors() > 0)){
                     numberOfProjects++;
                     totalEmployees += details.getNumberOfFTE();
                     totalContractors += details.getNumberOfContractors();
@@ -149,7 +155,8 @@ public class DashboardController {
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-                if (detail != null){
+                if (detail != null &&
+                        (detail.getNumberOfOnshoreRes() > 0 || detail.getNumberOfNearshoreRes() > 0 || detail.getNumberOfOffshoreRes() > 0)){
                     details.getProjectNames().add(project.getProjectName());
                     details.getOnShoreCount().add(detail.getNumberOfOnshoreRes());
                     details.getOffShoreCount().add(detail.getNumberOfOffshoreRes());
@@ -165,25 +172,39 @@ public class DashboardController {
         List<Project> projects = projectService.listProjects();
         HappinessMetric metric = new HappinessMetric();
         double commitment = 0, engagement = 0, perceivedValue = 0, respectTrust = 0;
-        int numberOfProjects = 0;
+        int numProjWithCommMoreThanZero = 0;
+        int numProjWithEngMoreThanZero = 0;
+        int numProjWithValMoreThanZero = 0;
+        int numProjWithTrstMoreThanZero = 0;
 
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
-                    numberOfProjects++;
-                    commitment += detail.getCommitment();
-                    engagement += detail.getEngagement();
-                    perceivedValue += detail.getPerceivedValue();
-                    respectTrust += detail.getRespectTrust();
+                    if (detail.getCommitment() > 0){
+                        numProjWithCommMoreThanZero++;
+                        commitment += detail.getCommitment();
+                    }
+                    if (detail.getEngagement() > 0){
+                        numProjWithEngMoreThanZero++;
+                        engagement += detail.getEngagement();
+                    }
+                    if (detail.getPerceivedValue() > 0){
+                        numProjWithValMoreThanZero++;
+                        perceivedValue += detail.getPerceivedValue();
+                    }
+                    if (detail.getRespectTrust() > 0){
+                        numProjWithTrstMoreThanZero++;
+                        respectTrust += detail.getRespectTrust();
+                    }
                 }
             }
         }
-        metric.setCommitment(Math.ceil(commitment/numberOfProjects));
-        metric.setEngagement(Math.ceil(engagement/numberOfProjects));
-        metric.setPerceivedValue(Math.ceil(perceivedValue/numberOfProjects));
-        metric.setRespectTrust(Math.ceil(respectTrust/numberOfProjects));
+        metric.setCommitment(Math.round(commitment/numProjWithCommMoreThanZero));
+        metric.setEngagement(Math.round(engagement/numProjWithEngMoreThanZero));
+        metric.setPerceivedValue(Math.round(perceivedValue/numProjWithValMoreThanZero));
+        metric.setRespectTrust(Math.round(respectTrust/numProjWithTrstMoreThanZero));
         return new ResponseEntity<HappinessMetric>(metric, HttpStatus.OK);
     }
 
@@ -238,7 +259,7 @@ public class DashboardController {
     }
 
     private Map<String, Double> getWordCountsMap(String str) {
-        String[] words = str.toLowerCase().split("[^\\p{L}]+");
+        String[] words = str.toLowerCase().split(" ");
         Map<String, Double> wordCounts = new HashMap<String, Double>();
 
         for (String word : words) {
@@ -258,7 +279,7 @@ public class DashboardController {
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-                if (detail != null){
+                if (detail != null && detail.getRetroComments() != null){
                     retroComments.append(" " +detail.getRetroComments());
                 }
             }
