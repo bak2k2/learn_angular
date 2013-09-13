@@ -24,3 +24,6 @@ apply plugin: 'eclipse'
 apply from: 'gradle/dependencies.gradle'
 apply from: 'gradle/artifacts.gradle'
 apply from: 'gradle/localDeploy.gradle'
+apply from: 'gradle/grunt.gradle'
+
+defaultTasks 'clean', 'build', 'test_jasmine'
