@@ -10,6 +10,7 @@ metricsModule.config(['$routeProvider', function($routeProvider) {
         when('/admin/iterations', {templateUrl: 'partials/admin/iterations.html',   controller: AdminHomeCtrl}).
         when('/admin/projects', {templateUrl: 'partials/admin/projects.html',   controller: AdminHomeCtrl}).
         when('/projects', {templateUrl: 'partials/project/home.html',   controller: ProjectHomeCtrl}).
+        when('/reports', {templateUrl: 'partials/reports/home.html',   controller: ReportsHomeCtrl}).
         otherwise({redirectTo: '/dashboard'});
 }]);
 

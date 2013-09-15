@@ -32,6 +32,7 @@
     <script src="js/controllers/admin_controller.js"></script>
     <script src="js/controllers/iterations_controller.js"></script>
     <script src="js/controllers/home_controller.js"></script>
+    <script src="js/controllers/reports_controller.js"></script>
 
     <script src="js/dashboard/velocity_trend.js"></script>
     <script src="js/dashboard/emp_cont_trend.js"></script>
@@ -55,6 +56,7 @@
             <li id="dashboard-link" ><a href="#dashboard">Dashboard</a></li>
             <li id="projects-link"><a href="#projects">Projects</a></li>
             <li id="admin-link"><a href="#admin">Admin</a></li>
+            <li id="reports-link"><a href="#reports">Reports</a></li>
         </ul>
         <div class="ui-tabs-panel">
             <div ng-view></div>
@@ -65,6 +67,7 @@
             $("#dashboard-link").removeClass('ui-tabs-selected');
             $("#projects-link").removeClass('ui-tabs-selected');
             $("#admin-link").removeClass('ui-tabs-selected');
+            $("#reports-link").removeClass('ui-tabs-selected');
         }
 
         function setClass(elementId){
@@ -82,6 +85,7 @@
             setClickForTabs("#dashboard-link");
             setClickForTabs("#projects-link");
             setClickForTabs("#admin-link");
+            setClickForTabs("#reports-link");
             setClass("#dashboard-link");
             $("#dashboard-link").click(function(){
                 window.location.href = "/home.html#/dashboard";
