@@ -14,4 +14,6 @@ public class Project {
     private String projectName;
     private String projectDescription;
     private Iteration lastIteration;
+    private String iterationManager;
+    private String imEmailAddress;
 }
