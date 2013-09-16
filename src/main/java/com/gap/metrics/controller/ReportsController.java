@@ -5,12 +5,14 @@ import com.gap.metrics.dto.Report;
 import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
 import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.service.EmailService;
 import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -27,6 +29,9 @@ public class ReportsController {
     @Autowired
     private IterationService iterationService;
 
+    @Autowired
+    private EmailService emailService;
+
     @RequestMapping(value = "/iterations/reports", method = RequestMethod.GET)
     public ResponseEntity<?> fetchReports(){
         List<IterationReport> iterationReports = new ArrayList<IterationReport>();
@@ -38,6 +43,17 @@ public class ReportsController {
         }
 
         return new ResponseEntity<List<IterationReport>>(iterationReports, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/mailreport/{projectId}/{iterationId}", method = RequestMethod.POST)
+    public ResponseEntity mailReport(@PathVariable String projectId, @PathVariable String iterationId){
+        Iteration iteration = iterationService.getIteration(iterationId);
+        Project project = projectService.getProject(projectId);
+        List<String> messages = fetchProjectIterationReportMessages(iteration, project);
+        if (messages.size() > 0){
+            emailService.sendMail(project.getImEmailAddress(), "metrics-admin-no-reply@gap.com", "Metrics Update Alert", messages.toString());
+        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     private List<Report> fetchProjectLevelReportsFor(Iteration iteration) {
