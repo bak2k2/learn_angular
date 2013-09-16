@@ -7,17 +7,19 @@
             <ul>
                 <div class="row-fluid line">
                     <a href="">
-                        <div class="width_forty" style="float: left">Project</div>
-                        <div class="width_five" style="float: left">Score</div>
-                        <div class="width_fifty_five" style="float: left"></div>
+                        <div class="width_thirty_six" style="float: left">Project</div>
+                        <div class="width_seven" style="float: left">Score</div>
+                        <div class="width_fifty_five" style="float: left">Iteration Manager</div>
                     </a>
                 </div>
                 <li ng-repeat="projectReport in $parent.iterationReport.projectReports">
                     <div class="row-fluid line">
                         <div class="width_ninety_five" style="float: left">
-                            <div class="width_forty" style="float: left">{{projectReport.project.projectName}}</div>
-                            <div class="width_five" style="float: left">{{projectReport.reportScore}}</div>
-                            <div class="width_fifty_five" style="float: left"></div>
+                            <div class="width_forty" style="float: left">{{projectReport.project.projectDescription}}</div>
+                            <div class="width_five" style="float: left;" title="{{projectReport.messages.join('\n')}}"
+                                 ng-class="projectReport.reportScore|switch:{'0':'green', '1': 'lightgreen', '2': 'yellow', '3' : 'brown', '4' : 'orange', '5' : 'red'}">
+                                {{projectReport.reportScore}}</div>
+                            <div class="width_fifty_five" style="float: left">{{projectReport.project.iterationManager}}</div>
                         </div>
                     </div>
                 </li>

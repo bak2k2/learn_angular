@@ -84,6 +84,10 @@ h1
     cursor: hand;
 }
 
+.menu_div ul > div:first-child{
+    margin-bottom: 5px;
+}
+
 .width_twenty
 {
     width: 20%;
@@ -92,6 +96,11 @@ h1
 .width_thirty
 {
     width: 30%;
+}
+
+.width_thirty_six
+{
+    width: 36%;
 }
 
 .width_forty
@@ -117,6 +126,14 @@ h1
 .width_five
 {
     width: 5%;
+}
+
+.width_seven{
+    width: 7%;
+}
+
+.width_sixty_one{
+    width: 61%;
 }
 
 .width_sixty_eight
@@ -240,4 +257,28 @@ input[readonly], select[readonly], textarea[readonly] {
 .ui-icon
 {
     margin-left: 5px;
+}
+
+.green{
+    background-color: green;
+}
+
+.lightgreen{
+    background-color: lightgreen;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.brown{
+    background-color: brown;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.red{
+    background-color: red;
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-function ReportsHomeCtrl($scope, $http) {
+function ReportsHomeCtrl($scope, $http, switchFilter) {
 
     var url = '/resources/iterations/reports';
 
