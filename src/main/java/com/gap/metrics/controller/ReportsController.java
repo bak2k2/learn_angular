@@ -51,9 +51,18 @@ public class ReportsController {
         Project project = projectService.getProject(projectId);
         List<String> messages = fetchProjectIterationReportMessages(iteration, project);
         if (messages.size() > 0){
-            emailService.sendMail(project.getImEmailAddress(), "metrics-admin-no-reply@gap.com", "Metrics Update Alert", messages.toString());
+            emailService.sendMail(project.getImEmailAddress(), "metrics-admin-no-reply@gap.com", "Metrics Update Alert", getMessageBody(messages, project, iteration));
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    private String getMessageBody(List<String> messages, Project project, Iteration iteration) {
+        StringBuilder msg = new StringBuilder();
+        msg.append("Dear IM\n\n");
+        msg.append("The following metrics need to be updated for project - " + project.getProjectDescription() + " and iteration - " + iteration.getIterationNumber() + "\n\n");
+        msg.append(messages);
+        msg.append("\n\nThanks\nMetrics Admin Team.");
+        return msg.toString();
     }
 
     private List<Report> fetchProjectLevelReportsFor(Iteration iteration) {
