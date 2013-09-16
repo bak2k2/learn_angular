@@ -60,7 +60,8 @@ public class ReportsController {
         StringBuilder msg = new StringBuilder();
         msg.append("Dear IM\n\n");
         msg.append("The following metrics need to be updated for project - " + project.getProjectDescription() + " and iteration - " + iteration.getIterationNumber() + "\n\n");
-        msg.append(messages);
+        for(String msgs : messages)
+            msg.append(msgs + "\n");
         msg.append("\n\nThanks\nMetrics Admin Team.");
         return msg.toString();
     }

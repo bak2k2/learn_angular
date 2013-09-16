@@ -1,6 +1,6 @@
 'use strict';
 
-function ReportsHomeCtrl($scope, $http, switchFilter) {
+function ReportsHomeCtrl($scope, $http, switchFilter, MyErrorService) {
 
     var url = '/resources/iterations/reports';
 
@@ -15,9 +15,8 @@ function ReportsHomeCtrl($scope, $http, switchFilter) {
 
         $http({method: 'POST', url: mailReportUrl}).
             success(function(data,status,headers,config){
-                alert("mail sent");
+                MyErrorService.broadCastMessage(msgTypes().success, "Email sent successfully.");
             });
-        //alert(iterationId + " " + projectId);
     }
 
 }
