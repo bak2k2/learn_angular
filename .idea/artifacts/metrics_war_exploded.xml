@@ -52,6 +52,7 @@
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/joda-time/joda-time/2.2/jar/a5f29a7acaddea3f4af307e8cf2d0cc82645fd7d/joda-time-2.2.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.mail/mail/1.4.1/jar/8b7bc69010655425dabf091b51d1e90b4de36715/mail-1.4.1.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.activation/activation/1.1/jar/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.freemarker/freemarker/2.3.15/jar/c8cfe522476fcec8da5c980d58bf62d6ab0cf27c/freemarker-2.3.15.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="metrics/web/Web" />

@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.builder.ReportAlertMessageBuilder;
 import com.gap.metrics.dto.IterationReport;
 import com.gap.metrics.dto.Report;
 import com.gap.metrics.model.Iteration;
@@ -32,6 +33,9 @@ public class ReportsController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private ReportAlertMessageBuilder reportAlertMessageBuilder;
+
     @RequestMapping(value = "/iterations/reports", method = RequestMethod.GET)
     public ResponseEntity<?> fetchReports(){
         List<IterationReport> iterationReports = new ArrayList<IterationReport>();
@@ -57,13 +61,7 @@ public class ReportsController {
     }
 
     private String getMessageBody(List<String> messages, Project project, Iteration iteration) {
-        StringBuilder msg = new StringBuilder();
-        msg.append("Dear IM\n\n");
-        msg.append("The following metrics need to be updated for project - " + project.getProjectDescription() + " and iteration - " + iteration.getIterationNumber() + "\n\n");
-        for(String msgs : messages)
-            msg.append(msgs + "\n");
-        msg.append("\n\nThanks\nMetrics Admin Team.");
-        return msg.toString();
+        return reportAlertMessageBuilder.with(project).with(iteration).with(messages).toString();
     }
 
     private List<Report> fetchProjectLevelReportsFor(Iteration iteration) {
