@@ -1,1 +1,27 @@
-Reports
+<div class="row-fluid line">
+    <div class="span2 title">
+        <select ng-model="$parent.iterationReport" ng-options="i as i.iteration.iterationNumber for i in iterationReports"></select>
+    </div>
+    <div class="span10 content">
+        <div class="menu_div">
+            <ul>
+                <div class="row-fluid line">
+                    <a href="">
+                        <div class="width_forty" style="float: left">Project</div>
+                        <div class="width_five" style="float: left">Score</div>
+                        <div class="width_fifty_five" style="float: left"></div>
+                    </a>
+                </div>
+                <li ng-repeat="projectReport in $parent.iterationReport.projectReports">
+                    <div class="row-fluid line">
+                        <div class="width_ninety_five" style="float: left">
+                            <div class="width_forty" style="float: left">{{projectReport.project.projectName}}</div>
+                            <div class="width_five" style="float: left">{{projectReport.reportScore}}</div>
+                            <div class="width_fifty_five" style="float: left"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

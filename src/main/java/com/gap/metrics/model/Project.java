@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @Document
-public class Project {
+public class Project  implements Comparable<Project>{
     @Id
     private String id;
     private String projectName;
@@ -16,4 +16,9 @@ public class Project {
     private Iteration lastIteration;
     private String iterationManager;
     private String imEmailAddress;
+
+    @Override
+    public int compareTo(Project project) {
+        return projectName.compareTo(project.projectName);
+    }
 }
