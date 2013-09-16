@@ -19,7 +19,9 @@
                             <div class="width_five" style="float: left;" title="{{projectReport.messages.join('\n')}}"
                                  ng-class="projectReport.reportScore|switch:{'0':'green', '1': 'lightgreen', '2': 'yellow', '3' : 'brown', '4' : 'orange', '5' : 'red'}">
                                 {{projectReport.reportScore}}</div>
-                            <div class="width_fifty_five" style="float: left">{{projectReport.project.iterationManager}}</div>
+                            <div class="width_fifty" style="float: left">{{projectReport.project.iterationManager}}</div>
+                            <div class="width_five" style="float: right"><img src="/images/email.png"
+                                                                              ng-click="$parent.sendMail(projectReport.project.id, projectReport.iteration.id);"></div>
                         </div>
                     </div>
                 </li>

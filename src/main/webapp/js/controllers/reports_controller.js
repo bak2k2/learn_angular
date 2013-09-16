@@ -10,4 +10,8 @@ function ReportsHomeCtrl($scope, $http, switchFilter) {
             $scope.iterationReport = $scope.iterationReports[0];
         });
 
+    $scope.sendMail = function(iterationId, projectId){
+        alert(iterationId + " " + projectId);
+    }
+
 }
