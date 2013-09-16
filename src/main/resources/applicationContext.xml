@@ -43,9 +43,9 @@
     <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-    <!--<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
-        <!--<property name="host" value="${mail.host}" />-->
-    <!--</bean>-->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}" />
+    </bean>
 
     <context:component-scan base-package="com.gap.metrics.controller" />
     <context:component-scan base-package="com.gap.metrics.model" />

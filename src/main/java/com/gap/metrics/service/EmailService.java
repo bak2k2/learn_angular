@@ -10,9 +10,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 @Repository
 public class EmailService {
 
-//    @Autowired
-//    @Setter
-//    private JavaMailSender mailSender;
+    @Autowired
+    @Setter
+    private JavaMailSender mailSender;
 
     public void sendMail(String to, String from, String subject, String body){
         SimpleMailMessage message = new SimpleMailMessage();
@@ -20,6 +20,6 @@ public class EmailService {
         message.setFrom(from);
         message.setSubject(subject);
         message.setText(body);
-        //mailSender.send(message);
+        mailSender.send(message);
     }
 }

@@ -88,6 +88,24 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context/3.2.2.RELEASE/jar/5fdb7831fd4bb98a4d72a49fac25151f69361284/spring-context-3.2.2.RELEASE-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context-support/3.2.2.RELEASE/jar/344a2d5d7d6ab1a83931b81f19e27ae1152c144a/spring-context-support-3.2.2.RELEASE-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-core/3.2.2.RELEASE/jar/2392459e6d45bf5fecb3b61cf9e54396f4a401c4/spring-core-3.2.2.RELEASE-sources.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -116,24 +134,6 @@
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-beans/3.2.2.RELEASE/jar/f8d64e26e4d92f23d19f3867800cd4bb4561dd57/spring-beans-3.2.2.RELEASE-sources.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context/3.2.2.RELEASE/jar/5fdb7831fd4bb98a4d72a49fac25151f69361284/spring-context-3.2.2.RELEASE-sources.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-context-support/3.2.2.RELEASE/jar/344a2d5d7d6ab1a83931b81f19e27ae1152c144a/spring-context-support-3.2.2.RELEASE-sources.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -198,6 +198,17 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.projectlombok/lombok/0.11.6/source/9740a679a7cfadc9ca7615c2fada1f5255d80447/lombok-0.11.6-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.mail/mail/1.4.1/jar/8b7bc69010655425dabf091b51d1e90b4de36715/mail-1.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.mail/mail/1.4.1/source/805fab433b5ea319373a5dcb133b48633ad898b1/mail-1.4.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -292,17 +303,6 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/jar/565213c52cbbcd57a64ce9e4f18823c964cb2481/spring-expression-3.2.2.RELEASE.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/source/eb4e92d8a1f959175ca8298de75371375dbf0298/spring-expression-3.2.2.RELEASE-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-beans/3.2.2.RELEASE/jar/bbe3f76d14e9471e339bd8afec07b6fc5c916cd4/spring-beans-3.2.2.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -330,6 +330,17 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-aop/3.2.2.RELEASE/source/4630693b56e81b74f690679c88ae8c44e43177fa/spring-aop-3.2.2.RELEASE-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/jar/565213c52cbbcd57a64ce9e4f18823c964cb2481/spring-expression-3.2.2.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.springframework/spring-expression/3.2.2.RELEASE/source/eb4e92d8a1f959175ca8298de75371375dbf0298/spring-expression-3.2.2.RELEASE-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -407,6 +418,17 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/commons-lang/commons-lang/2.5/source/bb75ef699b349b6e02d17d41556cebcd755d07ab/commons-lang-2.5-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.activation/activation/1.1/jar/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/javax.activation/activation/1.1/source/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

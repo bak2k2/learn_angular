@@ -6,6 +6,8 @@ List SPRING = [
 ]
 
 List SPRING_SOURCES = [
+        "org.springframework:spring-context:${project.ext.springVersion}.RELEASE:sources",
+        "org.springframework:spring-context-support:${project.ext.springVersion}.RELEASE:sources",
         "org.springframework:spring-core:${project.ext.springVersion}.RELEASE:sources",
         "org.springframework:spring-aop:${project.ext.springVersion}.RELEASE:sources",
         "org.springframework:spring-expression:${project.ext.springVersion}.RELEASE:sources",
@@ -24,6 +26,7 @@ List SPRING_SOURCES = [
 
 List MISC = [
         "org.projectlombok:lombok:0.11.6",
+        "javax.mail:mail:1.4.1",
         "joda-time:joda-time:2.2",
         "org.slf4j:slf4j-api:1.7.5",
         "org.codehaus.jackson:jackson-core-asl:1.9.12",
