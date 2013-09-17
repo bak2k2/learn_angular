@@ -16,6 +16,8 @@ function ReportsHomeCtrl($scope, $http, switchFilter, MyErrorService) {
         $http({method: 'POST', url: mailReportUrl}).
             success(function(data,status,headers,config){
                 MyErrorService.broadCastMessage(msgTypes().success, "Email sent successfully.");
+            }).error(function(data,status,headers,config){
+                MyErrorService.broadCastMessage(msgTypes().failure, "Email could not be sent successfully.");
             });
     }
 

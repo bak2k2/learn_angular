@@ -54,7 +54,7 @@ public class ReportsController {
         Iteration iteration = iterationService.getIteration(iterationId);
         Project project = projectService.getProject(projectId);
         List<String> messages = fetchProjectIterationReportMessages(iteration, project);
-        if (messages.size() > 0){
+        if (messages.size() > 0 && project.getImEmailAddress() != null){
             emailService.sendMail(project.getImEmailAddress(), "metrics-admin-no-reply@gap.com", "Metrics Update Alert", getMessageBody(messages, project, iteration));
         }
         return new ResponseEntity(HttpStatus.OK);
