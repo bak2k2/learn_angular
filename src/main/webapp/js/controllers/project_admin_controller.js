@@ -4,7 +4,8 @@ function ProjectAdminCtrl($scope, Restangular, MyErrorService) {
     var isNewProject = false;
 
     $scope.select = function(id){
-        Restangular.one('projects', id).get().then(function(project){ $scope.project = project; });
+        Restangular.one('projects', id).get().then(function(project){ $scope.project = project; },
+            function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch the project.");});
     }
 
     $scope.save = function(){
@@ -22,7 +23,8 @@ function ProjectAdminCtrl($scope, Restangular, MyErrorService) {
     $scope.delete = function(id){
         var confirmDelete = confirm("Are you sure you want to delete this project?");
         if (confirmDelete)
-            Restangular.one('projects', id).remove().then(onDelete);
+            Restangular.one('projects', id).remove().then(onDelete,
+                function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to delete the project.");});
     }
 
     function projectDetailsAreValid(){
@@ -33,9 +35,9 @@ function ProjectAdminCtrl($scope, Restangular, MyErrorService) {
 
     function saveOrCreate() {
         if (isNewProject)
-            projects.post($scope.project).then(onSave);
+            projects.post($scope.project).then(onSave, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to save the project.");});
         else
-            $scope.project.put().then(onSave)
+            $scope.project.put().then(onSave, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to save the project.");})
     }
 
     function onDelete(){

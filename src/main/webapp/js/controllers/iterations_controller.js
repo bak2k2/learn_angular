@@ -36,7 +36,8 @@ function IterationsCtrl($scope, Restangular, MyErrorService) {
     var isNewIteration = false;
 
     $scope.select = function(id){
-        Restangular.one('iterations', id).get().then(function(iteration){ $scope.iteration = iteration; });
+        Restangular.one('iterations', id).get().then(function(iteration){ $scope.iteration = iteration; },
+            function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch the iteration.");});
     }
 
     $scope.save = function(){
@@ -54,7 +55,8 @@ function IterationsCtrl($scope, Restangular, MyErrorService) {
     $scope.delete = function(id){
         var confirmDelete = confirm("Are you sure you want to delete this iteration?");
         if (confirmDelete)
-            Restangular.one('iterations', id).remove().then(onDelete);
+            Restangular.one('iterations', id).remove().then(onDelete,
+                function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to delete the iteration.");});
     }
 
     function iterationDetailsAreValid(){
@@ -65,9 +67,9 @@ function IterationsCtrl($scope, Restangular, MyErrorService) {
 
     function saveOrCreate() {
         if (isNewIteration)
-            iterations.post($scope.iteration).then(onSave);
+            iterations.post($scope.iteration).then(onSave, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to save.");});
         else
-            $scope.iteration.put().then(onSave)
+            $scope.iteration.put().then(onSave, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to save.");})
     }
 
     function onDelete(){

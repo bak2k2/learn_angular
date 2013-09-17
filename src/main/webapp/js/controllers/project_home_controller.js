@@ -15,20 +15,20 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
         if (projects.length > 0){
             $scope.select(projects[0].id);
         }
-    });
+    }, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch all the projects.");});
 
     $scope.selectIteration = function(){
         Restangular.one('project', $scope.project.id).one('iteration', $scope.selectedIterationId).get().then(
             function(projIterationDetails){
                 $scope.projectIterationDetails = projIterationDetails;
-            });
+            }, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch iteration details.");});
     }
 
     $scope.select = function(id){
         Restangular.one('projects', id).get().then(function(project){
             setProject(project);
             $scope.editMode = false;
-        });
+        }, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch the project.");});
     }
 
     $scope.edit = function(){
@@ -42,12 +42,14 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
 
     $scope.save = function(){
         stripLastIterationOfRestangularAttributes();
-        $scope.project.put().then(onSave);
+        $scope.project.put().then(onSave,
+            function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to save the details.");});
     }
 
     $scope.applyIterationChanges = function(){
         if (typeof $scope.selectedIterationId == "string")
-            $scope.projectIterationDetails.post().then(onIterationDetailsSave);
+            $scope.projectIterationDetails.post().then(onIterationDetailsSave,
+                function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to apply changes.");});
         else
             MyErrorService.broadCastMessage(msgTypes().failure, "Please select an iteration.");
     }

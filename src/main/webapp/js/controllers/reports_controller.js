@@ -8,6 +8,8 @@ function ReportsHomeCtrl($scope, $http, switchFilter, MyErrorService) {
         success(function(data, status, headers, config) {
             $scope.iterationReports = data;
             $scope.iterationReport = $scope.iterationReports[0];
+        }).error(function(data,status,headers,config){
+            MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch the reports.");
         });
 
     $scope.sendMail = function(projectId, iterationId){
