@@ -28,8 +28,8 @@ files = [
     '../main/webapp/lib/jquery.lettering.js',
     '../main/webapp/lib/jquery.textillate.js',
     '../main/webapp/js/**/*.js',
-    'unit/adminHomeCtrlSpec.js',
-    'unit/iterationsCtrlSpec.js'
+    'js_unit/adminHomeCtrlSpec.js',
+    'js_unit/iterationsCtrlSpec.js'
 ];
 
 // list of files to exclude
