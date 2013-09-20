@@ -6,7 +6,7 @@ function cloneData(objectToClone)
 }
 
 function iterationComparator(a, b) {
-    return a.iterationNumber < b.iterationNumber;
+    return b.iterationNumber - a.iterationNumber;
 }
 
 function projectComparator(a, b) {

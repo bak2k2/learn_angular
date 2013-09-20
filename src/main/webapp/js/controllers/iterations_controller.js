@@ -86,7 +86,8 @@ function IterationsCtrl($scope, Restangular, MyErrorService) {
     }
 
     function onQuery(iterations){
-        $scope.iterations = iterations.sort(iterationComparator);
+        iterations.sort(iterationComparator);
+        $scope.iterations = iterations;
         if (iterations.length == 0){
             $scope.iteration = {};
             isNewIteration = true;
