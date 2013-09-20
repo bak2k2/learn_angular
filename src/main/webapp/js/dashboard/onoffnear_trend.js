@@ -5,11 +5,23 @@ function get_onoffnear_chart() {
             data: []
             },
             {
-                name: 'nearshore',
+                name: 'nearshore - chile',
                 data: []
             },
             {
-                name: 'offshore',
+                name: 'nearshore - mexico',
+                data: []
+            },
+            {
+                name: 'nearshore - brazil',
+                data: []
+            },
+            {
+                name: 'offshore - india',
+                data: []
+            },
+            {
+                name: 'offshore - uk',
                 data: []
             }
         ],
@@ -98,8 +110,11 @@ function OnOffNearTrendCtrl($scope, $http) {
     $http({method: 'GET', url: url}).
         success(function(data, status, headers, config) {
             onoffnearchart.series[0].data = data.onShoreCount;
-            onoffnearchart.series[1].data = data.nearShoreCount;
-            onoffnearchart.series[2].data = data.offShoreCount;
+            onoffnearchart.series[1].data = data.nearShoreChileCount;
+            onoffnearchart.series[2].data = data.nearShoreMexicoCount;
+            onoffnearchart.series[3].data = data.nearShoreBrazilCount;
+            onoffnearchart.series[4].data = data.offShoreIndiaCount;
+            onoffnearchart.series[5].data = data.offShoreUkCount;
             onoffnearchart.xAxis.categories = data.projectNames;
             $scope.onoffnear_trend_chart = onoffnearchart;
         });

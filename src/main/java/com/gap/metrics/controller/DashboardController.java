@@ -155,12 +155,14 @@ public class DashboardController {
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-                if (detail != null &&
-                        (detail.getNumberOfOnshoreRes() > 0 || detail.getNumberOfNearshoreRes() > 0 || detail.getNumberOfOffshoreRes() > 0)){
+                if (detail != null && detail.IsAnyDemographicDataAvailable()){
                     details.getProjectNames().add(project.getProjectName());
                     details.getOnShoreCount().add(detail.getNumberOfOnshoreRes());
-                    details.getOffShoreCount().add(detail.getNumberOfOffshoreRes());
-                    details.getNearShoreCount().add(detail.getNumberOfNearshoreRes());
+                    details.getOffShoreIndiaCount().add(detail.getNumberOfOffshoreResIndia());
+                    details.getOffShoreUkCount().add(detail.getNumberOfOffshoreResUk());
+                    details.getNearShoreBrazilCount().add(detail.getNumberOfNearshoreResBrazil());
+                    details.getNearShoreMexicoCount().add(detail.getNumberOfNearshoreResMexico());
+                    details.getNearShoreChileCount().add(detail.getNumberOfNearshoreResChile());
                 }
             }
         }

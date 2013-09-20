@@ -119,8 +119,12 @@ public class ReportsController {
 
     private boolean demographicInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
         return (projectIterationDetails.getNumberOfOnshoreRes() == 0 &&
-                projectIterationDetails.getNumberOfNearshoreRes() ==0 &&
-                projectIterationDetails.getNumberOfOffshoreRes() == 0);
+                projectIterationDetails.getNumberOfNearshoreResBrazil() ==0 &&
+                projectIterationDetails.getNumberOfNearshoreResMexico() ==0 &&
+                projectIterationDetails.getNumberOfNearshoreResChile() ==0 &&
+                projectIterationDetails.getNumberOfOffshoreResIndia() == 0 &&
+                projectIterationDetails.getNumberOfOffshoreResUk() == 0
+        );
     }
 
 }

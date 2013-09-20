@@ -13,6 +13,9 @@ import java.util.List;
 public class OnOffNearshoreDetails {
     List<String> projectNames = new ArrayList<String>();
     List<Double> onShoreCount = new ArrayList<Double>();
-    List<Double> offShoreCount = new ArrayList<Double>();
-    List<Double> nearShoreCount = new ArrayList<Double>();
+    List<Double> offShoreIndiaCount = new ArrayList<Double>();
+    List<Double> offShoreUkCount = new ArrayList<Double>();
+    List<Double> nearShoreChileCount = new ArrayList<Double>();
+    List<Double> nearShoreMexicoCount = new ArrayList<Double>();
+    List<Double> nearShoreBrazilCount = new ArrayList<Double>();
 }
