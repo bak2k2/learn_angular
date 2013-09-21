@@ -27,17 +27,6 @@ public class DashboardController {
     @Autowired
     private RetroService retroService;
 
-    @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.GET)
-    public ResponseEntity<?> fetchIteration(@PathVariable String projectId, @PathVariable String iterationId){
-        ProjectIterationDetail details = projectService.getProjectIterationDetails(projectId, iterationId);
-        return new ResponseEntity<ProjectIterationDetail>(details, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.POST)
-    public ResponseEntity<?>  saveIteration(@RequestBody ProjectIterationDetail iterationDetails){
-        return new ResponseEntity<ProjectIterationDetail>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
-    }
-
     @RequestMapping(value ="/project/{projectId}/velocities", method = RequestMethod.GET)
     public ResponseEntity<?> velocities(@PathVariable String projectId){
         List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails(projectId);

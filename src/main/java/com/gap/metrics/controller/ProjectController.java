@@ -1,6 +1,7 @@
 package com.gap.metrics.controller;
 
 import com.gap.metrics.model.Project;
+import com.gap.metrics.model.ProjectIterationDetail;
 import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,16 @@ public class ProjectController {
     public ResponseEntity<?> delete(@PathVariable String id){
         projectService.deleteProject(id);
         return new ResponseEntity<Object>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.GET)
+    public ResponseEntity<?> fetchIteration(@PathVariable String projectId, @PathVariable String iterationId){
+        ProjectIterationDetail details = projectService.getProjectIterationDetails(projectId, iterationId);
+        return new ResponseEntity<ProjectIterationDetail>(details, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.POST)
+    public ResponseEntity<?>  saveIteration(@RequestBody ProjectIterationDetail iterationDetails){
+        return new ResponseEntity<ProjectIterationDetail>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
     }
 }
