@@ -3,9 +3,7 @@ package com.gap.metrics.controller;
 import com.gap.metrics.builder.ReportAlertMessageBuilder;
 import com.gap.metrics.dto.IterationReport;
 import com.gap.metrics.dto.Report;
-import com.gap.metrics.model.Iteration;
-import com.gap.metrics.model.Project;
-import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.model.*;
 import com.gap.metrics.service.EmailService;
 import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
@@ -102,15 +100,17 @@ public class ReportsController {
     }
 
     private boolean happinessMetricsIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        return (projectIterationDetails.getEngagement() == 0.0 ||
-                projectIterationDetails.getCommitment() == 0.0 ||
-                projectIterationDetails.getPerceivedValue() == 0.0 ||
-                projectIterationDetails.getRespectTrust() == 0.0);
+        HappinessMetric happinessMetric = projectIterationDetails.getHappinessMetric();
+        return (happinessMetric.getEngagement() == 0.0 ||
+                happinessMetric.getCommitment() == 0.0 ||
+                happinessMetric.getPerceivedValue() == 0.0 ||
+                happinessMetric.getRespectTrust() == 0.0);
     }
 
     private boolean employeeContractorInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        return (projectIterationDetails.getNumberOfFTE() == 0 &&
-                projectIterationDetails.getNumberOfContractors() == 0);
+        TeamComposition teamComposition = projectIterationDetails.getTeamComposition();
+        return (teamComposition.getNumberOfFTE() == 0 &&
+                teamComposition.getNumberOfContractors() == 0);
     }
 
     private boolean cycleTimeInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
@@ -118,12 +118,13 @@ public class ReportsController {
     }
 
     private boolean demographicInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        return (projectIterationDetails.getNumberOfOnshoreRes() == 0 &&
-                projectIterationDetails.getNumberOfNearshoreResBrazil() ==0 &&
-                projectIterationDetails.getNumberOfNearshoreResMexico() ==0 &&
-                projectIterationDetails.getNumberOfNearshoreResChile() ==0 &&
-                projectIterationDetails.getNumberOfOffshoreResIndia() == 0 &&
-                projectIterationDetails.getNumberOfOffshoreResUk() == 0
+        TeamComposition teamComposition = projectIterationDetails.getTeamComposition();
+        return (teamComposition.getNumberOfOnshoreRes() == 0 &&
+                teamComposition.getNumberOfNearshoreResBrazil() ==0 &&
+                teamComposition.getNumberOfNearshoreResMexico() ==0 &&
+                teamComposition.getNumberOfNearshoreResChile() ==0 &&
+                teamComposition.getNumberOfOffshoreResIndia() == 0 &&
+                teamComposition.getNumberOfOffshoreResUk() == 0
         );
     }
 

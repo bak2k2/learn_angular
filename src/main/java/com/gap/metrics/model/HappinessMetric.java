@@ -1,4 +1,4 @@
-package com.gap.metrics.dto;
+package com.gap.metrics.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,7 @@
 package com.gap.metrics.controller;
 
 import com.gap.metrics.dto.*;
-import com.gap.metrics.model.Iteration;
-import com.gap.metrics.model.Project;
-import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.model.*;
 import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,11 +128,12 @@ public class DashboardController {
             totalEmployees = 0;
             totalContractors = 0;
             for(ProjectIterationDetails details : projectIterationDetails){
+                TeamComposition teamComposition = details.getTeamComposition();
                 if (details.getIterationId().equals(iteration.getId()) &&
-                        (details.getNumberOfFTE() > 0 || details.getNumberOfContractors() > 0)){
+                        (teamComposition.getNumberOfFTE() > 0 || teamComposition.getNumberOfContractors() > 0)){
                     numberOfProjects++;
-                    totalEmployees += details.getNumberOfFTE();
-                    totalContractors += details.getNumberOfContractors();
+                    totalEmployees += teamComposition.getNumberOfFTE();
+                    totalContractors += teamComposition.getNumberOfContractors();
                 }
             }
             if (numberOfProjects > 0){
@@ -156,13 +155,14 @@ public class DashboardController {
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null && detail.IsAnyDemographicDataAvailable()){
+                    TeamComposition teamComposition = detail.getTeamComposition();
                     details.getProjectNames().add(project.getProjectName());
-                    details.getOnShoreCount().add(detail.getNumberOfOnshoreRes());
-                    details.getOffShoreIndiaCount().add(detail.getNumberOfOffshoreResIndia());
-                    details.getOffShoreUkCount().add(detail.getNumberOfOffshoreResUk());
-                    details.getNearShoreBrazilCount().add(detail.getNumberOfNearshoreResBrazil());
-                    details.getNearShoreMexicoCount().add(detail.getNumberOfNearshoreResMexico());
-                    details.getNearShoreChileCount().add(detail.getNumberOfNearshoreResChile());
+                    details.getOnShoreCount().add(teamComposition.getNumberOfOnshoreRes());
+                    details.getOffShoreIndiaCount().add(teamComposition.getNumberOfOffshoreResIndia());
+                    details.getOffShoreUkCount().add(teamComposition.getNumberOfOffshoreResUk());
+                    details.getNearShoreBrazilCount().add(teamComposition.getNumberOfNearshoreResBrazil());
+                    details.getNearShoreMexicoCount().add(teamComposition.getNumberOfNearshoreResMexico());
+                    details.getNearShoreChileCount().add(teamComposition.getNumberOfNearshoreResChile());
                 }
             }
         }
@@ -184,21 +184,22 @@ public class DashboardController {
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
-                    if (detail.getCommitment() > 0){
+                    HappinessMetric happinessMetric = detail.getHappinessMetric();
+                    if (happinessMetric.getCommitment() > 0){
                         numProjWithCommMoreThanZero++;
-                        commitment += detail.getCommitment();
+                        commitment += happinessMetric.getCommitment();
                     }
-                    if (detail.getEngagement() > 0){
+                    if (happinessMetric.getEngagement() > 0){
                         numProjWithEngMoreThanZero++;
-                        engagement += detail.getEngagement();
+                        engagement += happinessMetric.getEngagement();
                     }
-                    if (detail.getPerceivedValue() > 0){
+                    if (happinessMetric.getPerceivedValue() > 0){
                         numProjWithValMoreThanZero++;
-                        perceivedValue += detail.getPerceivedValue();
+                        perceivedValue += happinessMetric.getPerceivedValue();
                     }
-                    if (detail.getRespectTrust() > 0){
+                    if (happinessMetric.getRespectTrust() > 0){
                         numProjWithTrstMoreThanZero++;
-                        respectTrust += detail.getRespectTrust();
+                        respectTrust += happinessMetric.getRespectTrust();
                     }
                 }
             }
