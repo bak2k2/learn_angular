@@ -4,6 +4,7 @@ import com.gap.metrics.dto.*;
 import com.gap.metrics.model.*;
 import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
+import com.gap.metrics.service.RetroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,9 @@ public class DashboardController {
 
     @Autowired
     private IterationService iterationService;
+
+    @Autowired
+    private RetroService retroService;
 
     @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.GET)
     public ResponseEntity<?> fetchIteration(@PathVariable String projectId, @PathVariable String iterationId){
@@ -43,8 +47,7 @@ public class DashboardController {
         for(Iteration iteration : iterations){
             for(ProjectIterationDetail detail : projectIterationDetails){
                 if (detail.getIterationId().equals(iteration.getId())){
-                    Double velocity = detail.getVelocity();
-                    velocities.add(velocity);
+                    velocities.add(detail.getVelocity());
                 }
             }
         }
@@ -221,50 +224,7 @@ public class DashboardController {
 
     @RequestMapping( value = "/project/retro", method = RequestMethod.GET)
     public ResponseEntity<?> retro(){
-        WordList wordList = new WordList();
-        String retroComments = getRetroComments(projectService.listProjects());
-        Map<String, Double> wordCounts = getWordCountsMap(retroComments);
-        wordList.setWordCounts(getWordCounts(wordCounts));
+        WordList wordList = retroService.getRetroWordList();
         return new ResponseEntity<WordList>(wordList, HttpStatus.OK);
-    }
-
-    private List<WordCount> getWordCounts(Map<String, Double> wordCountMap) {
-        List<WordCount> wordCounts = new ArrayList<WordCount>();
-        Iterator iterator = wordCountMap.entrySet().iterator();
-        while(iterator.hasNext()){
-            Map.Entry pairs = (Map.Entry)iterator.next();
-            WordCount wc = new WordCount(pairs.getKey().toString(), (Double)pairs.getValue());
-            wordCounts.add(wc);
-        }
-        return wordCounts;
-    }
-
-    private Map<String, Double> getWordCountsMap(String str) {
-        String[] words = str.toLowerCase().split(" ");
-        Map<String, Double> wordCounts = new HashMap<String, Double>();
-
-        for (String word : words) {
-            Double count = wordCounts.get(word);
-            if (count == null) {
-                count = 0.0;
-            }
-            if (word.length() > 3)
-                wordCounts.put(word, count + 1);
-        }
-        return wordCounts;
-    }
-
-    private String getRetroComments(List<Project> projects) {
-        StringBuilder retroComments = new StringBuilder();
-        for(Project project : projects){
-            Iteration iteration = project.getLastIteration();
-            if (iteration != null){
-                ProjectIterationDetail detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-                if (detail != null && detail.getRetroComments() != null){
-                    retroComments.append(" " +detail.getRetroComments());
-                }
-            }
-        }
-        return retroComments.toString();
     }
 }
