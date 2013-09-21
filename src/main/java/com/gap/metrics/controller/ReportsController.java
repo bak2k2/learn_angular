@@ -43,7 +43,6 @@ public class ReportsController {
             report.setProjectReports(fetchProjectLevelReportsFor(iteration));
             iterationReports.add(report);
         }
-
         return new ResponseEntity<List<IterationReport>>(iterationReports, HttpStatus.OK);
     }
 
@@ -81,51 +80,17 @@ public class ReportsController {
     private List<String> fetchProjectIterationReportMessages(Iteration iteration, Project project) {
         List<String> messages = new ArrayList<String>();
         ProjectIterationDetail projectIterationDetail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-        if(demographicInfoIsNotAvailable(projectIterationDetail))
+        if(!projectIterationDetail.IsDemographicInfoComplete())
             messages.add("Demographic information is not complete.");
-        if(cycleTimeInfoIsNotAvailable(projectIterationDetail))
+        if(!projectIterationDetail.IsCycleTimeInfoComplete())
             messages.add("Cycletime information is not complete.");
-        if(employeeContractorInfoIsNotAvailable(projectIterationDetail))
+        if(!projectIterationDetail.IsEmployeeContractorInfoComplete())
             messages.add("Employee Contractor information is not complete.");
-        if(happinessMetricsIsNotAvailable(projectIterationDetail))
+        if(!projectIterationDetail.IsHappinessMetricComplete())
             messages.add("Happiness Metrics is not complete.");
-        if(retroFeedbackIsNotAvailable(projectIterationDetail))
+        if(!projectIterationDetail.IsRetroFeedbackComplete())
             messages.add("Retro feedback is not complete.");
 
         return messages;
     }
-
-    private boolean retroFeedbackIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
-        return projectIterationDetail.getRetroComments() == null || projectIterationDetail.getRetroComments().isEmpty();
-    }
-
-    private boolean happinessMetricsIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
-        HappinessMetric happinessMetric = projectIterationDetail.getHappinessMetric();
-        return (happinessMetric.getEngagement() == 0.0 ||
-                happinessMetric.getCommitment() == 0.0 ||
-                happinessMetric.getPerceivedValue() == 0.0 ||
-                happinessMetric.getRespectTrust() == 0.0);
-    }
-
-    private boolean employeeContractorInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
-        TeamComposition teamComposition = projectIterationDetail.getTeamComposition();
-        return (teamComposition.getNumberOfFTE() == 0 &&
-                teamComposition.getNumberOfContractors() == 0);
-    }
-
-    private boolean cycleTimeInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
-        return (projectIterationDetail.getCycleTime() == 0);
-    }
-
-    private boolean demographicInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
-        TeamComposition teamComposition = projectIterationDetail.getTeamComposition();
-        return (teamComposition.getNumberOfOnshoreRes() == 0 &&
-                teamComposition.getNumberOfNearshoreResBrazil() ==0 &&
-                teamComposition.getNumberOfNearshoreResMexico() ==0 &&
-                teamComposition.getNumberOfNearshoreResChile() ==0 &&
-                teamComposition.getNumberOfOffshoreResIndia() == 0 &&
-                teamComposition.getNumberOfOffshoreResUk() == 0
-        );
-    }
-
 }

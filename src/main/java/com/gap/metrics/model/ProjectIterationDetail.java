@@ -25,4 +25,24 @@ public class ProjectIterationDetail {
     public boolean IsAnyDemographicDataAvailable(){
         return teamComposition.IsAnyDemographicDataAvailable();
     }
+
+    public boolean IsDemographicInfoComplete() {
+        return IsAnyDemographicDataAvailable();
+    }
+
+    public boolean IsCycleTimeInfoComplete() {
+        return cycleTime != 0;
+    }
+
+    public boolean IsEmployeeContractorInfoComplete() {
+        return (teamComposition.getNumberOfFTE() > 0 || teamComposition.getNumberOfContractors() > 0);
+    }
+
+    public boolean IsHappinessMetricComplete() {
+        return happinessMetric.IsAllHappinessMetricAvailable();
+    }
+
+    public boolean IsRetroFeedbackComplete() {
+        return retroComments != null && !retroComments.isEmpty();
+    }
 }

@@ -12,4 +12,11 @@ public class HappinessMetric {
     private double engagement = 0;
     private double perceivedValue = 0;
     private double respectTrust = 0;
+
+    public boolean IsAllHappinessMetricAvailable() {
+        return (engagement > 0.0 &&
+                commitment > 0.0 &&
+                perceivedValue > 0.0 &&
+                respectTrust > 0.0);
+    }
 }
