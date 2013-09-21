@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.builder.CarryoverBlockerMetricBuilder;
 import com.gap.metrics.builder.ProjectMetricBuilder;
 import com.gap.metrics.dto.*;
 import com.gap.metrics.model.*;
@@ -133,27 +134,10 @@ public class DashboardController {
         List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
-        CarryoverBlockers metric = new CarryoverBlockers();
-        int numberOfProjects = 0;
-        double totalCarryOvers = 0, totalBlockers = 0;
-
-        for(Iteration iteration : iterations){
-            numberOfProjects = 0;
-            totalCarryOvers = 0;
-            totalBlockers = 0;
-            for(ProjectIterationDetail detail : projectIterationDetails){
-                if (detail.getIterationId().equals(iteration.getId())){
-                    numberOfProjects++;
-                    totalCarryOvers += detail.getNumberOfCarryOver();
-                    totalBlockers += detail.getNumberOfBlockers();
-                }
-            }
-            if (numberOfProjects > 0){
-                metric.getCarryOvers().add(totalCarryOvers / numberOfProjects);
-                metric.getBlockers().add(totalBlockers / numberOfProjects);
-                metric.getIterationNames().add(iteration.getIterationNumber());
-            }
-        }
+        CarryoverBlockers metric = new CarryoverBlockerMetricBuilder().
+                                        withDetails(projectIterationDetails).
+                                        withIterations(iterations).
+                                        build();
 
         return new ResponseEntity<CarryoverBlockers>(metric, HttpStatus.OK);
     }
