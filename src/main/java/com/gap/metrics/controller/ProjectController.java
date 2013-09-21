@@ -1,11 +1,6 @@
 package com.gap.metrics.controller;
 
-import com.gap.metrics.dto.OnOffNearshoreDetails;
-import com.gap.metrics.model.Iteration;
 import com.gap.metrics.model.Project;
-import com.gap.metrics.model.ProjectIterationDetails;
-import com.gap.metrics.dto.ProjectMetric;
-import com.gap.metrics.service.IterationService;
 import com.gap.metrics.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller

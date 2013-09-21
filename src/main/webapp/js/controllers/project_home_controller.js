@@ -19,8 +19,8 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
 
     $scope.selectIteration = function(){
         Restangular.one('project', $scope.project.id).one('iteration', $scope.selectedIterationId).get().then(
-            function(projIterationDetails){
-                $scope.projectIterationDetails = projIterationDetails;
+            function(projIterationDetail){
+                $scope.projectIterationDetail = projIterationDetail;
             }, function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to fetch iteration details.");});
     }
 
@@ -48,7 +48,7 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
 
     $scope.applyIterationChanges = function(){
         if (typeof $scope.selectedIterationId == "string")
-            $scope.projectIterationDetails.post().then(onIterationDetailsSave,
+            $scope.projectIterationDetail.post().then(onIterationDetailsSave,
                 function(response){ MyErrorService.broadCastMessage(msgTypes().failure, "Unable to apply changes.");});
         else
             MyErrorService.broadCastMessage(msgTypes().failure, "Please select an iteration.");
@@ -65,12 +65,12 @@ function ProjectHomeCtrl($scope, Restangular, MyErrorService) {
         $scope.project = project;
         $scope.originalIteration = project.lastIteration;
         $scope.selectedIterationId = {};
-        $scope.projectIterationDetails = {};
+        $scope.projectIterationDetail = {};
     }
 
-    function onIterationDetailsSave(projIterDetails){
+    function onIterationDetailsSave(projIterDetail){
         MyErrorService.broadCastMessage(msgTypes().success, "Iteration details saved successfully.");
-        $scope.projectIterationDetails = projIterDetails;
+        $scope.projectIterationDetail = projIterDetail;
     }
 
     function onSave(){

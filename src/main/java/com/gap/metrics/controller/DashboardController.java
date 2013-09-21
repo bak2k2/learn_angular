@@ -25,25 +25,25 @@ public class DashboardController {
 
     @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.GET)
     public ResponseEntity<?> fetchIteration(@PathVariable String projectId, @PathVariable String iterationId){
-        ProjectIterationDetails details = projectService.getProjectIterationDetails(projectId, iterationId);
-        return new ResponseEntity<ProjectIterationDetails>(details, HttpStatus.OK);
+        ProjectIterationDetail details = projectService.getProjectIterationDetails(projectId, iterationId);
+        return new ResponseEntity<ProjectIterationDetail>(details, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/project/{projectId}/iteration/{iterationId}", method = RequestMethod.POST)
-    public ResponseEntity<?>  saveIteration(@RequestBody ProjectIterationDetails iterationDetails){
-        return new ResponseEntity<ProjectIterationDetails>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
+    public ResponseEntity<?>  saveIteration(@RequestBody ProjectIterationDetail iterationDetails){
+        return new ResponseEntity<ProjectIterationDetail>(projectService.updateProjectIterationDetails(iterationDetails), HttpStatus.OK);
     }
 
     @RequestMapping(value ="/project/{projectId}/velocities", method = RequestMethod.GET)
     public ResponseEntity<?> velocities(@PathVariable String projectId){
-        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails(projectId);
+        List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails(projectId);
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ArrayList<Double> velocities = new ArrayList<Double>();
         for(Iteration iteration : iterations){
-            for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId())){
-                    Double velocity = details.getVelocity();
+            for(ProjectIterationDetail detail : projectIterationDetails){
+                if (detail.getIterationId().equals(iteration.getId())){
+                    Double velocity = detail.getVelocity();
                     velocities.add(velocity);
                 }
             }
@@ -53,7 +53,7 @@ public class DashboardController {
 
     @RequestMapping(value = "/project/averagevelocities", method = RequestMethod.GET)
     public ResponseEntity<?> averageVelocities(){
-        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
@@ -67,14 +67,14 @@ public class DashboardController {
             numProjWithTrans = 0;
             totalVelocity = 0;
             totalTransition = 0;
-            for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId())){
-                    if (details.getVelocity() > 0){
+            for(ProjectIterationDetail detail : projectIterationDetails){
+                if (detail.getIterationId().equals(iteration.getId())){
+                    if (detail.getVelocity() > 0){
                         numProjWithVelMoreThanZero++;
-                        totalVelocity += details.getVelocity();
+                        totalVelocity += detail.getVelocity();
                     }
                     numProjWithTrans++;
-                    totalTransition += details.getTransition();
+                    totalTransition += detail.getTransition();
                 }
             }
             if (numProjWithTrans > 0 || numProjWithVelMoreThanZero > 0){
@@ -89,7 +89,7 @@ public class DashboardController {
 
     @RequestMapping(value = "/project/averagecycletimes", method = RequestMethod.GET)
     public ResponseEntity<?> averageCycleTimes(){
-        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
@@ -99,10 +99,10 @@ public class DashboardController {
         for(Iteration iteration : iterations){
             numberOfProjects = 0;
             totalCycleTime = 0;
-            for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId()) && details.getCycleTime() > 0){
+            for(ProjectIterationDetail detail : projectIterationDetails){
+                if (detail.getIterationId().equals(iteration.getId()) && detail.getCycleTime() > 0){
                     numberOfProjects++;
-                    totalCycleTime += details.getCycleTime();
+                    totalCycleTime += detail.getCycleTime();
                 }
             }
             if (numberOfProjects > 0){
@@ -116,7 +116,7 @@ public class DashboardController {
 
     @RequestMapping(value = "/project/totalemployeecontractors", method = RequestMethod.GET)
     public ResponseEntity<?> averageEmployeesContractors(){
-        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         ProjectMetric metric = new ProjectMetric();
@@ -127,9 +127,9 @@ public class DashboardController {
             numberOfProjects = 0;
             totalEmployees = 0;
             totalContractors = 0;
-            for(ProjectIterationDetails details : projectIterationDetails){
-                TeamComposition teamComposition = details.getTeamComposition();
-                if (details.getIterationId().equals(iteration.getId()) &&
+            for(ProjectIterationDetail detail : projectIterationDetails){
+                TeamComposition teamComposition = detail.getTeamComposition();
+                if (detail.getIterationId().equals(iteration.getId()) &&
                         (teamComposition.getNumberOfFTE() > 0 || teamComposition.getNumberOfContractors() > 0)){
                     numberOfProjects++;
                     totalEmployees += teamComposition.getNumberOfFTE();
@@ -153,20 +153,24 @@ public class DashboardController {
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
-                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                ProjectIterationDetail detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null && detail.IsAnyDemographicDataAvailable()){
                     TeamComposition teamComposition = detail.getTeamComposition();
                     details.getProjectNames().add(project.getProjectName());
-                    details.getOnShoreCount().add(teamComposition.getNumberOfOnshoreRes());
-                    details.getOffShoreIndiaCount().add(teamComposition.getNumberOfOffshoreResIndia());
-                    details.getOffShoreUkCount().add(teamComposition.getNumberOfOffshoreResUk());
-                    details.getNearShoreBrazilCount().add(teamComposition.getNumberOfNearshoreResBrazil());
-                    details.getNearShoreMexicoCount().add(teamComposition.getNumberOfNearshoreResMexico());
-                    details.getNearShoreChileCount().add(teamComposition.getNumberOfNearshoreResChile());
+                    populateTeamComposition(details, teamComposition);
                 }
             }
         }
         return new ResponseEntity<OnOffNearshoreDetails>(details, HttpStatus.OK);
+    }
+
+    private void populateTeamComposition(OnOffNearshoreDetails details, TeamComposition teamComposition) {
+        details.getOnShoreCount().add(teamComposition.getNumberOfOnshoreRes());
+        details.getOffShoreIndiaCount().add(teamComposition.getNumberOfOffshoreResIndia());
+        details.getOffShoreUkCount().add(teamComposition.getNumberOfOffshoreResUk());
+        details.getNearShoreBrazilCount().add(teamComposition.getNumberOfNearshoreResBrazil());
+        details.getNearShoreMexicoCount().add(teamComposition.getNumberOfNearshoreResMexico());
+        details.getNearShoreChileCount().add(teamComposition.getNumberOfNearshoreResChile());
     }
 
     @RequestMapping(value = "/project/happinessmetrics", method = RequestMethod.GET)
@@ -176,7 +180,7 @@ public class DashboardController {
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
-                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                ProjectIterationDetail detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
                     happinessMetrics.add(detail.getHappinessMetric());
                 }
@@ -187,7 +191,7 @@ public class DashboardController {
 
     @RequestMapping(value = "/project/carryoverblockers", method = RequestMethod.GET)
     public ResponseEntity<?> carryoverBlockers(){
-        List<ProjectIterationDetails> projectIterationDetails = projectService.findAllProjectIterationDetails("");
+        List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
         CarryoverBlockers metric = new CarryoverBlockers();
@@ -198,11 +202,11 @@ public class DashboardController {
             numberOfProjects = 0;
             totalCarryOvers = 0;
             totalBlockers = 0;
-            for(ProjectIterationDetails details : projectIterationDetails){
-                if (details.getIterationId().equals(iteration.getId())){
+            for(ProjectIterationDetail detail : projectIterationDetails){
+                if (detail.getIterationId().equals(iteration.getId())){
                     numberOfProjects++;
-                    totalCarryOvers += details.getNumberOfCarryOver();
-                    totalBlockers += details.getNumberOfBlockers();
+                    totalCarryOvers += detail.getNumberOfCarryOver();
+                    totalBlockers += detail.getNumberOfBlockers();
                 }
             }
             if (numberOfProjects > 0){
@@ -255,7 +259,7 @@ public class DashboardController {
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
-                ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+                ProjectIterationDetail detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null && detail.getRetroComments() != null){
                     retroComments.append(" " +detail.getRetroComments());
                 }

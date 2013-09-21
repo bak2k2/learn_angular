@@ -4,52 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HappinessMetrics {
-    private List<Double> commitmentsGreaterThanZero = new ArrayList<Double>();
-    private List<Double> engagementsGreaterThanZero = new ArrayList<Double>();
-    private List<Double> valuesGreaterThanZero = new ArrayList<Double>();
-    private List<Double> trustsGreaterThanZero = new ArrayList<Double>();
-
+    private List<HappinessMetric> happinessMetrics = new ArrayList<HappinessMetric>();
 
     public void add(HappinessMetric happinessMetric) {
-        addCommitment(happinessMetric.getCommitment());
-        addEngagement(happinessMetric.getEngagement());
-        addValue(happinessMetric.getPerceivedValue());
-        addTrust(happinessMetric.getRespectTrust());
-    }
-
-    private void addTrust(double respectTrust) {
-        if (respectTrust > 0)
-            trustsGreaterThanZero.add(respectTrust);
-    }
-
-    private void addValue(double perceivedValue) {
-        if (perceivedValue > 0)
-            valuesGreaterThanZero.add(perceivedValue);
-    }
-
-    private void addEngagement(double engagement) {
-        if (engagement > 0)
-            engagementsGreaterThanZero.add(engagement);
-    }
-
-    private void addCommitment(double commitment) {
-        if (commitment > 0)
-            commitmentsGreaterThanZero.add(commitment);
+        happinessMetrics.add(happinessMetric);
     }
 
     public double getAverageCommitment() {
+        List<Double> commitmentsGreaterThanZero = new ArrayList<Double>();
+        for(HappinessMetric metric: happinessMetrics){
+            if(metric.getCommitment() > 0)
+                commitmentsGreaterThanZero.add(metric.getCommitment());
+        }
         return (new ListUtil().sum(commitmentsGreaterThanZero)) / commitmentsGreaterThanZero.size();
     }
 
     public double getAverageEngagement() {
+        List<Double> engagementsGreaterThanZero = new ArrayList<Double>();
+        for(HappinessMetric metric: happinessMetrics){
+            if(metric.getEngagement() > 0)
+                engagementsGreaterThanZero.add(metric.getEngagement());
+        }
         return (new ListUtil().sum(engagementsGreaterThanZero)) / engagementsGreaterThanZero.size();
     }
 
     public double getAveragePerceivedValue() {
+        List<Double> valuesGreaterThanZero = new ArrayList<Double>();
+        for(HappinessMetric metric: happinessMetrics){
+            if(metric.getPerceivedValue() > 0)
+                valuesGreaterThanZero.add(metric.getPerceivedValue());
+        }
         return (new ListUtil().sum(valuesGreaterThanZero)) / valuesGreaterThanZero.size();
     }
 
     public double getAverageRespect() {
+        List<Double> trustsGreaterThanZero = new ArrayList<Double>();
+        for(HappinessMetric metric: happinessMetrics){
+            if(metric.getRespectTrust() > 0)
+                trustsGreaterThanZero.add(metric.getRespectTrust());
+        }
         return (new ListUtil().sum(trustsGreaterThanZero)) / trustsGreaterThanZero.size();
     }
 

@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.UUID;
 
 import com.gap.metrics.model.Project;
-import com.gap.metrics.model.ProjectIterationDetails;
+import com.gap.metrics.model.ProjectIterationDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
@@ -54,12 +53,12 @@ public class ProjectService {
         return mongoOperation.findById(projectId, Project.class, COLLECTION_NAME);
     }
 
-    public ProjectIterationDetails getProjectIterationDetails(String projectId, String iterationId){
+    public ProjectIterationDetail getProjectIterationDetails(String projectId, String iterationId){
         Query query = new Query(Criteria.where("projectId").is(projectId));
         query.addCriteria(Criteria.where("iterationId").is(iterationId));
-        ProjectIterationDetails details = mongoOperation.findOne(query, ProjectIterationDetails.class, ITERATION_DETAILS_COLLECTION_NAME);
+        ProjectIterationDetail details = mongoOperation.findOne(query, ProjectIterationDetail.class, ITERATION_DETAILS_COLLECTION_NAME);
         if (details == null){
-            details = new ProjectIterationDetails();
+            details = new ProjectIterationDetail();
             details.setId(UUID.randomUUID().toString());
             details.setProjectId(projectId);
             details.setIterationId(iterationId);
@@ -67,16 +66,16 @@ public class ProjectService {
         return details;
     }
 
-    public ProjectIterationDetails updateProjectIterationDetails(ProjectIterationDetails iterationDetails){
+    public ProjectIterationDetail updateProjectIterationDetails(ProjectIterationDetail iterationDetails){
         mongoOperation.save(iterationDetails, ITERATION_DETAILS_COLLECTION_NAME);
         return iterationDetails;
     }
 
-    public List<ProjectIterationDetails> findAllProjectIterationDetails(String projectId){
+    public List<ProjectIterationDetail> findAllProjectIterationDetails(String projectId){
         Query query = new Query();
         if (!projectId.isEmpty())
             query.addCriteria(Criteria.where("projectId").is(projectId));
-        List<ProjectIterationDetails> details = mongoOperation.find(query, ProjectIterationDetails.class, ITERATION_DETAILS_COLLECTION_NAME);
+        List<ProjectIterationDetail> details = mongoOperation.find(query, ProjectIterationDetail.class, ITERATION_DETAILS_COLLECTION_NAME);
         return details;
     }
 }

@@ -80,45 +80,45 @@ public class ReportsController {
 
     private List<String> fetchProjectIterationReportMessages(Iteration iteration, Project project) {
         List<String> messages = new ArrayList<String>();
-        ProjectIterationDetails projectIterationDetails = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
-        if(demographicInfoIsNotAvailable(projectIterationDetails))
+        ProjectIterationDetail projectIterationDetail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
+        if(demographicInfoIsNotAvailable(projectIterationDetail))
             messages.add("Demographic information is not complete.");
-        if(cycleTimeInfoIsNotAvailable(projectIterationDetails))
+        if(cycleTimeInfoIsNotAvailable(projectIterationDetail))
             messages.add("Cycletime information is not complete.");
-        if(employeeContractorInfoIsNotAvailable(projectIterationDetails))
+        if(employeeContractorInfoIsNotAvailable(projectIterationDetail))
             messages.add("Employee Contractor information is not complete.");
-        if(happinessMetricsIsNotAvailable(projectIterationDetails))
+        if(happinessMetricsIsNotAvailable(projectIterationDetail))
             messages.add("Happiness Metrics is not complete.");
-        if(retroFeedbackIsNotAvailable(projectIterationDetails))
+        if(retroFeedbackIsNotAvailable(projectIterationDetail))
             messages.add("Retro feedback is not complete.");
 
         return messages;
     }
 
-    private boolean retroFeedbackIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        return projectIterationDetails.getRetroComments() == null || projectIterationDetails.getRetroComments().isEmpty();
+    private boolean retroFeedbackIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
+        return projectIterationDetail.getRetroComments() == null || projectIterationDetail.getRetroComments().isEmpty();
     }
 
-    private boolean happinessMetricsIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        HappinessMetric happinessMetric = projectIterationDetails.getHappinessMetric();
+    private boolean happinessMetricsIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
+        HappinessMetric happinessMetric = projectIterationDetail.getHappinessMetric();
         return (happinessMetric.getEngagement() == 0.0 ||
                 happinessMetric.getCommitment() == 0.0 ||
                 happinessMetric.getPerceivedValue() == 0.0 ||
                 happinessMetric.getRespectTrust() == 0.0);
     }
 
-    private boolean employeeContractorInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        TeamComposition teamComposition = projectIterationDetails.getTeamComposition();
+    private boolean employeeContractorInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
+        TeamComposition teamComposition = projectIterationDetail.getTeamComposition();
         return (teamComposition.getNumberOfFTE() == 0 &&
                 teamComposition.getNumberOfContractors() == 0);
     }
 
-    private boolean cycleTimeInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        return (projectIterationDetails.getCycleTime() == 0);
+    private boolean cycleTimeInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
+        return (projectIterationDetail.getCycleTime() == 0);
     }
 
-    private boolean demographicInfoIsNotAvailable(ProjectIterationDetails projectIterationDetails) {
-        TeamComposition teamComposition = projectIterationDetails.getTeamComposition();
+    private boolean demographicInfoIsNotAvailable(ProjectIterationDetail projectIterationDetail) {
+        TeamComposition teamComposition = projectIterationDetail.getTeamComposition();
         return (teamComposition.getNumberOfOnshoreRes() == 0 &&
                 teamComposition.getNumberOfNearshoreResBrazil() ==0 &&
                 teamComposition.getNumberOfNearshoreResMexico() ==0 &&
