@@ -172,43 +172,17 @@ public class DashboardController {
     @RequestMapping(value = "/project/happinessmetrics", method = RequestMethod.GET)
     public ResponseEntity<?> happinessMetrics(){
         List<Project> projects = projectService.listProjects();
-        HappinessMetric metric = new HappinessMetric();
-        double commitment = 0, engagement = 0, perceivedValue = 0, respectTrust = 0;
-        int numProjWithCommMoreThanZero = 0;
-        int numProjWithEngMoreThanZero = 0;
-        int numProjWithValMoreThanZero = 0;
-        int numProjWithTrstMoreThanZero = 0;
-
+        HappinessMetrics happinessMetrics = new HappinessMetrics();
         for(Project project : projects){
             Iteration iteration = project.getLastIteration();
             if (iteration != null){
                 ProjectIterationDetails detail = projectService.getProjectIterationDetails(project.getId(), iteration.getId());
                 if (detail != null){
-                    HappinessMetric happinessMetric = detail.getHappinessMetric();
-                    if (happinessMetric.getCommitment() > 0){
-                        numProjWithCommMoreThanZero++;
-                        commitment += happinessMetric.getCommitment();
-                    }
-                    if (happinessMetric.getEngagement() > 0){
-                        numProjWithEngMoreThanZero++;
-                        engagement += happinessMetric.getEngagement();
-                    }
-                    if (happinessMetric.getPerceivedValue() > 0){
-                        numProjWithValMoreThanZero++;
-                        perceivedValue += happinessMetric.getPerceivedValue();
-                    }
-                    if (happinessMetric.getRespectTrust() > 0){
-                        numProjWithTrstMoreThanZero++;
-                        respectTrust += happinessMetric.getRespectTrust();
-                    }
+                    happinessMetrics.add(detail.getHappinessMetric());
                 }
             }
         }
-        metric.setCommitment(Math.round(commitment/numProjWithCommMoreThanZero));
-        metric.setEngagement(Math.round(engagement/numProjWithEngMoreThanZero));
-        metric.setPerceivedValue(Math.round(perceivedValue/numProjWithValMoreThanZero));
-        metric.setRespectTrust(Math.round(respectTrust/numProjWithTrstMoreThanZero));
-        return new ResponseEntity<HappinessMetric>(metric, HttpStatus.OK);
+        return new ResponseEntity<HappinessMetric>(happinessMetrics.getAverageHappinessMetric(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/project/carryoverblockers", method = RequestMethod.GET)
