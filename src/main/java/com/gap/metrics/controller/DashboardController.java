@@ -1,5 +1,6 @@
 package com.gap.metrics.controller;
 
+import com.gap.metrics.builder.ProjectMetricBuilder;
 import com.gap.metrics.dto.*;
 import com.gap.metrics.model.*;
 import com.gap.metrics.service.IterationService;
@@ -48,33 +49,10 @@ public class DashboardController {
         List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
-        ProjectMetric metric = new ProjectMetric();
-        int numProjWithVelMoreThanZero = 0;
-        int numProjWithTrans = 0;
-        double totalVelocity = 0;
-        double totalTransition = 0;
-
-        for(Iteration iteration : iterations){
-            numProjWithVelMoreThanZero = 0;
-            numProjWithTrans = 0;
-            totalVelocity = 0;
-            totalTransition = 0;
-            for(ProjectIterationDetail detail : projectIterationDetails){
-                if (detail.getIterationId().equals(iteration.getId())){
-                    if (detail.getVelocity() > 0){
-                        numProjWithVelMoreThanZero++;
-                        totalVelocity += detail.getVelocity();
-                    }
-                    numProjWithTrans++;
-                    totalTransition += detail.getTransition();
-                }
-            }
-            if (numProjWithTrans > 0 || numProjWithVelMoreThanZero > 0){
-                metric.getAverageVelocities().add(totalVelocity / numProjWithVelMoreThanZero);
-                metric.getAverageTransitions().add(totalTransition / numProjWithTrans);
-                metric.getIterationNames().add(iteration.getIterationNumber());
-            }
-        }
+        ProjectMetric metric = new ProjectMetricBuilder().
+                                    withIterations(iterations).
+                                    withDetails(projectIterationDetails).
+                                    buildTransitionVelocityMetric();
 
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
@@ -84,24 +62,10 @@ public class DashboardController {
         List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
-        ProjectMetric metric = new ProjectMetric();
-        int numberOfProjects = 0;
-        double totalCycleTime = 0;
-
-        for(Iteration iteration : iterations){
-            numberOfProjects = 0;
-            totalCycleTime = 0;
-            for(ProjectIterationDetail detail : projectIterationDetails){
-                if (detail.getIterationId().equals(iteration.getId()) && detail.getCycleTime() > 0){
-                    numberOfProjects++;
-                    totalCycleTime += detail.getCycleTime();
-                }
-            }
-            if (numberOfProjects > 0){
-                metric.getAverageCycleTimes().add(totalCycleTime / numberOfProjects);
-                metric.getIterationNames().add(iteration.getIterationNumber());
-            }
-        }
+        ProjectMetric metric = new ProjectMetricBuilder().
+                                    withIterations(iterations).
+                                    withDetails(projectIterationDetails).
+                                    buildAverageCycleTimeMetric();
 
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
@@ -111,29 +75,10 @@ public class DashboardController {
         List<ProjectIterationDetail> projectIterationDetails = projectService.findAllProjectIterationDetails("");
         List<Iteration> iterations = iterationService.listIterations();
         Collections.sort(iterations);
-        ProjectMetric metric = new ProjectMetric();
-        int numberOfProjects = 0;
-        double totalEmployees = 0, totalContractors = 0;
-
-        for(Iteration iteration : iterations){
-            numberOfProjects = 0;
-            totalEmployees = 0;
-            totalContractors = 0;
-            for(ProjectIterationDetail detail : projectIterationDetails){
-                TeamComposition teamComposition = detail.getTeamComposition();
-                if (detail.getIterationId().equals(iteration.getId()) &&
-                        (teamComposition.getNumberOfFTE() > 0 || teamComposition.getNumberOfContractors() > 0)){
-                    numberOfProjects++;
-                    totalEmployees += teamComposition.getNumberOfFTE();
-                    totalContractors += teamComposition.getNumberOfContractors();
-                }
-            }
-            if (numberOfProjects > 0){
-                metric.getTotalNoEmployees().add(totalEmployees);
-                metric.getTotalNoContractors().add(totalContractors);
-                metric.getIterationNames().add(iteration.getIterationNumber());
-            }
-        }
+        ProjectMetric metric = new ProjectMetricBuilder().
+                                    withIterations(iterations).
+                                    withDetails(projectIterationDetails).
+                                    buildEmployeeContractorMetric();
 
         return new ResponseEntity<ProjectMetric>(metric, HttpStatus.OK);
     }
@@ -153,6 +98,7 @@ public class DashboardController {
                 }
             }
         }
+
         return new ResponseEntity<OnOffNearshoreDetails>(details, HttpStatus.OK);
     }
 
@@ -178,6 +124,7 @@ public class DashboardController {
                 }
             }
         }
+
         return new ResponseEntity<HappinessMetric>(happinessMetrics.getAverageHappinessMetric(), HttpStatus.OK);
     }
 
